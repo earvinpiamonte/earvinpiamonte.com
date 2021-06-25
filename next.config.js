@@ -15,4 +15,18 @@ module.exports = {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "https://www.earvinpiamonte.com/",
+        permanent: false,
+      },
+      {
+        source: "/daylight",
+        destination: "https://www.earvinpiamonte.com/daylight/",
+        permanent: true,
+      },
+    ];
+  },
 };
