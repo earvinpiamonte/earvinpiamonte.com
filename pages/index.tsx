@@ -3,7 +3,7 @@ import getConfig from "next/config";
 import Layout from "@/components/Layout";
 
 const { publicRuntimeConfig } = getConfig();
-const { title } = publicRuntimeConfig.siteMetaData;
+const { title } = publicRuntimeConfig.site;
 
 const Home = () => {
   return (
