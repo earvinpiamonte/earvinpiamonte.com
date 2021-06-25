@@ -1,7 +1,0 @@
-{
-  "redirects": [
-    { "source": "/blog", "destination": "https://www.earvinpiamonte.com/blog" },
-    { "source": "/github", "destination": "https://github.com/earvinpiamonte" },
-    { "source": "/daylight", "destination": "https://www.earvinpiamonte.com/daylight" }
-  ]
-}
