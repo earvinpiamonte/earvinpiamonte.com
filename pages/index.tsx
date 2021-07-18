@@ -65,7 +65,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
                     draggable={false}
                   />
                 </div>
-                <div className="col-span-7">
+                <div className="col-span-10 md:col-span-7">
                   <h4 className="mb-2 font-medium">
                     Get daylight on Web Store
                   </h4>
