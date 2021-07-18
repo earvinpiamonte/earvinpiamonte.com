@@ -11,7 +11,7 @@ const Portfolio = ({ data }: { data?: ProjectType[] }) => {
   return (
     <Layout>
       <PageTemplate title="Portfolio">
-        <p className="text-xl">
+        <p className="text-xl mb-12">
           These are some of the projects I've built as an independent software
           developer for various clients.
         </p>

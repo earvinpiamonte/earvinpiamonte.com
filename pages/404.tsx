@@ -5,7 +5,7 @@ const Custom404 = () => {
   return (
     <Layout>
       <PageTemplate title="404 - Page not found">
-        <p className="text-xl">
+        <p className="text-xl mb-12">
           The page you are trying to access cannot be found.
         </p>
       </PageTemplate>
