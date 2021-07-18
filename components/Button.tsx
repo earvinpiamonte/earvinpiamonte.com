@@ -25,14 +25,88 @@ const Button = (props: {
     ...rest
   } = props;
 
+  let bgClass = 'bg-purple-600';
+  let textClass = 'text-purple-600';
+  let borderClass = 'border-purple-600';
+  let hoverBgClass = 'bg-purple-700';
+  let ringClass = 'ring-purple-500';
+  let ringOffsetClass = 'ring-offset-purple-200';
+
+  switch (color) {
+    case 'purple':
+      bgClass = 'bg-purple-600';
+      textClass = 'text-purple-600';
+      borderClass = 'border-purple-600';
+      hoverBgClass = 'bg-purple-700';
+      ringClass = 'ring-purple-500';
+      ringOffsetClass = 'ring-offset-purple-200';
+      break;
+    case 'blue':
+      bgClass = 'bg-blue-600';
+      textClass = 'text-blue-600';
+      borderClass = 'border-blue-600';
+      hoverBgClass = 'bg-blue-700';
+      ringClass = 'ring-blue-500';
+      ringOffsetClass = 'ring-offset-blue-200';
+      break;
+    case 'gray':
+      bgClass = 'bg-gray-600';
+      textClass = 'text-gray-600';
+      borderClass = 'border-gray-600';
+      hoverBgClass = 'bg-gray-700';
+      ringClass = 'ring-gray-500';
+      ringOffsetClass = 'ring-offset-gray-200';
+      break;
+    case 'green':
+      bgClass = 'bg-green-600';
+      textClass = 'text-green-600';
+      borderClass = 'border-green-600';
+      hoverBgClass = 'bg-green-700';
+      ringClass = 'ring-green-500';
+      ringOffsetClass = 'ring-offset-green-200';
+      break;
+    case 'red':
+      bgClass = 'bg-red-600';
+      textClass = 'text-red-600';
+      borderClass = 'border-red-600';
+      hoverBgClass = 'bg-red-700';
+      ringClass = 'ring-red-500';
+      ringOffsetClass = 'ring-offset-red-200';
+      break;
+    case 'yellow':
+      bgClass = 'bg-yellow-600';
+      textClass = 'text-yellow-600';
+      borderClass = 'border-yellow-600';
+      hoverBgClass = 'bg-yellow-700';
+      ringClass = 'ring-yellow-500';
+      ringOffsetClass = 'ring-offset-yellow-200';
+      break;
+    case 'indigo':
+      bgClass = 'bg-indigo-600';
+      textClass = 'text-indigo-600';
+      borderClass = 'border-indigo-600';
+      hoverBgClass = 'bg-indigo-700';
+      ringClass = 'ring-indigo-500';
+      ringOffsetClass = 'ring-offset-indigo-200';
+      break;
+    case 'pink':
+      bgClass = 'bg-pink-600';
+      textClass = 'text-pink-600';
+      borderClass = 'border-pink-600';
+      hoverBgClass = 'bg-pink-700';
+      ringClass = 'ring-pink-500';
+      ringOffsetClass = 'ring-offset-pink-200';
+      break;
+  }
+
   const commonClassNames = `font-medium ${
     narrow ? 'py-1.5 px-1.5' : 'pt-1 pb-1.5 px-4'
   } ${
     pill ? 'rounded-full' : 'rounded'
-  } hover:bg-${color}-700 focus:outline-none focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2 focus:ring-offset-${color}-200 border border-transparent inline-block`;
+  } hover:${hoverBgClass} focus:outline-none focus:ring-2 focus:${ringClass} focus:ring-offset-2 focus:${ringOffsetClass} border border-transparent inline-block`;
 
-  const solidClassNames = `bg-${color}-600 text-white`;
-  const outlinedClassNames = `text-${color}-600 border-${color}-600 hover:text-white`;
+  const solidClassNames = `${bgClass} text-white`;
+  const outlinedClassNames = `${textClass} ${borderClass} hover:text-white`;
 
   const typeClassNames = outlined ? outlinedClassNames : solidClassNames;
 
