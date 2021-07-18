@@ -8,38 +8,169 @@
 
 /* Write your own custom component styles here */
 p {
-  @apply mb-3;
+  @apply mb-8;
 }
 
 h1 {
-  @apply text-4xl;
-  @apply mb-3;
+  @apply text-4xl mb-4;
 }
 
 h2 {
-  @apply text-xl;
-  @apply mb-3;
+  @apply text-3xl mb-4;
+}
+
+h3 {
+  @apply text-2xl mb-4;
+}
+
+h4 {
+  @apply text-xl mb-4;
+}
+
+h5 {
+  @apply text-lg mb-4;
+}
+
+h6 {
+  @apply mb-4;
 }
 
 ul {
-  @apply list-disc;
-  @apply list-inside;
-  @apply mb-3;
+  @apply list-disc list-inside pl-4 mb-8;
 }
 
-code {
-  @apply px-1;
-  @apply bg-gray-100;
-  @apply rounded;
+ol {
+  @apply list-decimal list-inside pl-4 mb-8;
 }
 
 .app-link {
-  @apply text-blue-700;
-  @apply font-medium;
+  @apply text-purple-500 font-medium underline hover:text-purple-700;
 }
 
-.app-link:hover {
-  @apply underline;
+.app-thumbnail {
+  @apply mb-4;
+}
+
+.app-thumbnail img {
+  @apply rounded-md;
+}
+
+.app-youtube-video {
+  @apply mb-4;
+}
+
+.app-youtube-video iframe {
+  @apply rounded-md;
+}
+
+.app-mdx-content p {
+  @apply text-gray-800 tracking-wide dark:text-gray-400;
+}
+
+.app-mdx-content ul,
+.app-mdx-content ol {
+  @apply text-gray-800 tracking-wide dark:text-gray-400;
+}
+
+.app-mdx-content h1,
+.app-mdx-content h2,
+.app-mdx-content h3,
+.app-mdx-content h4,
+.app-mdx-content h5,
+.app-mdx-content h6 {
+  @apply text-gray-900 dark:text-gray-400;
+}
+
+.app-mdx-content blockquote {
+  @apply border-l-4 border-purple-500 px-4 pt-2 pb-0.5 mb-8 rounded-r bg-gray-50 dark:bg-gray-900;
+}
+
+.app-mdx-content blockquote p {
+  @apply mb-4;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-gray-500 dark:text-gray-300;
+}
+
+.token.punctuation {
+  @apply text-gray-500 dark:text-gray-300;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-green-500;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-purple-500;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-yellow-500;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-blue-500;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-pink-500;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-yellow-500;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-gray-800 dark:text-gray-50;
+}
+
+code {
+  @apply bg-gray-50 text-sm text-gray-800 dark:text-gray-50 dark:bg-gray-900 rounded-md px-2 py-0.5;
+}
+
+code[class*='language-'] {
+  @apply border-0 bg-transparent rounded-none px-0 py-0;
+}
+
+pre[class*='language-'] {
+  @apply bg-gray-50 dark:bg-gray-900 rounded-md p-4 mb-8;
+}
+
+.remark-code-title {
+  @apply px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-t text-sm text-gray-500 dark:text-gray-600 relative;
+}
+
+.remark-code-title + pre[class*='language-'] {
+  @apply rounded-none rounded-b;
+}
+
+pre {
+  @apply overflow-x-auto;
 }
 
 /* Start purging... */

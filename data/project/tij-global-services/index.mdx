@@ -1,0 +1,74 @@
+---
+type: 'project'
+title: 'TIJ Global Services Inc.'
+url: 'http://www.tijglobal.com/'
+year: 2018
+featuredImage: true
+thumbnail: true
+categories:
+  - 'WordPress'
+  - 'Bootstrap'
+---
+
+A custom theme WordPress website I built with Bootstrap. It features full-screen carousel of images.
+
+## How it works
+
+Since this is a custom theme, almost everything on the site is customize to look like Bootstrap components.
+
+### Code snippet
+
+Here's a snippet of the function in initializing the theme.
+
+```php:functions.php
+<?php
+if ( ! function_exists( 'fn_theme_setup' ) ) {
+
+	function fn_theme_setup($value='')
+	{
+		// make theme available for translation
+		load_theme_textdomain( fn_set_handle() );
+
+		// title tag
+		add_theme_support( 'title-tag' );
+
+		// thumbnails
+		add_theme_support( 'post-thumbnails' );
+		// set_post_thumbnail_size( 825, 510, true );
+
+		// navigation menus
+		register_nav_menus( array(
+            'menu-1' => esc_html__( 'Main menu', fn_set_handle() ),
+		    'menu-footer-1' => esc_html__( 'Footer links 1', fn_set_handle() )
+		) );
+
+		// switch to HTML5
+		add_theme_support( 'html5', array(
+			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+		) );
+
+		// post formats
+		add_theme_support( 'post-formats', array(
+			'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
+		) );
+
+		// custom logo
+		add_theme_support( 'custom-logo', array(
+            'height'      => 350,
+            'width'       => 58,
+            'flex-height' => true,
+            'flex-width'  => true
+		) );
+
+		add_theme_support( 'customize-selective-refresh-widgets' );
+	}
+
+}
+
+add_action( 'after_setup_theme', 'fn_theme_setup' );
+
+```
+
+## Design
+
+The client didn't have a design in mind so I suggested the website layout and how it would look.

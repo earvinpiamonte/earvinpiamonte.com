@@ -1,0 +1,102 @@
+---
+type: 'project'
+title: 'Thribby Order Manager'
+url: ''
+year: 2020
+featuredImage: true
+thumbnail: true
+categories:
+  - 'React Native'
+  - 'Expo'
+---
+
+A CRM mobile app used by restaurant personnels to communicate with guests. This is a front-end project with [Thribby](http://thribby.com).
+
+The scope of this project only includes front-end development using Expo. The APIs for this application was still being built by the time this project was completed.
+
+## How it works
+
+The project is built with Expo as the client wanted. All the screens are defined on the `App.js`. When the `userToken` updates and have a valid value, it will show all the screens for authenticated users.
+
+For authentication, I implemented the [authentication flow](https://reactnavigation.org/docs/auth-flow/) of React Navigation.
+
+### Code snippet
+
+Here's a snippet of the `App.js` file that uses a context provider and React Navigation for authentication flow.
+
+```javascript:App.js
+//...
+
+return (
+  <AuthProvider value={authContext}>
+    <NavigationContainer
+      theme={{
+        ...DefaultTheme,
+        colors: {
+          ...DefaultTheme.colors,
+          background: colors.brandSecondary,
+        },
+      }}
+    >
+      <Stack.Navigator
+        headerMode={"none"}
+        screenOptions={{ animationEnabled: false }}
+      >
+        {state.userToken == null ? (
+          <>
+            <Stack.Screen name="LogInScreen" component={LogInScreen} />
+            <Stack.Screen
+              name="ForgotPasswordScreen"
+              component={ForgotPasswordScreen}
+            />
+          </>
+        ) : (
+          <>
+            <Stack.Screen
+              name="DashboardScreen"
+              component={DashboardScreen}
+            />
+            <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
+            <Stack.Screen name="PaymentsScreen" component={PaymentsScreen} />
+            <Stack.Screen name="BookingsScreen" component={BookingsScreen} />
+            <Stack.Screen name="HelpScreen" component={HelpScreen} />
+            <Stack.Screen
+              name="CompanyProfileScreen"
+              component={CompanyProfileScreen}
+            />
+            <Stack.Screen
+              name="AnalyticsScreen"
+              component={AnalyticsScreen}
+            />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
+  </AuthProvider>
+);
+
+//...
+```
+
+To make sure that the application follows landscape orientation, I added the config on `app.json`.
+Here's an example.
+
+```json:app.json
+{
+  "expo": {
+    "name": "thribby-order-manager",
+    "slug": "thribby-order-manager",
+    ...
+    "orientation": "landscape",
+    ...
+  }
+}
+```
+
+## Design
+
+I've written all the styles for each of the components. For the charts, I've used [react-native-chart-kit](https://www.npmjs.com/package/react-native-chart-kit).
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/backend-development/Simple-React-Native-CRM-Tablet/](https://www.freelancer.com/projects/backend-development/Simple-React-Native-CRM-Tablet/).

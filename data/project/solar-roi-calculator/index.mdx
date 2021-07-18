@@ -1,0 +1,112 @@
+---
+type: 'project'
+title: 'Solar ROI Calculator'
+url: 'https://solarroi.io/'
+year: 2020
+featuredImage: true
+thumbnail: true
+categories:
+  - 'Laravel'
+  - 'Bootstrap'
+---
+
+A website that features three calculators that calculate the financial benefits of solar power based on Loans, Purchases, or PPAs.
+
+Users can download the results as a PDF file for reference.
+
+## How it works
+
+Users enter solar system data, system cost and current usage on the calculator and the result will show the payback period in years, 25 year savings and the utility and solar cost.
+
+### Code snippets
+
+Here's a part of the method that calculates PPA.
+
+```php:Calculator.php->calculatePPA()
+<?php
+//...
+
+$totalYears              = $term;
+$panel                   = (int)$panel;
+$year1production         = (float)$year1production;
+$panels                  = $this->getPanels();
+$productionVsDegregation = [];
+$annualDegregation       = $panels[$panel]['annual_degregation'];
+
+$totalProduction = 0;
+
+for ($i=1; $i <= $totalYears; $i++) {
+    $production = $i == 1
+        ? $year1production
+        : (
+            $productionVsDegregation[$i - 1]['production'] - $productionVsDegregation[$i - 1]['degregation']) ;
+
+    $degregation = ($production * $annualDegregation) / 100;
+
+    $productionVsDegregation[$i] = [
+        'production'  => (float)number_format($production, 2, '.', ''),
+        'degregation' => (float)number_format($degregation, 2, '.', ''),
+    ];
+
+    $totalProduction += $production;
+}
+
+// outputs
+$utilityCost = $annualTotalCost / $annualTotalUsage;
+$utilityCost = floor($utilityCost * 100) / 100;
+
+$annualSolarCost = $ppaRate * $year1production;
+$annualSolarCost = floor($annualSolarCost * 100) / 100;
+
+// ...
+```
+
+Here's a snippet of the method when user clicks on the download button.
+
+```php:Calculator.php->downloadPDF()
+<?php
+public function downloadPDF($calculator, Request $request)
+{
+    $jsonData = $request->input('pdfJSONdata');
+
+    $data = json_decode($jsonData);
+
+    $availableCalculators = ['purchase', 'loan', 'ppa'];
+
+    if (!in_array($calculator, $availableCalculators)) {
+        abort(404);
+    }
+
+    // ...$data
+
+    $pdf = PDF::loadView('calculator.'.$calculator.'-pdf', compact(
+        'roiYears',
+        'totalSavings',
+        'utilityCost',
+        'solarCost',
+        'panel',
+        'year1production',
+        'ppaRate',
+        'term',
+        'systemPrice',
+        'taxCredit',
+        'rebate',
+        'annualIncrease',
+        'annualTotalCost',
+        'annualTotalUsage',
+        'utilityAnnualIncrease',
+        'downPayment',
+        'payment',
+    ));
+
+    return $pdf->download(env('APP_NAME') . ' - ' . ucfirst($calculator));
+}
+```
+
+## Design
+
+The design was made using Figma and was provided by the client that I manually translated to components with Bootstrap and Sass.
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/php/Develop-simple-Cost-calculator-using](https://www.freelancer.com/projects/php/Develop-simple-Cost-calculator-using).

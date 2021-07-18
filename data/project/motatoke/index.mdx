@@ -1,0 +1,145 @@
+---
+type: 'project'
+title: 'Motatoke'
+url: 'https://www.motatoke.com'
+year: 2018
+featuredImage: true
+thumbnail: true
+categories:
+  - 'CodeIgniter'
+  - 'Bootstrap'
+  - 'MySQL'
+---
+
+A coming soon web page for Motatoke - a cannabis boutique. The landing page has a subscribe section where visitors of the site can subscribe using their email address.
+
+## How it works
+
+The countdown timer was presented and updates using jQuery. Subscribed email addresses are stored on a database.
+
+### Code snippets
+
+Here's an a snippet of the `subscribe()` method.
+
+```php:Subscribe.php
+<?php
+
+public function submit()
+{
+  $alert = array(
+    'class' => 'alert-danger',
+    'content' => 'Something went wrong. Please try again.'
+  );
+
+  $redirect_url = base_url('#subscribe');
+
+  $ajax         = boolval($this->input->post('ajax'));
+
+  // config form post validation
+  $config_form_validation = array(
+    array(
+      'field' => 'full_name',
+      'rules' => 'required',
+      'label' => 'Name'
+    ),
+    array(
+      'field' => 'email',
+      'rules' => 'required|valid_email',
+      'label' => 'Email'
+    )
+  );
+
+  $this->form_validation->set_rules($config_form_validation);
+
+  if ($this->form_validation->run()) {
+
+    $email = $this->input->post('email');
+    $full_name = $this->input->post('full_name');
+
+    $current_timestamp = time();
+
+    $get_existing_email = $this->DAO->get_where(
+      'subscriber',
+      array(
+        'email' => $email
+      )
+    );
+
+    if ($get_existing_email->num_rows() < 1) {
+
+      $insert_email = $this->DAO->insert(
+        'subscriber',
+        array(
+          'email' => $email,
+          'full_name' => $full_name,
+          'timestamp_subscribed' => $current_timestamp
+        )
+      );
+
+      $inserted_subscriber_id = $insert_email;
+
+      if ($inserted_subscriber_id > 0) {
+        $alert = array(
+          'class' => 'alert-success',
+          'content' => 'Thank you for subscribing to our newsletter!',
+          'type' => 'success'
+        );
+      }else{
+        $alert = array(
+          'class' => 'alert-danger',
+          'content' => 'Failed to save your email. Please try again.'
+        );
+      }
+
+
+    }else{
+      $this->DAO->update_where(
+        'subscriber',
+        array(
+          'subscribed' => 1
+        ),
+        array(
+          'email' => $email
+        )
+      );
+
+      $alert = array(
+        'class' => 'alert-warning',
+        'content' => 'Great news, we already got your email sometime ago.'
+      );
+    }
+
+
+  }else{
+    // site_helper.php custom form_error based on $config_form_validation
+    $form_errors = site_form_errors($config_form_validation);
+
+    // site_helper.php custom displaying of validation_errors
+    $site_validation_errors = site_validation_errors($form_errors);
+
+
+    $alert = array(
+      'class' => 'alert-danger',
+      'content' => '
+        '.$site_validation_errors.'
+      '
+    );
+
+    $this->session->set_flashdata('form_error', $form_errors);
+  }
+
+  if ($ajax == true) {
+    echo json_encode($alert);
+    exit;
+  }else{
+    $this->session->set_flashdata('alert', $alert);
+    redirect($redirect_url);
+  }
+
+}
+
+```
+
+## Design
+
+The font used is `Montserrat` from Google Fonts. I also made a few styles with Bootstrap to meet the client's needs.

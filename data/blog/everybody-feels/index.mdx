@@ -1,0 +1,51 @@
+---
+type: 'post'
+date: '2021-05-22'
+title: 'Everybody Feels'
+categories:
+  - iOS
+  - Swift
+  - Xcode
+---
+
+In creating view controllers, I usually add a custom static property I name `identifier`. This holds the string representation of the view controller that I usually reference in initializing data from a storyboard.
+
+Here's an example usage on a method to display a scene from a storyboard on a view controller:
+
+```swift
+func navigateToSettingsScreen() {
+  let settingsViewController = self.storyboard?.instantiateViewController(identifier: SettingsViewController.identifier) as? SettingsViewController
+
+  // Assign other stuff here like delegates
+  settingsViewController?.delegate = self
+
+  present(settingsViewController!, animated: true, completion: nil)
+}
+```
+
+Example `SettingsViewController.swift` that contains the `identifier` property:
+
+```swift
+//
+//  SettingsViewController.swift
+//  TestApp
+//
+//  Created by Noel on 3/24/21.
+//
+import UIKit
+
+class SettingsViewController: UIViewController {
+  static let identifier = "SettingsViewController"
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Do something here
+  }
+
+}
+```
+
+So I did what I thought.
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=TqDpRSodal0" />

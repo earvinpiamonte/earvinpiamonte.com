@@ -1,0 +1,31 @@
+---
+type: 'post'
+date: '2021-03-13'
+title: 'Deep End'
+categories:
+  - Swift
+  - iOS
+  - Xcode
+---
+
+```bash
+Error Domain=WebKitErrorDomain Code=102 "Frame Load Interrupted" ...
+```
+
+This is probably the most obnoxious error that I've encountered this year (so far) and I never resolved this issue. Probably this can't be resolved and this shouldn't be dealt on the client side (the webview itself)???
+
+Here are my suggestions if you encountered this error in `WKWebview` in Swift:
+
+- check if the URL scheme of the request is valid and uses `https`.
+- check if the header `Content-type` of the URL requested is valid (e.g. `application/json`).
+- check if there are too many redirects that makes the webview rendering too long to complete.
+- check if the file type of the resource being requested is valid (e.g. pdf, txt...).
+- check the request state on the other [navigation methods](https://developer.apple.com/documentation/webkit/wknavigationdelegate) if there's something wrong.
+- lastly, probably also check Page 2 of Google search results;
+
+If you're already on the deep end, stop dealing with this error and try other ways to build the feature you're building.
+
+> "Let clean code guide you. Then let it go."
+> &mdash; [Dan Abramov](https://twitter.com/dan_abramov)
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=2xpqDqGy-8c" />

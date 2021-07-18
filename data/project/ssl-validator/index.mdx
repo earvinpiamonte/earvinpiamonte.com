@@ -1,0 +1,63 @@
+---
+type: 'project'
+title: 'SSL Validator'
+url: 'https://earvinpiamonte-ssl-validator.herokuapp.com/'
+year: 2020
+featuredImage: true
+thumbnail: true
+categories:
+  - 'Laravel'
+  - 'Bootstrap'
+  - 'MySQL'
+---
+
+A website that checks a domain's SSL certificate details, IP address and DNS servers.
+
+## How it works
+
+A user enters a domain on the site and the domain is queried to the database to check if it has already been checked previously.
+
+If the domain has already been checked previously, it will return the results from the database, if not, it will fetch the latest SSL information.
+
+Fetching new SSL information can also be done manually by adding `fresh` on the request. Cleaning up the results on the database was not part of this project.
+
+### Code snippet
+
+```php:SSLCheck.php->check()
+<?php
+public function check(Request $request)
+{
+    $domain = $request->input('domain');
+    $fresh  = $request->input('fresh');
+
+    $this->validate($request, [
+        'domain' => ['required', 'regex:/^(?!:\/\/)(?=.{1,255}$)((.{1,63}\.){1,127}(?![0-9]*$)[a-z0-9-]+\.?)$/i']
+    ]);
+
+    $parse_domain_input = parse_url($domain);
+    $domain             = isset($parse_domain_input['host']) ? $parse_domain_input['host'] : $domain;
+
+    $data = $this->getDbResults($domain);
+
+    if ($fresh) {
+        $data = $this->getFreshResults($domain);
+    }
+
+    if (!$data) {
+        $error = 'Could not download certificate for host.';
+        $data = compact('error');
+    }
+
+    return view('sslcheck.index', $data);
+
+}
+
+```
+
+## Design
+
+The client didn't require any special design. I've used bare Bootstrap components and FontAwesome for this project.
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/php/need-someone-create-PHP-script](https://www.freelancer.com/projects/php/need-someone-create-PHP-script).

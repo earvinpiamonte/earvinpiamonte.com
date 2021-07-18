@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"]
+      "@/lib/*": ["lib/*"],
+      "@/styles/*": ["styles/*"],
+      "@/templates/*": ["templates/*"],
+      "@/types/*": ["types/*"],
     },
     "target": "es5",
     "lib": [

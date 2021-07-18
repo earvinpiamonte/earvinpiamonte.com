@@ -1,0 +1,54 @@
+---
+type: 'post'
+date: '2021-02-06'
+title: 'Where Will We Go'
+categories:
+  - Lifestyle
+  - JavaScript
+  - Coding
+---
+
+> "The real hidden features are the friends we made along the way."
+> &mdash; [Jane Manchun Wong](https://twitter.com/wongmjane)
+
+## Defaulting values
+
+1.) Use `??` - [nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish**coalescing**operator) operator to default values if the variable is `undefined` or `null`.
+
+Example where `dataSet` is an object.
+
+```javascript
+const dataSet = {};
+
+// destruct -> assign
+const { expirationDate } = dataSet;
+
+console.log(expirationDate ?? 'N/A');
+```
+
+For this example, the code above will return "N/A" because the `expirationDate` is not defined.
+
+2.) Use the `||` - OR operator to default values if the variable is defined but _falsy_.
+
+Here's an example with a key of an object to compare is defined but _falsy_.
+
+```javascript
+const dataSet = {
+  expirationDate: '', // <- defined
+};
+
+const { expirationDate } = dataSet;
+
+console.log(expirationDate || 'N/A');
+```
+
+For this example, the code above will return "N/A" because the `expirationDate` is falsy. It is falsy because it is declared as an empty string.
+
+Check the [complete list](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) of _falsy_ values in JavaScript at MDN.
+
+## Summary
+
+- `??` - nullish coalescing returns the right side if the left value is either `undefined` or `null`.
+- `||` - OR operator returns the right side if the left value is _falsy_.
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=jBB7qCGq5kI" />

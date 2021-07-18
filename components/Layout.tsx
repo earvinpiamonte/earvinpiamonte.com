@@ -1,18 +1,23 @@
-import getConfig from "next/config";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import getConfig from 'next/config';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const { publicRuntimeConfig } = getConfig();
 
-type LayoutProps = {
+type LayoutPropsType = {
   title?: string;
   description?: string;
   date?: string;
   socialPreview?: string;
-  children: React.ReactNode;
+  header?: boolean;
+  children?: React.ReactNode;
+  footer?: boolean;
 };
 
-const Layout = ({ children, ...customMeta }: LayoutProps) => {
+const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
   const router = useRouter();
   const { asPath } = router;
 
@@ -27,6 +32,8 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
     socialPreview,
     ...customMeta,
   };
+
+  const { header = true, footer = true } = customMeta;
 
   return (
     <>
@@ -79,7 +86,9 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
         )}
         <title key="title">{meta.title}</title>
       </Head>
+      {header && <Header />}
       <main>{children}</main>
+      {footer && <Footer />}
     </>
   );
 };

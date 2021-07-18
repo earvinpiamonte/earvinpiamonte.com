@@ -1,0 +1,68 @@
+---
+type: 'project'
+title: 'iframe website viewer'
+url: 'https://earvinpiamonte-iframe-viewer.netlify.app'
+year: 2018
+featuredImage: true
+thumbnail: true
+categories:
+  - 'JavaScript'
+  - 'jQuery'
+---
+
+A client project that loads a website on an `iframe`.
+
+## How it works
+
+Users can enter a web address on the form and the website is dynamically loaded in the `iframe` occupying the whole page.
+
+Clicking on links within the website address provided dynamically loads on the `iframe`.
+
+### Code snippet
+
+Here's a snippet of the script.
+
+```js:script.js
+$(function(){
+
+  // on click on submit
+  $('#submit').on('click', function(){
+
+    // set website url
+    var $websiteURL = $('[name="website_url"]');
+
+    // set location
+    var $location = $('[name="location"]:checked');
+
+    // if website url or location is not set then do nothing
+    if ($websiteURL.val().trim() == '' || $location.val() == undefined) {
+      return false;
+    }
+
+    var urlParts = $websiteURL.val().split('/');
+
+    var protocol = urlParts[0];
+
+    if (location.protocol == 'https:' && protocol != 'https:') {
+      alert('ERROR: You\'re on a secure (HTTPS) website, but you\'ve entered a non-secure site.');
+      return false;
+    }
+
+    // log location
+    console.log({ location: $location.val() });
+
+    // hide form and parent
+    $('#root').hide();
+
+    // set src and show
+    $('#iframe').attr('src', $websiteURL.val()).show();
+
+  });
+
+});
+
+```
+
+## Design
+
+The font used was `AvenirNext` and all the styles are provided by the client.

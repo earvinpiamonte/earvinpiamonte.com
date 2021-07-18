@@ -1,0 +1,49 @@
+---
+type: 'post'
+date: '2021-01-31'
+title: 'Something Out Of Nothing'
+categories:
+  - Coding
+  - Google Chrome
+  - React
+---
+
+In building Google Chrome extensions, you may pass a query string after the specified file name on the `manifest.json`.
+
+Example:
+
+```json
+{
+  "manifest_version": 2,
+  "name": "Lorem extension",
+  ...
+  "page_action": {
+    "default_popup": "index.html?page=popup",
+    "default_title": "Open Lorem extension"
+  },
+  "options_page": "index.html?page=options",
+  ...
+}
+```
+
+For this example, I added a `page` field after the `index.html` of the `default_popup`. You can then access the `page` field in your application and do something with it.
+
+## Use case
+
+One use case for this trick is that if you only have one entry point on your application (`index.html`) but you have different pages/ components. So to get users to a requested page, you will need the query string, set conditions and return the page depending on the field value, on this case the `page`.
+
+If you are building an extension with Create React App, you don't need React Router. You can just get the field you need on the query string and do [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
+
+Example on how to get specific field on a query string:
+
+```javascript
+// convert URL parameters to object
+const urlParams = Object.fromEntries(
+  new URLSearchParams(window.location.search)
+);
+
+// get "page" field and do whatever you want with it
+const { page } = urlParams;
+```
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=MtK1HHAm47c" />

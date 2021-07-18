@@ -1,0 +1,62 @@
+---
+type: 'project'
+title: 'GridLife Music'
+url: 'https://gridlifemusic.com/'
+year: 2020
+featuredImage: true
+thumbnail: true
+categories:
+  - 'Bootstrap'
+  - 'jQuery'
+  - 'YouTube Data API'
+  - 'YouTube Player API'
+---
+
+A website where users can search and play an audio of a YouTube video.
+
+## How it works
+
+The search feature uses YouTube Data API to fetch YouTube videos base on user's query and the audio player uses YouTube Player API. The YouTube Player API appends an `<iframe>` to the page. I then connected the audio controls of the designed audio player to the YouTube player and hide the `<iframe>` using CSS.
+
+### Code snippets
+
+Here are some snippets for the YouTube player.
+
+```javascript:script.js
+function initYouTubePlayer(videoID, autoplay = false) {
+  PLAYER = new YT.Player('player', {
+    height: '0',
+    width: '0',
+    videoId: videoID,
+    events: {
+      onReady: function (event) {
+        onPlayerReady(event, autoplay);
+      },
+      onStateChange: onPlayerStateChange,
+    },
+  });
+}
+```
+
+```html:index.html
+<!-- The <iframe> will replace this <div> tag. -->
+<div id="player"></div>
+```
+
+```css:style.css
+#player {
+  display: none;
+}
+```
+
+## Design
+
+The site features light and dark neumorphic design. The theme selection are stored on `localStorage`. The design was provided and forked from [CodePen](https://codepen.io/drovosek2703/pen/PoqPMGZ) by the client. I modified it to meet the client's specifications.
+
+## Limitations
+
+Since the audio player uses an `<iframe>` that is hidden on the background, mobile browser users cannot use the designed audio player to control it. Mobile browser users need to manually click on the play button of the video.
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/javascript/Youtube-Music-Search](https://www.freelancer.com/projects/javascript/Youtube-Music-Search).

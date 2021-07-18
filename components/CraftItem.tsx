@@ -1,0 +1,46 @@
+import Link from 'next/link';
+import Image from 'next/image';
+
+import { CraftType } from '@/types/index';
+
+const CraftItem = ({ ...craft }: CraftType) => {
+  const { type, title, slug, categories, thumbnail } = craft;
+
+  const thumbnailSrc =
+    thumbnail && require(`../data/${type}/${slug}/thumbnail.png`);
+
+  return (
+    <div className="mb-16">
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-12 md:col-span-5 text-center">
+          <figure className="rounded-xl p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500">
+            {thumbnail && (
+              <Image
+                src={thumbnailSrc}
+                className="rounded-lg"
+                placeholder="blur"
+                draggable={false}
+                layout="responsive"
+                alt={`Screenshot of ${title}`}
+              />
+            )}
+          </figure>
+        </div>
+        <div className="col-span-12 md:col-span-7">
+          <h2 className="text-xl mb-1 truncate">
+            <Link href={`/${type}/${slug}`}>
+              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline">
+                {title}
+              </a>
+            </Link>
+          </h2>
+          <p className="mb-0 md:truncate text-gray-600">
+            {categories.join(', ')}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CraftItem;
