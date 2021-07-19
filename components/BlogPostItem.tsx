@@ -15,7 +15,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
     <div className="mb-16">
       <h2 className="text-xl mb-1">
         <Link href={`/${type}/${slug}`}>
-          <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline">
+          <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline dark:hover:text-purple-500">
             {title}
           </a>
         </Link>

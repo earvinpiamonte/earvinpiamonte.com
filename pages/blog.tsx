@@ -10,7 +10,7 @@ const Blog = ({ data }: { data?: PostType[] }) => {
   return (
     <Layout>
       <PageTemplate title="Blog">
-        <p className="text-xl mb-12 text-gray-800">
+        <p className="text-xl mb-12 text-gray-800 dark:text-gray-400">
           The only personal space where I write about my work, life and
           everything in between.
         </p>

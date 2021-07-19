@@ -10,7 +10,7 @@ const Crafts = ({ data }: { data?: CraftType[] }) => {
   return (
     <Layout>
       <PageTemplate title="Crafts">
-        <p className="text-xl mb-12 text-gray-800">
+        <p className="text-xl mb-12 text-gray-800 dark:text-gray-400">
           Some things I've built personally. Most of these are open source and
           available on GitHub.
         </p>

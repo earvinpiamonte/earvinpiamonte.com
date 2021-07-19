@@ -15,21 +15,25 @@ const CraftItem = ({ ...craft }: CraftType) => {
         <div className="col-span-12 md:col-span-5 text-center">
           <figure className="rounded-xl p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500">
             {thumbnail && (
-              <Image
-                src={thumbnailSrc}
-                className="rounded-lg"
-                placeholder="blur"
-                draggable={false}
-                layout="responsive"
-                alt={`Screenshot of ${title}`}
-              />
+              <Link href={`/${type}/${slug}`}>
+                <a>
+                  <Image
+                    src={thumbnailSrc}
+                    className="rounded-lg"
+                    placeholder="blur"
+                    draggable={false}
+                    layout="responsive"
+                    alt={`Screenshot of ${title}`}
+                  />
+                </a>
+              </Link>
             )}
           </figure>
         </div>
         <div className="col-span-12 md:col-span-7">
           <h2 className="text-xl mb-1 truncate">
             <Link href={`/${type}/${slug}`}>
-              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline">
+              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline dark:hover:text-purple-500">
                 {title}
               </a>
             </Link>
