@@ -1,7 +1,7 @@
 import getConfig from 'next/config';
 import { getPostBySlug } from '@/lib/mdx';
+import { takeScreenshot } from '@/lib/screenshot';
 
-const chromium = require('chrome-aws-lambda');
 const cloudinary = require('cloudinary').v2;
 const globby = require('globby');
 
@@ -15,11 +15,9 @@ const {
   CLOUDINARY_CLOUD_NAME,
   CLOUDINARY_KEY,
   CLOUDINARY_SECRET,
-  NODE_ENV,
 } = process.env;
 
 const cloudFolder = CLOUDINARY_FOLDER;
-const local = NODE_ENV === 'development';
 
 cloudinary.config({
   cloud_name: CLOUDINARY_CLOUD_NAME,
@@ -95,26 +93,6 @@ const handler = async (req, res) => {
 
   // Serve image
   res.redirect(308, cloudinary.url(newImage, { sign_url: true }));
-};
-
-const takeScreenshot = async (url: string) => {
-  const browser = await chromium.puppeteer.launch({
-    // Launch Chrome locally for testing
-    executablePath: local
-      ? '/usr/bin/google-chrome-stable'
-      : await chromium.executablePath,
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    headless: chromium.headless,
-  });
-
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1200, height: 630 });
-  await page.goto(url);
-  const buffer = await page.screenshot();
-  await browser.close();
-
-  return `data:image/png;base64,${buffer.toString('base64')}`;
 };
 
 const uploadImage = async (title: string, image: string) => {
