@@ -6,6 +6,7 @@ interface PostTypeProperties {
   thumbnail?: boolean;
   featuredImage?: boolean;
   readingTime?: any;
+  summary?: string;
 }
 
 interface PostType extends PostTypeProperties {
