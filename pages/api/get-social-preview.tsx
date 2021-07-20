@@ -1,29 +1,15 @@
 import getConfig from 'next/config';
+
 import { getPostBySlug } from '@/lib/mdx';
 import { takeScreenshot } from '@/lib/screenshot';
+import { uploadImage, getImage } from '@/lib/cloudinary';
 
-const cloudinary = require('cloudinary').v2;
 const globby = require('globby');
 
 const { publicRuntimeConfig } = getConfig();
 
 const { staticPages, site } = publicRuntimeConfig;
 const siteBaseURL = site.url;
-
-const {
-  CLOUDINARY_FOLDER,
-  CLOUDINARY_CLOUD_NAME,
-  CLOUDINARY_KEY,
-  CLOUDINARY_SECRET,
-} = process.env;
-
-const cloudFolder = CLOUDINARY_FOLDER;
-
-cloudinary.config({
-  cloud_name: CLOUDINARY_CLOUD_NAME,
-  api_key: CLOUDINARY_KEY,
-  api_secret: CLOUDINARY_SECRET,
-});
 
 const handler = async (req, res) => {
   const { query } = req;
@@ -92,18 +78,7 @@ const handler = async (req, res) => {
   const newImage = await uploadImage(imageFileName, screenshot);
 
   // Serve image
-  res.redirect(308, cloudinary.url(newImage, { sign_url: true }));
-};
-
-const uploadImage = async (title: string, image: string) => {
-  const cloudinaryOptions = {
-    public_id: `${cloudFolder}/${title}`,
-    unique_filename: false,
-  };
-
-  return await cloudinary.uploader
-    .upload(image, cloudinaryOptions)
-    .then((response) => response.url);
+  res.redirect(308, getImage(newImage));
 };
 
 /*
