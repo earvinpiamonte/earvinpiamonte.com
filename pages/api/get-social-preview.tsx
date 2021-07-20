@@ -1,8 +1,14 @@
+import getConfig from 'next/config';
 import { getPostBySlug } from '@/lib/mdx';
 
 const chromium = require('chrome-aws-lambda');
 const cloudinary = require('cloudinary').v2;
 const globby = require('globby');
+
+const { publicRuntimeConfig } = getConfig();
+
+const { staticPages, site } = publicRuntimeConfig;
+const siteBaseURL = site.url;
 
 const {
   CLOUDINARY_FOLDER,
@@ -11,9 +17,6 @@ const {
   CLOUDINARY_SECRET,
   NODE_ENV,
 } = process.env;
-
-const siteBaseURL =
-  NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://www.earv.in';
 
 const cloudFolder = CLOUDINARY_FOLDER;
 const local = NODE_ENV === 'development';
@@ -60,14 +63,7 @@ const handler = async (req, res) => {
     imageFileName = frontMatter.title;
   } else {
     // Probably a page so check if file exist
-    const pages = await globby([
-      'pages/*.tsx',
-      '!pages/_*.tsx',
-      '!pages/api',
-      '!pages/404.tsx',
-      '!pages/[slug].tsx',
-      '!pages/social-preview.tsx',
-    ]);
+    const pages = await globby(staticPages);
 
     // Get stripped page names
     const pageNames = pages.map((page: string) =>
@@ -131,5 +127,10 @@ const uploadImage = async (title: string, image: string) => {
     .upload(image, cloudinaryOptions)
     .then((response) => response.url);
 };
+
+/*
+  Shout out to Ryan Filler @ryanfiller_
+  https://www.ryanfiller.com/blog/automatic-social-share-images/
+*/
 
 export default handler;
