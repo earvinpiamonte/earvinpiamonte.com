@@ -11,6 +11,14 @@ module.exports = {
         'Noel Earvin Piamonte is a software engineer from Mandaluyong City, Philippines.',
       socialPreview: '/images/preview.png',
     },
+    staticPages: [
+      'pages/*.tsx',
+      '!pages/_*.tsx',
+      '!pages/api',
+      '!pages/404.tsx',
+      '!pages/[slug].tsx',
+      '!pages/social-preview.tsx',
+    ],
   },
   i18n: {
     locales: ['en-US'],

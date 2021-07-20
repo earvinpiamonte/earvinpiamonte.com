@@ -20,6 +20,9 @@
   "dependencies": {
     "@heroicons/react": "^1.0.2",
     "@tailwindcss/aspect-ratio": "^0.2.1",
+    "chrome-aws-lambda": "^10.1.0",
+    "cloudinary": "^1.26.2",
+    "globby": "^11.0.4",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.3",
     "next": "^11.0.0",

@@ -11,7 +11,6 @@ type LayoutPropsType = {
   title?: string;
   description?: string;
   date?: string;
-  socialPreview?: string;
   header?: boolean;
   children?: React.ReactNode;
   footer?: boolean;
@@ -21,19 +20,22 @@ const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
   const router = useRouter();
   const { asPath } = router;
 
-  const { name, url, title, description, socialPreview } =
-    publicRuntimeConfig.site;
+  const { name, url, title, description } = publicRuntimeConfig.site;
 
   const meta = {
     name,
     url,
     title,
     description,
-    socialPreview,
     ...customMeta,
   };
 
   const { header = true, footer = true } = customMeta;
+
+  const socialPreview = `${url}/api/get-social-preview?path=${asPath.slice(
+    1,
+    asPath.length
+  )}&timestamp=${Date.now()}`;
 
   return (
     <>
@@ -55,7 +57,7 @@ const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
         />
         <meta
           name="twitter:image"
-          content={`${url}${socialPreview}`}
+          content={socialPreview}
           key="twitter_image"
         />
 
@@ -68,11 +70,7 @@ const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
           content={meta.description}
           key="og_description"
         />
-        <meta
-          property="og:image"
-          content={`${url}${socialPreview}`}
-          key="og_image"
-        />
+        <meta property="og:image" content={socialPreview} key="og_image" />
         <meta property="og:image:width" content={`1200`} key="og_image_width" />
         <meta
           property="og:image:height"

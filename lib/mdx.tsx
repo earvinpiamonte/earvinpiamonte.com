@@ -52,29 +52,38 @@ const getAllPosts = async (type: string) => {
 };
 
 const getPostBySlug = async (type: string, slug: string) => {
-  const source = fs.readFileSync(
-    path.join(root, 'data', type, slug, 'index.mdx'),
-    'utf8'
-  );
+  try {
+    const source = fs.readFileSync(
+      path.join(root, 'data', type, slug, 'index.mdx'),
+      'utf8'
+    );
 
-  const { data, content } = matter(source);
+    const { data, content }: { data: any; content: any } = matter(source);
 
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [require('remark-code-titles')],
-      rehypePlugins: [mdxPrism],
-    },
-  });
+    const mdxSource = await serialize(content, {
+      mdxOptions: {
+        remarkPlugins: [require('remark-code-titles')],
+        rehypePlugins: [mdxPrism],
+      },
+    });
 
-  return {
-    mdxSource,
-    frontMatter: {
-      wordCount: content.split(/\s+/gu).length,
-      readingTime: readingTime(content),
-      slug: slug || null,
-      ...data,
-    },
-  };
+    return {
+      mdxSource,
+      frontMatter: {
+        wordCount: content.split(/\s+/gu).length,
+        readingTime: readingTime(content),
+        slug: slug || null,
+        ...data,
+      },
+    };
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log('File not found!');
+      return null;
+    } else {
+      throw error;
+    }
+  }
 };
 
 export {
