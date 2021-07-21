@@ -1,12 +1,11 @@
 import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 
 import '@/styles/global.css';
 
-import ThemeProvider from '../providers/ThemeProvider';
-
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider>
+    <ThemeProvider attribute="class">
       <Component {...pageProps} />
     </ThemeProvider>
   );

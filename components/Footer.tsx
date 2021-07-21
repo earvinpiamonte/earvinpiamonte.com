@@ -2,18 +2,22 @@ import React from 'react';
 
 import getConfig from 'next/config';
 import { MoonIcon, SunIcon } from '@heroicons/react/outline';
+import { useTheme } from 'next-themes';
 
 import Container from '@/components/Container';
 import NowPlaying from '@/components/NowPlaying';
 import Button from '@/components/Button';
-import { ThemeContext } from '../providers/ThemeProvider';
 
 const { publicRuntimeConfig } = getConfig();
 
 const { name } = publicRuntimeConfig.site;
 
 const Footer = () => {
-  const { nextTheme, setTheme } = React.useContext(ThemeContext);
+  const [mounted, setMounted] = React.useState(false);
+  const { theme, setTheme } = useTheme();
+
+  // When mounted on client, now we can show the UI
+  React.useEffect(() => setMounted(true), []);
 
   return (
     <>
@@ -30,9 +34,9 @@ const Footer = () => {
                 <Button
                   outlined={true}
                   narrow={true}
-                  onClick={() => setTheme(nextTheme)}
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 >
-                  {nextTheme !== 'dark' ? (
+                  {theme === 'dark' ? (
                     <>
                       <SunIcon className="w-4 h-4" />
                     </>

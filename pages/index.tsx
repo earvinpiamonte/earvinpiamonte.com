@@ -3,19 +3,18 @@ import React from 'react';
 import Image from 'next/image';
 
 import { ExternalLinkIcon } from '@heroicons/react/outline';
+import { useTheme } from 'next-themes';
 
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import Experiences from '@/components/Experiences';
 import Button from '@/components/Button';
 
-import { ThemeContext } from '../providers/ThemeProvider';
-
 import { getAllFilesFrontMatter } from '@/lib/mdx';
-import { ExperienceType } from '../types';
+import { ExperienceType } from '@/types/index';
 
 const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
-  const { theme } = React.useContext(ThemeContext);
+  const { theme } = useTheme();
 
   return (
     <Layout>
