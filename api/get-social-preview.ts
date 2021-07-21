@@ -59,6 +59,8 @@ const handler = async (req, res) => {
 
     const pages = await globby(staticPages);
 
+    console.log('Pages: ', pages, staticPages);
+
     // Get stripped page names
     const pageNames = pages.map((page: string) =>
       page.replace('pages/', '').replace('.tsx', '')
