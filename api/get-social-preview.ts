@@ -51,8 +51,12 @@ const handler = async (req, res) => {
     };
 
     imageFileName = frontMatter.title;
+
+    console.log('MDX post: ', queryString);
   } else {
     // Probably a page so check if file exist
+    console.log('Probably a page. Checking...');
+
     const pages = await globby(staticPages);
 
     // Get stripped page names
@@ -62,11 +66,17 @@ const handler = async (req, res) => {
 
     // Check if slug is on pages
     if (pageNames.includes(slug)) {
+      console.log('Page name is on the list.');
+
       const selectedPage = socialPreviewData[slug];
+
+      console.log('Checking selected page: ', selectedPage, socialPreviewData[slug]), socialPreviewData;
 
       if (selectedPage && selectedPage.title) {
         queryString = selectedPage;
         imageFileName = selectedPage.title;
+
+        console.log('Selected page: ', queryString);
       }
     }
   }
