@@ -1,7 +1,7 @@
+import * as fetch from 'node-fetch';
 import globby from 'globby';
 
 import { getPostBySlug } from '../lib/mdx';
-import { takeScreenshot } from '../lib/screenshot';
 import { uploadImage, getImage } from '../lib/cloudinary';
 
 import { staticPages } from '../server/static-pages.json';
@@ -10,6 +10,12 @@ import socialPreviewData from '../server/social-preview-data.json';
 const siteBaseURL = process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000'
           : 'https://www.earv.in';
+
+const getBufferString = async (url: string) => {
+  const response = await fetch(`${siteBaseURL}/api/screenshot-page?url=${url}`);
+
+  return response.json();
+};
 
 const handler = async (req, res) => {
   const { query } = req;
@@ -68,11 +74,14 @@ const handler = async (req, res) => {
   // Finally...
 
   // Take screenshot
-  const screenshot = await takeScreenshot(
+
+  const bufferString = await getBufferString(
     `${siteBaseURL}/social-preview?${new URLSearchParams(
       queryString
     ).toString()}`
   );
+
+  const screenshot = `data:image/png;base64,${bufferString.buffer}`;
 
   // Upload image
   const newImage = await uploadImage(imageFileName, screenshot);
