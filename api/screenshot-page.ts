@@ -21,7 +21,7 @@ const handler = async (req, res) => {
 
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 630 });
-  await page.goto(url);
+  await page.goto(decodeURIComponent(url));
   const buffer = await page.screenshot();
   await browser.close();
 

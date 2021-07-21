@@ -12,7 +12,7 @@ const siteBaseURL = process.env.NODE_ENV === 'development'
           : 'https://www.earv.in';
 
 const getBufferString = async (url: string) => {
-  const response = await fetch(`${siteBaseURL}/api/screenshot-page?url=${url}`);
+  const response = await fetch(`${siteBaseURL}/api/screenshot-page?url=${encodeURIComponent(url)}`);
 
   return response.json();
 };
