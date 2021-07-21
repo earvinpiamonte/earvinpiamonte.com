@@ -1,3 +1,5 @@
+import * as fetch from 'node-fetch';
+
 import querystring from 'querystring';
 
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =

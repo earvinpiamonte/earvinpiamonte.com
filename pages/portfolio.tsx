@@ -27,9 +27,4 @@ export const getStaticProps = async () => {
   return { props: { data } };
 };
 
-export const socialPreviewProps = {
-  title: 'Portfolio',
-  subTitle: `Projects I built for various clients.`,
-};
-
 export default Portfolio;

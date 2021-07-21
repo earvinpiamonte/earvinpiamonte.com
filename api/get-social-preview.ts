@@ -1,15 +1,15 @@
-import getConfig from 'next/config';
+import globby from 'globby';
 
-import { getPostBySlug } from '@/lib/mdx';
-import { takeScreenshot } from '@/lib/screenshot';
-import { uploadImage, getImage } from '@/lib/cloudinary';
+import { getPostBySlug } from '../lib/mdx';
+import { takeScreenshot } from '../lib/screenshot';
+import { uploadImage, getImage } from '../lib/cloudinary';
 
-const globby = require('globby');
+import { staticPages } from '../server/static-pages.json';
+import socialPreviewData from '../server/social-preview-data.json';
 
-const { publicRuntimeConfig } = getConfig();
-
-const { staticPages, site } = publicRuntimeConfig;
-const siteBaseURL = site.url;
+const siteBaseURL = process.env.NODE_ENV === 'development'
+          ? 'http://localhost:3000'
+          : 'https://www.earv.in';
 
 const handler = async (req, res) => {
   const { query } = req;
@@ -56,11 +56,11 @@ const handler = async (req, res) => {
 
     // Check if slug is on pages
     if (pageNames.includes(slug)) {
-      const { socialPreviewProps } = await import(`../${slug}`);
+      const selectedPage = socialPreviewData[slug];
 
-      if (socialPreviewProps) {
-        queryString = socialPreviewProps;
-        imageFileName = socialPreviewProps.title;
+      if (selectedPage && selectedPage.title) {
+        queryString = selectedPage;
+        imageFileName = selectedPage.title;
       }
     }
   }

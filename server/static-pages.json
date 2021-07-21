@@ -1,0 +1,10 @@
+{
+  "staticPages": [
+    "pages/*.tsx",
+    "!pages/_*.tsx",
+    "!pages/api",
+    "!pages/404.tsx",
+    "!pages/[slug].tsx",
+    "!pages/social-preview.tsx"
+  ]
+}
