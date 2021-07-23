@@ -1,10 +1,8 @@
 import * as fetch from 'node-fetch';
-import globby from 'globby';
 
 import { getPostBySlug } from '../lib/mdx';
 import { uploadImage, getImage } from '../lib/cloudinary';
 
-import { staticPages } from '../server/static-pages.json';
 import socialPreviewData from '../server/social-preview-data.json';
 
 const siteBaseURL = process.env.NODE_ENV === 'development'
@@ -52,39 +50,17 @@ const handler = async (req, res) => {
 
     imageFileName = frontMatter.title;
 
-    console.log('MDX post: ', queryString);
   } else {
-    // Probably a page so check if file exist
-    console.log('Probably a page. Checking...');
-
-    const pages = await globby(staticPages);
-
-    console.log('Pages: ', pages, staticPages);
-
-    // Get stripped page names
-    const pageNames = pages.map((page: string) =>
-      page.replace('pages/', '').replace('.tsx', '')
-    );
-
     // Check if slug is on pages
-    if (pageNames.includes(slug)) {
-      console.log('Page name is on the list.');
+    const selectedPage = socialPreviewData[slug];
 
-      const selectedPage = socialPreviewData[slug];
-
-      console.log('Checking selected page: ', selectedPage, socialPreviewData[slug]), socialPreviewData;
-
-      if (selectedPage && selectedPage.title) {
-        queryString = selectedPage;
-        imageFileName = selectedPage.title;
-
-        console.log('Selected page: ', queryString);
-      }
+    if (selectedPage && selectedPage.title) {
+      queryString = selectedPage;
+      imageFileName = selectedPage.title;
     }
   }
 
   // Finally...
-
   // Take screenshot
 
   const bufferString = await getBufferString(
