@@ -19,6 +19,8 @@ const Footer = () => {
   // When mounted on client, now we can show the UI
   React.useEffect(() => setMounted(true), []);
 
+  if (!mounted) return null;
+
   return (
     <>
       <section className="py-3 border-0 border-t-2 border-purple-500">
