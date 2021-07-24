@@ -20,8 +20,9 @@ const NowPlaying = () => {
       </svg>
       {data?.songUrl ? (
         <>
-          <span className="mr-2 flex-none text-gray-800 dark:text-gray-400">
-            Now playing:
+          <span className="mr-2 md:mr-4 flex-none text-gray-800 dark:text-gray-400">
+            <span className="md:hidden">Now playing:</span>
+            <span className="hidden md:inline">Now playing on Spotify:</span>
           </span>
           <a
             className="truncate"
