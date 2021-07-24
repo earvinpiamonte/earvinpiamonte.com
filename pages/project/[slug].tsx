@@ -16,10 +16,10 @@ const ProjectPost = ({
   mdxSource: MDXRemoteSerializeResult;
   frontMatter: ProjectType;
 }) => {
-  const { title } = frontMatter;
+  const { title, summary } = frontMatter;
 
   return (
-    <Layout {...{ title, description: '' }}>
+    <Layout {...{ title, description: summary }}>
       <ProjectTemplate frontMatter={frontMatter}>
         <div className="relative">
           <MDXRemote

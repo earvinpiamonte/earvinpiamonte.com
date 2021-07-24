@@ -29,6 +29,7 @@ interface CraftType extends PostTypeProperties {
 interface PageType {
   title?: string;
   slug?: string;
+  summary?: string;
   children?: React.ReactNode;
 }
 

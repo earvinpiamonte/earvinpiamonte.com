@@ -16,10 +16,10 @@ const CraftPost = ({
   mdxSource: MDXRemoteSerializeResult;
   frontMatter: CraftType;
 }) => {
-  const { title } = frontMatter;
+  const { title, summary } = frontMatter;
 
   return (
-    <Layout {...{ title, description: '' }}>
+    <Layout {...{ title, description: summary }}>
       <CraftTemplate frontMatter={frontMatter}>
         <div className="relative">
           <MDXRemote

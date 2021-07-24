@@ -16,8 +16,10 @@ const Page = ({
   mdxSource: MDXRemoteSerializeResult;
   frontMatter: PageType;
 }) => {
+  const { title, summary } = frontMatter;
+
   return (
-    <Layout>
+    <Layout {...{ title, description: summary }}>
       <PageTemplate {...frontMatter}>
         <div className="relative">
           <MDXRemote
