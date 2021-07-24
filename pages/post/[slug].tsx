@@ -16,8 +16,10 @@ const Post = ({
   mdxSource: MDXRemoteSerializeResult;
   frontMatter: PostType;
 }) => {
+  const { title, date } = frontMatter;
+
   return (
-    <Layout>
+    <Layout {...{ title, description: '', date }}>
       <PostTemplate frontMatter={frontMatter}>
         <div className="relative">
           <MDXRemote

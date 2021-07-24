@@ -10,7 +10,7 @@ const { publicRuntimeConfig } = getConfig();
 type LayoutPropsType = {
   title?: string;
   description?: string;
-  date?: string;
+  date?: Date;
   header?: boolean;
   children?: React.ReactNode;
   footer?: boolean;
@@ -25,9 +25,9 @@ const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
   const meta = {
     name,
     url,
-    title,
     description,
     ...customMeta,
+    title: customMeta.title ? `${name} | ${customMeta.title}` : title,
   };
 
   const { header = true, footer = true } = customMeta;
@@ -80,7 +80,10 @@ const Layout = ({ children, ...customMeta }: LayoutPropsType) => {
 
         <meta name="description" content={meta.description} key="description" />
         {meta.date && (
-          <meta property="article:published_time" content={meta.date} />
+          <meta
+            property="article:published_time"
+            content={meta.date.toString()}
+          />
         )}
         <title key="title">{meta.title}</title>
       </Head>

@@ -7,12 +7,15 @@ import PageTemplate from '@/templates/PageTemplate';
 import { getAllPostsFrontMatter } from '@/lib/mdx';
 
 const Crafts = ({ data }: { data?: CraftType[] }) => {
+  const title = 'Crafts';
+  const description = `Some things I've built personally. Most of these are open source and
+         available on GitHub.`;
+
   return (
-    <Layout>
-      <PageTemplate title="Crafts">
+    <Layout {...{ title, description }}>
+      <PageTemplate {...{ title }}>
         <p className="text-xl mb-12 text-gray-800 dark:text-gray-400">
-          Some things I've built personally. Most of these are open source and
-          available on GitHub.
+          {description}
         </p>
         <CraftsList data={data} />
       </PageTemplate>

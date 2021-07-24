@@ -8,12 +8,15 @@ import PageTemplate from '@/templates/PageTemplate';
 import { getAllPostsFrontMatter } from '@/lib/mdx';
 
 const Portfolio = ({ data }: { data?: ProjectType[] }) => {
+  const title = 'Portfolio';
+  const description = `These are some of the projects I built as an independent software
+          developer for various clients.`;
+
   return (
-    <Layout>
-      <PageTemplate title="Portfolio">
+    <Layout {...{ title, description }}>
+      <PageTemplate {...{ title }}>
         <p className="text-xl mb-12 text-gray-800 dark:text-gray-400">
-          These are some of the projects I've built as an independent software
-          developer for various clients.
+          {description}
         </p>
         <Projects data={data} />
       </PageTemplate>
