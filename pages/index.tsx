@@ -1,21 +1,12 @@
-import React from 'react';
-
-import Image from 'next/image';
-
-import { ExternalLinkIcon } from '@heroicons/react/outline';
-import { useTheme } from 'next-themes';
-
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import Experiences from '@/components/Experiences';
-import Button from '@/components/Button';
+import FeaturedPost from '@/components/FeaturedPost';
 
-import { getAllFilesFrontMatter } from '@/lib/mdx';
 import { ExperienceType } from '@/types/index';
+import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
-  const { theme } = useTheme();
-
   return (
     <Layout>
       <section className="pt-12 pb-20">
@@ -52,40 +43,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
             <Experiences data={experiences} />
           </div>
           <div className="mb-0">
-            <div className="bg-purple-100 text-gray-600 dark:bg-purple-800 dark:text-gray-200 rounded-lg px-4 py-4">
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-2">
-                  <Image
-                    src="/images/daylight-icon.jpg"
-                    alt="Picture of the author"
-                    width={92}
-                    height={92}
-                    className="rounded-lg"
-                    draggable={false}
-                  />
-                </div>
-                <div className="col-span-10 md:col-span-7">
-                  <h4 className="mb-2 font-medium">
-                    Get daylight on Web Store
-                  </h4>
-                  <p className="mb-0 text-sm">
-                    Write down temporary notes on the new tab page of your
-                    Google Chrome browser.
-                  </p>
-                </div>
-                <div className="col-span-10 col-start-3 md:col-span-3 md:self-center md:text-center">
-                  <Button
-                    color={theme === 'dark' ? 'green' : 'purple'}
-                    pill={true}
-                    src="https://chrome.google.com/webstore/detail/daylight/acfblhlodbfnocogojghkgnpoellplll"
-                    className="text-sm"
-                  >
-                    <ExternalLinkIcon className="w-4 h-4 mr-1 inline-block" />
-                    <span className="align-middle">Install</span>
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <FeaturedPost />
           </div>
         </Container>
       </section>

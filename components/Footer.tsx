@@ -1,26 +1,14 @@
-import React from 'react';
-
 import getConfig from 'next/config';
-import { MoonIcon, SunIcon } from '@heroicons/react/outline';
-import { useTheme } from 'next-themes';
 
 import Container from '@/components/Container';
 import NowPlaying from '@/components/NowPlaying';
-import Button from '@/components/Button';
+import ThemeChanger from '@/components/ThemeChanger';
 
 const { publicRuntimeConfig } = getConfig();
 
 const { name } = publicRuntimeConfig.site;
 
 const Footer = () => {
-  const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
-
-  // When mounted on client, now we can show the UI
-  React.useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
   return (
     <>
       <section className="py-3 border-0 border-t-2 border-purple-500">
@@ -33,21 +21,7 @@ const Footer = () => {
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 lg:col-span-6">
               <div className="md:text-right">
-                <Button
-                  outlined={true}
-                  narrow={true}
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                >
-                  {theme === 'dark' ? (
-                    <>
-                      <SunIcon className="w-4 h-4" />
-                    </>
-                  ) : (
-                    <>
-                      <MoonIcon className="w-4 h-4" />
-                    </>
-                  )}
-                </Button>
+                <ThemeChanger />
               </div>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:order-first">
