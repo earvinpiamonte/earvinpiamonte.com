@@ -18,7 +18,7 @@ const Footer = () => {
       </section>
       <footer className="py-8 border-0 border-t dark:border-gray-800">
         <Container>
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-12 gap-4 items-center">
             <div className="col-span-12 md:col-span-6">
               <div className="md:text-right md:mb-0 mb-4">
                 <ThemeChanger />
