@@ -19,13 +19,13 @@ const Footer = () => {
       <footer className="py-8 border-0 border-t dark:border-gray-800">
         <Container>
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 lg:col-span-6">
-              <div className="md:text-right">
+            <div className="col-span-12 md:col-span-6">
+              <div className="md:text-right md:mb-0 mb-4">
                 <ThemeChanger />
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-6 lg:order-first">
-              <p className="text-sm mb-0 text-gray-800 dark:text-gray-400">
+            <div className="col-span-12 md:col-span-6 md:order-first">
+              <p className="text-sm text-gray-800 dark:text-gray-400 md:mb-0 mb-4">
                 Designed and built by {name}.
               </p>
             </div>
