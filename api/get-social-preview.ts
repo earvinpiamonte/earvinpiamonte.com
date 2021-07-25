@@ -7,7 +7,7 @@ import socialPreviewData from '../server/social-preview-data.json';
 
 const siteBaseURL = process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000'
-          : 'https://www.earv.in';
+          : 'https://www.earvinpiamonte.com';
 
 const getBufferString = async (url: string) => {
   const response = await fetch(`${siteBaseURL}/api/screenshot-page?url=${encodeURIComponent(url)}`);

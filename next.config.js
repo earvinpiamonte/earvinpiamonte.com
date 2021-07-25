@@ -5,7 +5,7 @@ module.exports = {
       url:
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:3000'
-          : 'https://www.earv.in',
+          : 'https://www.earvinpiamonte.com',
       title: 'Noel Earvin Piamonte | Software Engineer',
       description:
         'Noel Earvin Piamonte is a software engineer from Mandaluyong City, Philippines.',
