@@ -1,0 +1,96 @@
+---
+type: 'post'
+date: '2021-07-25'
+title: 'All I Got'
+summary: 'Updated my website to Next.js.'
+featuredImage: true
+categories:
+  - React
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - Vercel
+  - Serverless
+---
+
+Building my personal website has been an enjoyable thing to do. It gives me an opportunity to try new technologies and expand my knowledge.
+
+There have been numerous versions of my website. I started building with static files to CodeIgniter, WordPress, previously with Gatsby and now using Next.js `v11`.
+
+So what's new?
+
+## Next.js
+
+I first tried using Next.js last year by building [drownthesky](https://www.earvinpiamonte.com/craft/drownthesky). Not long after, I fell in love with the development experience so I built another Next.js site, [nbi.vercel.app](https://www.earvinpiamonte.com/craft/nbi.vercel.app).
+
+After getting a hang of it, I've rewritten drownthesky from JavaScript to TypeScript. Next.js supports TypeScript by default.
+
+Here are the things I love with Next.js:
+
+- Fast development experience
+- It's ~~a React framework~~ the React framework
+- Next.js generates HTML for each page in advance which can result in better performance and SEO
+- Optimized images
+- File-system based routing
+- TypeScript support
+- API routes support
+- Beautiful and easy to understand documentation
+
+## Vercel
+
+Since using Next.js, I've only deployed to [Vercel](https://vercel.com/). I actually forgot the last time that I've used Netlify. I'm not saying that I don't use Netlify, it's just when I build a Next.js site, I go for Vercel.
+
+Here are the cool things I like with Vercel:
+
+- Serverless Functions up to 50MB
+- Works very well with Next.js
+- Can be used to an existing Next.js site with `vercel` commands
+- Beautiful and easy to understand documentation
+
+One cool feature of my site is that it generates the social preview thumbnail for each page on demand. It means that the thumbnail is not stored or available anywhere until the link of the page is shared on other platforms such as Twitter.
+
+It works by calling a serverless function on Vercel that captures a screenshot of the page that contains the data I need for the thumbnail. This feature is also what implemented on [nbi.vercel.app](https://www.earvinpiamonte.com/craft/nbi.vercel.app).
+
+## Tailwind CSS
+
+I'm currently using Tailwind CSS `v2`. I have used `v2` previously with Gatsby but I was not able to use all the features for some reason, e.g. `bg-clip-text`. It just didn't work. With Next.js, I'm able to use Tailwind CSS without a problem.
+
+Things I like with Tailwind CSS:
+
+- Less time spent on a CSS file; more time on components
+- Tons of utility classes
+- Purged in production
+- Dark mode support
+- You've guessed it... also have a beautiful and easy to navigate documentation
+
+## MDX
+
+I'm still using MDX files as the data source of my website. With Next.js, I use [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote). It allows me to load MDX files easily through `getStaticProps`.
+
+## TypeScript
+
+Writing in TypeScript allows me to identify bugs immediately and it helps me with autocomplete suggestions. I've written all the interfaces of my project on a single `.tsx` file.
+
+## Google Analytics
+
+I've completely removed Google Analytics on this version of my website. After years of using it, I didn't find any use of the data gathered. Removing it also means that I will have fewer scripts running on the background.
+
+## Namecheap
+
+My domain [earvinpiamonte.com](https://wwww.earvinpiamonte.com) is now [registered](https://www.namecheap.com/domains/whois/result?domain=earvinpiamonte.com) to Namecheap Inc., previously was registered on LaunchPad (Hostgator).
+
+I transferred the domain last June and it took around 5 days for the registrar to complete the transfer. Domains on Namecheap are cheaper than Hostgator. Previously on Hostgator, I pay ~ $15 USD per year for my domain. But with Namecheap Inc., I now pay ~ $8 USD per year.
+
+If you're buying domains, I highly recommend Namecheap.
+
+Also, I acquired [earv.in](https://www.earv.in). hahaha. I'll probably use this as my personal URL shortening service.
+
+## Conclusion
+
+Using React and writing in TypeScript is now my standard in building for the modern web. Next.js allows me to build web applications faster.
+
+By building this current version of my website I was able to explore some of the great features of Next.js, more of TypeScript and more of Vercel's Serverless Functions.
+
+All I got is you.
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=X-sIsWrqAaU" />
