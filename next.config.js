@@ -34,7 +34,7 @@ module.exports = {
     return [
       {
         source: '/daylight',
-        destination: 'https://www.earvinpiamonte.com/daylight/',
+        destination: 'https://www.earvinpiamonte.com/craft/daylight',
         permanent: true,
       },
     ];
