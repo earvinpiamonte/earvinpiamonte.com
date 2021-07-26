@@ -13,14 +13,14 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
         <Container>
           <h1 className="mb-6 tracking-wider">
             <span className="block text-lg">Hello, I'm</span>{' '}
-            <span className="text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-500">
+            <span className="text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-500 inline">
               Noel Earvin Piamonte.
             </span>
           </h1>
           <div className="mb-12 text-xl tracking-wide">
             <p className="mb-6">
-              I'm a software developer based in Mandaluyong City,
-              Philippines. I work at{' '}
+              I'm a software developer based in Mandaluyong City, Philippines. I
+              work at{' '}
               <a
                 href="https://www.infor.com"
                 target="_blank"
