@@ -19,7 +19,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
           </h1>
           <div className="mb-12 text-xl tracking-wide">
             <p className="mb-6">
-              I'm a software developer based in the Mandaluyong City,
+              I'm a software developer based in Mandaluyong City,
               Philippines. I work at{' '}
               <a
                 href="https://www.infor.com"
