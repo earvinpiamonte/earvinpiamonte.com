@@ -38,6 +38,15 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/daylight',
+        destination: '/craft/daylight',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 // https://securityheaders.com
