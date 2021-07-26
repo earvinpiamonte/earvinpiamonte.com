@@ -100,7 +100,7 @@ const Button = (props: {
   }
 
   const commonClassNames = `font-medium align-middle ${
-    narrow ? 'py-1 px-2' : 'py-1.5 px-4'
+    narrow ? 'pt-1 pb-1.5 px-2' : 'pt-1 pb-1.5 px-4'
   } ${
     pill ? 'rounded-full' : 'rounded'
   } ${hoverBgClass} focus:outline-none focus:ring-2 ${focustRingClass} focus:ring-offset-2 ${focusRingOffsetClass} border border-transparent inline-block`;
