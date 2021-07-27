@@ -5,8 +5,8 @@ const Thumbnail = (props) => {
     <div className="app-thumbnail">
       <Image
         layout="responsive"
-        width={720}
-        height={405}
+        width={1200}
+        height={630}
         draggable={false}
         {...props}
       />
