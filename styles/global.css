@@ -48,7 +48,7 @@ ol {
 }
 
 .app-thumbnail {
-  @apply mb-4;
+  @apply mb-8;
 }
 
 .app-thumbnail img {
