@@ -13,7 +13,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
         <Container>
           <h1 className="mb-6 tracking-wider">
             <span className="block text-lg">Hello, I'm</span>{' '}
-            <span className="text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-500 inline">
+            <span className="text-5xl font-semibold text-purple-500 lg:bg-clip-text lg:text-transparent lg:bg-gradient-to-r lg:from-green-300 lg:to-purple-500">
               Noel Earvin Piamonte.
             </span>
           </h1>
