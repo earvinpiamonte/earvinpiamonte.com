@@ -3,7 +3,7 @@ import ExperienceItem from './ExperienceItem';
 
 const Experiences = ({ data }: { data: ExperienceType[] }) => {
   return (
-    <div className="mb-12">
+    <div>
       {data
         .sort(
           (a, b) =>
