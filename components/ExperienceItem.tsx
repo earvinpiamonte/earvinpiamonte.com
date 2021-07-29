@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from '@heroicons/react/outline';
+import { CheckCircleIcon } from '@heroicons/react/solid';
 
 const ExperienceItem = ({ ...experienceItem }) => {
   const { title, company, location, yearStart, yearEnd, tools } =
