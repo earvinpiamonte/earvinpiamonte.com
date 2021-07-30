@@ -37,9 +37,7 @@ const NowPlaying = () => {
           </a>
         </>
       ) : (
-        <span className="text-gray-600">
-          My Spotify is currently not playing.
-        </span>
+        <span className="text-gray-600">My Spotify is currently offline.</span>
       )}
     </div>
   );
