@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from '@heroicons/react/solid';
+import { CheckCircleIcon } from '@heroicons/react/outline';
 
 const ExperienceItem = ({ ...experienceItem }) => {
   const { title, company, location, yearStart, yearEnd, tools } =
@@ -7,8 +7,8 @@ const ExperienceItem = ({ ...experienceItem }) => {
   return (
     <>
       <div className="flex items-center -mt-1">
-        <CheckCircleIcon className="w-8 h-8 mr-2.5 text-purple-500" />
-        <p className="font-medium mb-0 text-gray-800 dark:text-gray-400">
+        <CheckCircleIcon className="w-8 h-8 mr-2.5 text-purple-500 flex-none" />
+        <p className="font-medium mb-0 text-gray-800 dark:text-gray-400 truncate">
           {title}
         </p>
       </div>
