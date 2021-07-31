@@ -25,15 +25,23 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
                 href="https://www.infor.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline font-bold text-purple-500"
+                className="app-link"
               >
                 Infor
               </a>{' '}
               as a Software Engineer.
             </p>
             <p>
-              Outside work, I build things for the web with React and Tailwind
-              CSS.
+              Outside work, I{' '}
+              <a
+                href="https://github.com/earvinpiamonte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="app-link"
+              >
+                build
+              </a>{' '}
+              things for the web with React and Tailwind CSS.
             </p>
           </div>
           <div className="mb-20">
