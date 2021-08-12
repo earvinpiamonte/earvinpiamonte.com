@@ -1,0 +1,53 @@
+---
+type: 'post'
+date: '2021-08-13'
+title: 'Anywhere'
+summary: 'Browse, write code on any GitHub repo.'
+categories:
+  - GitHub
+  - VS Code
+  - Git
+---
+
+Wow. You can now browse and write code on any accessible GitHub repositories on a web browser _officially_. Just visit a repo on GitHub and press the `.` (period) key on your keyboard.
+
+The browser will open a VS Code right on the current tab with the files from the repository.
+
+Example, visit [github.com/airbnb/javascript](https://github.com/airbnb/javascript) repository:
+
+1. Press `.`
+2. VS Code fires up on the browser
+3. You can then browse and write code on the repository
+
+<Thumbnail
+  src="/images/post/anywhere/Screencast 2021-08-13 00:36:52.gif"
+  alt="A screencast of a GitHub project redirecting to GitHub Codespaces after pressing the period key."
+/>
+
+What happens is that the original GitHub repo URL redirects to [github.dev](https://github.dev). Here's a list of some of the HTTP requests for the geeks.
+
+<Thumbnail
+  src="/images/post/anywhere/Screenshot from 2021-08-13 00-05-18.jpg"
+  alt="A screenshot of a list of some of the HTTP requests."
+/>
+
+From the example, [github.com/airbnb/javascript](https://github.com/airbnb/javascript) redirects to [github.dev/airbnb/javascript](https://github.dev/airbnb/javascript) after pressing `.` on the keyboard.
+
+This means you can just replace `.com` with `.dev` and you can instantly load a project on VS Code on the web browser. It loads on mobile browsers too!
+
+<div className="mb-8">
+  <Image
+    src="/images/post/anywhere/RPReplay_Final1628786744.gif"
+    alt="A screencast of VS Code on the web browser with the opened repository."
+    width="300"
+    height="650"
+    draggable="false"
+    className="rounded-md"
+  />
+</div>
+
+One thing to note is that **you must be signed in** to GitHub to open a repo on VS Code directly on the browser. If not signed in, pressing `.` will do nothing and accessing directly the `.dev` URL shows up the sign in page of GitHub (at least at this time of writing).
+
+I also said _"officially"_ because you can also browse GitHub repo files on a VS Code-like web app [GitHub1s](https://github1s.com/).
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=HmXisKwUpF0" />
