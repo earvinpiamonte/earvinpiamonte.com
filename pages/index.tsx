@@ -32,16 +32,16 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               as a Software Engineer.
             </p>
             <p>
-              Outside work, I{' '}
+              Outside work, I build{' '}
               <a
                 href="https://github.com/earvinpiamonte"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="app-link"
               >
-                build
+                things
               </a>{' '}
-              things for the web with React and Tailwind CSS.
+              for the web with React and Tailwind CSS.
             </p>
           </div>
           <div className="mb-20">
