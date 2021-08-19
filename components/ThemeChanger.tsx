@@ -22,15 +22,15 @@ const ThemeChanger = () => {
     >
       {theme === 'dark' ? (
         <>
-          <SunIcon className="w-4 h-4 inline-block mr-1 md:mr-0" />
+          <SunIcon className="w-4 h-4 inline-block mr-1" />
         </>
       ) : (
         <>
-          <MoonIcon className="w-4 h-4 inline-block mr-1 md:mr-0" />
+          <MoonIcon className="w-4 h-4 inline-block mr-1" />
         </>
       )}
-      <span className="align-middle text-sm text-sm md:hidden">
-        Switch to {theme === 'dark' ? 'light' : 'dark'} mode
+      <span className="align-middle text-sm">
+        Switch to {theme === 'dark' ? 'light' : 'dark'} theme
       </span>
     </Button>
   );
