@@ -1,0 +1,96 @@
+---
+type: 'post'
+date: '2021-09-01'
+title: 'Nothing'
+summary: 'Headless Auto-growing textarea.'
+categories:
+  - React
+  - TypeScript
+  - Headless Component
+---
+
+It's really fun building a component specially if it works the way I want it to.
+
+TL;DR, here's my take on a `<TextArea>` component in TypeScript:
+
+```tsx:TextArea.tsx
+import React from "react";
+
+const Textarea = (props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) => {
+  const { value } = props;
+  const textareaElement = React.useRef<HTMLTextAreaElement>(null);
+
+  const updateTextareaHeight = () => {
+    if (textareaElement.current) {
+      const $element = textareaElement.current;
+
+      $element.style.height = "auto";
+      $element.style.height = `${$element.scrollHeight}px`;
+      $element.style.resize = "none";
+    }
+  };
+
+  React.useEffect(() => {
+    updateTextareaHeight();
+  }, [value]);
+
+  return <textarea ref={textareaElement} {...props} />;
+};
+
+export default Textarea;
+```
+
+Alright. Nothing more. Everything is very self explanatory. Who reads a blog post anyway? bye.
+
+Just kidding.
+
+<div className="mb-8">
+  <Image
+    src="/images/post/nothing/ajm4DPG_700b.jpg"
+    alt="A kitten saying hehe."
+    width="700"
+    height="790"
+    draggable="false"
+    className="rounded-md"
+  />
+</div>
+
+I've actually did quite a research on how to make a `textarea` component in React with TypeScript and I was not able to find an approach that is short and simple.
+
+So here's how I made a headless auto-growing textarea component.
+
+## The props
+
+First, I made sure that the `<TextArea>` component I defined will only accept the properties of a `<textarea>` element. This can be done assigning `React.TextareaHTMLAttributes<HTMLTextAreaElement>` to `props`.
+
+## The reference
+
+Next, I need to define a reference to access and update the `<textarea>` element. To achieve this, I used the handy `useRef()` hook defaulting the value to `null`.
+
+## The effect
+
+Now that I have the reference to the `<textarea>` element, I then use the `useEffect()` hook to call for `updateTextareaHeight()` whenever the `value` prop changes.
+
+The `updateTextareaHeight()` handler will update the `<textarea>` element's height to `auto` and then set the height to the `scrollHeight`. This will make the `<textarea>` element grow as the user types.
+
+## The element
+
+Lastly, I return the `<textarea>` with the `ref` attribute set to the `textareaElement` reference, passing all the `props` with the spread operator.
+
+## Lastly
+
+This is a headless component so feel free to apply styles that will suit your needs.
+
+e.g. usage
+
+```tsx
+<TextArea className="my-textarea-base-style rounded-lg" rows={1} />
+```
+
+## Demo
+
+<CodeSandbox src="https://codesandbox.io/embed/headless-auto-growing-textarea-8619w?fontsize=14&hidenavigation=1&theme=dark" />
+
+Did it all mean nothing? Did you waste your time?
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=47A92K6sVEs" />

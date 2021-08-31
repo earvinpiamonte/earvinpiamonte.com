@@ -63,6 +63,14 @@ ol {
   @apply rounded-md;
 }
 
+.app-codesandbox {
+  @apply mb-8;
+}
+
+.app-codesandbox iframe {
+  @apply rounded-md;
+}
+
 .app-mdx-content p {
   @apply text-gray-800 tracking-wide dark:text-gray-400;
 }
