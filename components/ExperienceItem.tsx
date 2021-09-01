@@ -7,10 +7,10 @@ const ExperienceItem = ({ ...experienceItem }) => {
   return (
     <>
       <div className="flex items-center -mt-1">
-        <CheckCircleIcon className="w-6 h-6 mr-2.5 text-gray-400 flex-none" />
+        <CheckCircleIcon className="w-6 h-6 mr-2.5 text-purple-500 flex-none" />
         <p className="font-medium mb-0 text-purple-500 truncate">{title}</p>
       </div>
-      <div className="ml-3 -mt-1 pl-6 pb-6 text-gray-600 border-l border-gray-400">
+      <div className="ml-3 -mt-1 pl-6 pb-6 text-gray-600 border-l border-purple-500">
         <p className="mb-0">
           <span className="font-medium">{company}</span> &middot; {location}
         </p>
