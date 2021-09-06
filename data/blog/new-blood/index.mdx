@@ -1,0 +1,155 @@
+---
+type: 'post'
+date: '2021-09-07'
+title: 'New Blood'
+summary: 'Sending myself an email daily at 6PM.'
+featuredImage: true
+categories:
+  - Node.js
+  - Serverless
+  - Cron Jobs
+---
+
+I'm sending myself an email every day at around 6PM. The content is just a list of titles of recently uploaded movies.
+
+> Warning: Downloading and distributing protected content such as movies is illegal. The script published in this post uses a public API and used solely for academic purposes only.
+
+<div className="mb-8 text-center">
+  <Image
+    src="/images/post/new-blood/363.jpeg"
+    alt="Agnes Harkness winking."
+    width="618"
+    height="412"
+    draggable="false"
+    className="rounded-md"
+  />
+</div>
+
+There are three things I set up for this to work:
+
+1. A Google app password.
+2. A serverless function that will send an email containing a list of recently uploaded movies.
+3. A cron job that will hit the URL every day at 6PM.
+
+## 1. Google App Password
+
+I prefer to receive the email notification on my personal email address and the quickest way for me was to set up a [Google app password](https://myaccount.google.com/apppasswords). I then use the Gmail service with the app password to send an email.
+
+If you don't want to create an app password, because you will need 2FA enabled, you may use an email sandbox such as [Mailtrap](https://mailtrap.io/). But yeah, whatever is the easiest way to set up.
+
+## 2. Serverless function
+
+This is pretty interesting. For this part, I needed to be able to set up an API quickly that I can easily call and with less configuration as much as possible. This is where [Napkin](https://www.napkin.io/) came in handy. No config. No CLI. Just a few lines of code.
+
+<Thumbnail
+  src="/images/post/new-blood/Screenshot from 2021-09-07 02-31-47.jpg"
+  alt="A screenshot of Napkin editor."
+/>
+
+It's a tool that lets you build production-ready API endpoints in minutes. Just write a function directly on the editor on a browser, hit Deploy and the URL provided is ready to be called. You may add additional path too.
+
+Napkin supports Python and Node.js. Here's a function I built in Node.js:
+
+```js
+import axios from 'axios';
+import nodemailer from 'nodemailer';
+
+const { GOOGLE_APP_USERNAME, GOOGLE_APP_PASSWORD } = process.env;
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: GOOGLE_APP_USERNAME,
+    pass: GOOGLE_APP_PASSWORD,
+  },
+});
+
+const handler = async (req, res) => {
+  const { data } = await getMovies();
+  const { movies } = data;
+
+  const moviesHTML = movies
+    .map((movie) => {
+      return `
+      <p style="margin-bottom: 15px;">
+        <img src="${movie.medium_cover_image}" style="display: inline-block; margin-right: 5px;" />
+        <span style="display: inline-block; vertical-align: top; font-weight: bold; font-size: 24px;">${movie.title_long}</span>
+      </p>
+    `;
+    })
+    .join('');
+
+  const mailOptions = {
+    to: 'earvin.piamonte@gmail.com',
+    subject: 'Latest YTS movies',
+    html: moviesHTML,
+  };
+
+  const sendEmail = await transporter.sendMail(mailOptions);
+
+  const { accepted } = sendEmail;
+
+  res.json({
+    message: accepted
+      ? 'Notification sent!'
+      : 'Something went wrong. Notification not sent.',
+  });
+};
+
+const getMovies = async () => {
+  try {
+    const { data } = await axios.get(
+      'https://yts.mx/api/v2/list_movies.json?limit=10'
+    );
+    return data;
+  } catch (error) {
+    // Handle axios and unexpected error here
+  }
+};
+
+export default handler;
+```
+
+### So what does it do?
+
+1. It gets the latest 10 movies from YTS with the `getMovies()` function.
+2. It formats the data into HTML which includes the movie cover and title.
+3. It sends an email to myself using `nodemailer`.
+
+One cool feature of Napkin is that it comes with various pre-installed NPM packages such as `axios` and `cheerio` so you don't have to install them manually even though installing packages is as easy as providing the package name and hitting the `Install` button that can be done on the "Modules" tab of the editor.
+
+<Thumbnail
+  src="/images/post/new-blood/Screenshot from 2021-09-07 02-18-49.jpg"
+  alt="A screenshot of Modules tab of Napkin editor."
+/>
+
+### Deep dive into the code:
+
+The only package I installed is `nodemailer`. The `axios` package comes pre-installed as I recently mentioned.
+
+I unpacked the environment variables I created, namely `GOOGLE_APP_USERNAME` and `GOOGLE_APP_PASSWORD` from the built-in `process.env` global property.
+
+`createTransport()` is a method of `nodemailer` that takes an object that defines connection data.
+
+There are two functions on this script. One is `handler()` and the other is `getMovies()`. The `handler()` function is the one that gets called when the API is hit. This can be named anything as long at as it's exported. The `getMovies()` function fetches the data from YTS.
+
+`sendMail()` method returns a `Promise` object if the `callback` argument is not provided. Who uses a `callback` in 2021? Just kidding. hahaha.
+
+Lastly, I'm returning a message with `res.json()` just to send a response to the client.
+
+## 3. Cron job
+
+Now that I have a function that sends an email containing a list of movies, the last step is to have a cron job that hits the API everyday at 6PM. I used [cron-job.org](https://cron-job.org/en/) for this. It's a platform to set up cron jobs for free. Check out their [FAQ](https://cron-job.org/en/faq/) for more information.
+
+<Thumbnail
+  src="/images/post/new-blood/Screenshot from 2021-09-07 02-35-32.jpg"
+  alt="A screenshot of the cron job page."
+/>
+
+The task runs about 3 to 4 seconds based on the execution history.
+
+With these free tools, it's now easier to try out things and even build small production ready applications in a short amount of time.
+
+Napkin is relatively new and I'm excited what comes next. Here's a [thread](https://news.ycombinator.com/item?id=27710948) on Hacker News that's probably worth a read.
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=pzyk1_sDTcM" />
