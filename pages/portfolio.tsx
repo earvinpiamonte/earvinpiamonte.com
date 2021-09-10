@@ -9,7 +9,7 @@ import { getAllPostsFrontMatter } from '@/lib/mdx';
 
 const Portfolio = ({ data }: { data?: ProjectType[] }) => {
   const title = 'Portfolio';
-  const description = `These are some of the projects I built as an independent software
+  const description = `Selected projects I built as an independent software
           developer for various clients.`;
 
   return (
