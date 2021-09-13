@@ -35,8 +35,8 @@ const Nav = () => {
           </button>
         </div>
         <p className="mb-8">
-          I'm currently not looking for any new opportunities but you may still
-          view my Freelancer.com profile.
+          I'm currently not doing any freelance works at the moment but you may
+          still view my Freelancer.com profile.
         </p>
         <p className="mb-2">
           <Button
