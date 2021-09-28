@@ -1,0 +1,147 @@
+---
+type: 'craft'
+title: 'Eclipse Patch Viewer'
+featuredImage: true
+thumbnail: true
+summary: 'Read Eclipse code patch on a web browser.'
+categories:
+  - Eclipse IDE
+  - RCS
+  - JavaScript
+  - Bookmarklet
+---
+
+Read an Eclipse IDE workspace code patch on a web browser.
+
+Eclipse Patch Viewer is a bookmarklet that adds background colors to the line differences to make it easier to read.
+
+## Installation
+
+Just drag and drop the "Eclipse Patch Viewer" link below to your browser's bookmarks bar.
+
+<p>
+  <a
+    href={`javascript:(function()%7B(()%3D>%7Bconst e%3Ddocument.getElementsByTagName("pre")%5B0%5D%2Ct%3Ddocument.body%2C%7Bformatted%3An%7D%3Dt.dataset%2Co%3D!t.innerHTML.includes("RCS file")%3Bif(n%7C%7C!e%7C%7Co)return%3Blet r%3D%5B'font-family%3A "Courier New"%2C monospace'%2C"font-size%3A 80%25"%2C"font-weight%3A 800"%2C"padding%3A 2px 5px"%2C"margin%3A 0px"%5D.join("%3B ")%2B"%3B"%3Bconst f%3D%5B"%2B"%2C"%2B "%2C"%2B%5Ct"%5D%2C%5Ba%5D%3Df%2Cs%3D%5B"-"%2C"- "%2C"-%5Ct"%5D%2C%5Bi%5D%3Ds%2Cc%3De.innerHTML.split("%5Cn").map(e%3D>%7Bconst t%3De.substring(0%2C6)%2Cn%3De.substring(0%2C2)%2Co%3Df.some(e%3D>e%3D%3Dn)%2Cc%3Ds.some(e%3D>e%3D%3Dn)%2Cd%3De.charAt(0)%3D%3Da%26%26e.charAt(1)!%3Da%2Cl%3De.charAt(0)%3D%3Di%26%26e.charAt(1)!%3Di%2Cm%3Do%7C%7Cd%2Cp%3Dc%7C%7Cl%3Blet g%3D"%2324292e"%2Cu%3Dm%3F"%23e5ffec"%3Ap%3F"%23ffeef0"%3A"%23fefefe"%3Breturn"Index%3A"%3D%3Dt%26%26(g%3D"%23fff"%2Cu%3D"%23443583")%2C%60<p style%3D'%24%7Br%7D color%3A %24%7Bg%7D%3B background-color%3A %24%7Bu%7D%3B'>%24%7Be%7D<%2Fp>%60%7D)%3Bt.style.backgroundColor%3D"%23fefefe"%2Ct.style.margin%3D"0px"%2Ct.dataset.formatted%3D!0%2Ce.innerHTML%3Dc.join("")%7D)()%7D)()`}
+  >
+    🔥 <strong>Eclipse Patch Viewer</strong>
+  </a>
+</p>
+
+## Usage
+
+1. Open up a code patch `.txt` file in your browser.
+2. Click on the "Eclipse Patch Viewer" bookmark.
+
+## Background
+
+I developed this bookmarklet because I often read code patches on a web browser before a I submit a ticket for code review. Reading a code patch as a plain text file is difficult and takes more time.
+
+Initially developed and shared this small tool on a few of my colleagues but now I released it publicly.
+
+This tool was previously known internally as "Ecdiff".
+
+## Source code
+
+```javascript
+(() => {
+  const $pre = document.getElementsByTagName('pre')[0];
+  const $body = document.body;
+
+  const { formatted } = $body.dataset;
+  const noRCSfileString = !$body.innerHTML.includes('RCS file');
+  const noPreTag = !$pre;
+
+  if (formatted || noPreTag || noRCSfileString) {
+    return;
+  }
+
+  // Colors
+  const primaryForegroundColor = '#fff';
+  const primaryBackgroundColor = '#443583';
+
+  const defaultForegroundColor = '#24292e';
+  const defaultBackgroundColor = '#fefefe';
+
+  const additionForegroundColor = '#24292e';
+  const additionBackgroundColor = '#e5ffec';
+
+  const deletionForegroundColor = '#24292e';
+  const deletionBackgroundColor = '#ffeef0';
+
+  // Default styles
+  let defaultStyles = [
+    'font-family: "Courier New", monospace',
+    'font-size: 80%',
+    'font-weight: 800',
+    'padding: 2px 5px',
+    'margin: 0px',
+  ];
+
+  let inlineDefaultStyles = defaultStyles.join('; ') + ';';
+
+  // Prefixes
+  const additionPrefixes = ['+', '+ ', '+\t'];
+  const [plusSign] = additionPrefixes;
+
+  const deletionPrefixes = ['-', '- ', '-\t'];
+  const [minusSign] = deletionPrefixes;
+
+  const indexFileString = 'Index:';
+
+  // Get each lines
+  const lines = $pre.innerHTML.split('\n');
+
+  const formattedLines = lines.map((line) => {
+    const first6chars = line.substring(0, 6);
+    const first2chars = line.substring(0, 2);
+
+    const lineHasAdditionPrefixes = additionPrefixes.some(
+      (prefix) => prefix == first2chars
+    );
+    const lineHasDeletionPrefixes = deletionPrefixes.some(
+      (prefix) => prefix == first2chars
+    );
+
+    const firstCharacterIsPlus =
+      line.charAt(0) == plusSign && line.charAt(1) != plusSign;
+    const firstCharacterIsMinus =
+      line.charAt(0) == minusSign && line.charAt(1) != minusSign;
+
+    const lineIsAddition = lineHasAdditionPrefixes || firstCharacterIsPlus;
+    const lineIsDeletion = lineHasDeletionPrefixes || firstCharacterIsMinus;
+
+    let foregroundColor = lineIsAddition
+      ? additionForegroundColor
+      : lineIsDeletion
+      ? deletionForegroundColor
+      : defaultForegroundColor;
+
+    let backgroundColor = lineIsAddition
+      ? additionBackgroundColor
+      : lineIsDeletion
+      ? deletionBackgroundColor
+      : defaultBackgroundColor;
+
+    if (first6chars == indexFileString) {
+      foregroundColor = primaryForegroundColor;
+      backgroundColor = primaryBackgroundColor;
+    }
+
+    return `<p style='${inlineDefaultStyles} color: ${foregroundColor}; background-color: ${backgroundColor};'>${line}</p>`;
+  });
+
+  $body.style.backgroundColor = defaultBackgroundColor;
+  $body.style.margin = '0px';
+  $body.dataset.formatted = true;
+
+  $pre.innerHTML = formattedLines.join('');
+})();
+```
+
+## License
+
+MIT License &middot; Copyright (c) 2021 Noel Earvin Piamonte
+
+## Credits
+
+Example code patch used for screenshot: [Attachment](https://bugzillaattachments.eclipsecontent.org/bugs/attachment.cgi?id=78905).
