@@ -16,7 +16,7 @@ const FeaturedPost = () => {
   if (!mounted) return null;
 
   return (
-    <div className="transform -rotate-3 hover:rotate-0 bg-purple-100 text-gray-600 dark:bg-purple-800 dark:text-gray-200 rounded-lg px-4 py-4">
+    <div className="bg-purple-100 text-gray-600 dark:bg-purple-800 dark:text-gray-200 rounded-lg px-4 py-4">
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-2">
           <Image
