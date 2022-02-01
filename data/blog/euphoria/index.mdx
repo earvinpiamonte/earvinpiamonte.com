@@ -1,0 +1,50 @@
+---
+type: 'post'
+date: '2022-02-01'
+title: 'Euphoria'
+summary: 'Short-circuit evaluation.'
+categories:
+  - JavaScript
+---
+
+It always feels euphoric when I can write a block of code to a single line.
+
+Take for example the following code:
+
+```javascript
+if (confirm) {
+  saveUserSelection();
+}
+```
+
+Nothing fancy. It's just an `if` statement that calls a function when the value of `confirm` is truthy. This snippet is probably common in handling user action in confirm dialogs.
+
+The code can be written in one line as follows:
+
+`if (confirm) { saveUserSelection(); }`
+
+Just kidding hehe...
+
+Ta-da!
+
+```javascript
+confirm && saveUserSelection();
+```
+
+This is called "[short-circuit evaluation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation)". With short-circuit evalutation, the right side expression of the AND operator is evaluated _only if_ the left side is truthy. Otherwise, it just returns the left side expression.
+
+I really like this approach for it takes less effort in reading and writing. Not writing an `if` statement means that I can save extra spaces, indentation and characters such as `{`, `}`, `(` and `)`. And saving characters means that I will only have to read minimal code and still be able to understand what the code is for.
+
+This was once a topic on our team code review and I thought it might be good to write about it.
+
+It might take some time to get used to this approach, especially in working on a team. But you'll get a hang of it by using it more often.
+
+Another example could be:
+
+```javascript
+loggedInUser && showProfileScreen() && updateUserAvatar();
+```
+
+Aight...
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=ezBEa9K06yg" />
