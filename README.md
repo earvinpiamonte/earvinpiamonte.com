@@ -1,40 +1,59 @@
-# Next.js + Tailwind CSS template
+# earvinpiamonte.com
 
-This project template aims to simplify the setup of Tailwind CSS on your Next.js app.
+Welcome to the repository of my website since 2021. Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://vercel.com/).
 
-Before using this template, please make sure that your development environment is ready as stated on [Next.js](https://nextjs.org/learn/basics/create-nextjs-app/setup) website.
+## Prerequisites
 
-## Create a Next.js App
+- Spotify Web API - cliend ID, secret and token
+- Cloudinary API - cloud name, key, secret and folder
 
-To create a Next.js app with this template, open your terminal, `cd` into the directory you'd like to create the app in, and run the command below:
+## File structure
 
-Note:
-Replace `nextjs-blog` with the project name you'd like to create, eg. `my-nextjs-app`.
+- `api/*` - API endpoints with Vercel
+
+- `components/*` - reusable stuff
+
+- `data/*` - blog posts, crafts, experiences, dynamic pages and projects
+
+- `lib/*` - server and client side scripts, mostly server side
+
+- `pages/*` - web pages
+
+- `public/images/*` - site and blog post images
+
+- `server/*` - contains a JSON config for server processing
+
+- `styles/global.css` - global CSS file with Tailwind CSS
+
+- `templates/*` - page templates
+
+- `types/index.tsx` - enums, types and interfaces
+- `.env.example` - required env file
+
+## Local development
 
 ```
-npx create-next-app nextjs-blog --use-npm --example "https://github.com/earvinpiamonte/nextjs-tailwindcss-template"
-```
-
-## Run development server
-
-```
-cd nextjs-blog
+git clone https://github.com/earvinpiamonte/earvinpiamonte.com.git
 ```
 
 ```
-npm run dev
+cd earvinpiamonte.com/
 ```
 
-## Deploy with Vercel
+```
+npm i
+```
 
-Deploy this template using Vercel:
+```
+mv .env.example .env.local
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/earvinpiamonte/nextjs-tailwindcss-template)
+Update the variables on the `.env.local` file.
 
-## Maintainer
+```
+vercel dev
+```
 
-This project is maintained by [Noel Earvin Piamonte](https://www.earvinpiamonte.com).
+## Production
 
-## Credits
-
-[Deploy button image](https://vercel.com/button) used on this `README.md` is owned by [Vercel](https://vercel.com).
+View the website at [earvinpiamonte.com](https://www.earvinpiamonte.com/).
