@@ -4,8 +4,9 @@ Welcome to the repository of my website since 2021. Built with [Next.js](https:/
 
 ## Prerequisites
 
-- Spotify Web API - cliend ID, secret and token
-- Cloudinary API - cloud name, key, secret and folder
+- [Spotify](https://developer.spotify.com/) Web API - cliend ID, secret and token
+- [Cloudinary](https://cloudinary.com/) API - cloud name, key, secret and folder
+- [Vercel CLI](https://vercel.com/cli) - CLI for local development
 
 ## File structure
 
