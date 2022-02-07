@@ -60,9 +60,7 @@ const handler = async (req, res) => {
     }
   }
 
-  // Finally...
   // Take screenshot
-
   const bufferString = await getBufferString(
     `${siteBaseURL}/social-preview?${new URLSearchParams(
       queryString
@@ -77,10 +75,5 @@ const handler = async (req, res) => {
   // Serve image
   res.redirect(308, getImage(newImage));
 };
-
-/*
-  Shout out to Ryan Filler @ryanfiller_
-  https://www.ryanfiller.com/blog/automatic-social-share-images/
-*/
 
 export default handler;
