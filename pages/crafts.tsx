@@ -8,7 +8,7 @@ import { getAllPostsFrontMatter } from '@/lib/mdx';
 
 const Crafts = ({ data }: { data?: CraftType[] }) => {
   const title = 'Crafts';
-  const description = `Some things I've built personally. Most of these are open source and
+  const description = `Things I've built personally. Most of these are open source and
          available on GitHub.`;
 
   return (
