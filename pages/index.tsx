@@ -46,7 +46,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
           </div>
           <div className="mb-20">
             <h2 className="text-xl text-gray-800 font-medium dark:text-gray-400">
-              Timeline
+              Experience
             </h2>
             <Experiences data={experiences} />
           </div>
