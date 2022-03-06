@@ -10,7 +10,7 @@ const Experiences = ({ data }: { data: ExperienceType[] }) => {
             Number(b.yearEnd) - Number(a.yearEnd ?? new Date().getFullYear())
         )
         .map((experienceItem, i) => (
-          <ExperienceItem key={i} {...experienceItem} />
+          <ExperienceItem key={i} index={i} {...experienceItem} />
         ))}
     </div>
   );
