@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="col-span-12 md:col-span-6">
               <div className="md:text-right md:mb-0 mb-4">
                 <a
-                  href="https://www.infor.com"
+                  href="https://www.freelancer.com/u/earvinpiamonte"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="app-link text-gray-800 dark:text-gray-400 text-sm font-normal"
