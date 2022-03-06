@@ -13,14 +13,13 @@ import {
 import NavItem from '@/components/NavItem';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
+import ThemeChanger from '@/components/ThemeChanger';
 
 const Nav = () => {
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const closeModal = () => setModalIsOpen(false);
-
-  const openModal = () => setModalIsOpen(true);
 
   useEffect(() => {
     document.body.style.overflowY = modalIsOpen ? 'hidden' : 'auto';
@@ -63,7 +62,7 @@ const Nav = () => {
           <div>
             <Link href="/">
               <a className="font-semibold text-xl tracking-tight text-purple-500">
-                <TerminalIcon className="w-6 h-6" />
+                <TerminalIcon className="w-8 h-8" />
               </a>
             </Link>
           </div>
@@ -92,10 +91,7 @@ const Nav = () => {
             <NavItem title="Blog" path="/blog" />
           </div>
           <div>
-            <Button className="mr-0 text-sm" pill={true} onClick={openModal}>
-              <ExternalLinkIcon className="w-4 h-4 inline-block mr-1" />
-              <span className="align-middle">Hire me</span>
-            </Button>
+            <ThemeChanger />
           </div>
         </div>
       </nav>
