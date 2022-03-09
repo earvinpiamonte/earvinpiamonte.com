@@ -12,34 +12,43 @@ const BlogPostItem = ({ ...post }: PostType) => {
   const { type, title, slug, date, categories, readingTime } = post;
 
   return (
-    <div className="mb-16">
-      <h2 className="text-xl mb-1">
-        <Link href={`/${type}/${slug}`}>
-          <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline dark:hover:text-purple-500">
-            {title}
-          </a>
-        </Link>
-      </h2>
-      <p className="mb-2 text-gray-600 text-sm">
-        <span className="mr-4">
-          <CalendarIcon className="w-4 h-4 mr-1 inline-block" />
-          <span className="align-middle">
-            {new Intl.DateTimeFormat('en-us', { dateStyle: 'long' }).format(
-              new Date(date)
-            )}
+    <div className="border dark:border-gray-600 flex mb-16 rounded-lg">
+      <div className="border-r dark:border-gray-600 flex-none rounded-l-lg w-32">
+        <div className="bg-purple-500 border-b border-purple-500 font-medium px-1 py-1 rounded-tl-lg text-center text-gray-200 uppercase">
+          {new Date(date).toLocaleString('en-US', { month: 'short' })}
+        </div>
+        <div className="bg-gray-100 dark:bg-black py-4 text-center">
+          <h3 className="dark:text-gray-400 font-medium mb-0 text-4xl text-gray-800">
+            {new Date(date).toLocaleString('en-US', { day: '2-digit' })}
+          </h3>
+        </div>
+        <div className="bg-gray-200 border-gray-200 border-t dark:bg-gray-800 dark:border-gray-600 rounded-bl-lg text-center">
+          <p className="dark:text-gray-400 mb-0 text-gray-600">
+            {new Date(date).toLocaleString('en-US', { year: 'numeric' })}
+          </p>
+        </div>
+      </div>
+      <div className="overflow-hidden px-4 py-5">
+        <h2 className="mb-1 text-xl truncate">
+          <Link href={`/${type}/${slug}`}>
+            <a className="dark:hover:text-purple-500 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline text-gray-800">
+              {title}
+            </a>
+          </Link>
+        </h2>
+        <p className="mb-2 text-gray-600 text-sm">
+          <span>
+            <LightningBoltIcon className="h-4 inline-block mr-1 w-4" />
+            <span className="align-middle">
+              {readingTime.text ?? '1 min read'}
+            </span>
           </span>
-        </span>
-        <span>
-          <LightningBoltIcon className="w-4 h-4 mr-1 inline-block" />
-          <span className="align-middle">
-            {readingTime.text ?? '1 min read'}
-          </span>
-        </span>
-      </p>
-      <p className="mb-0 text-gray-600 text-sm">
-        <BookmarkIcon className="w-4 h-4 mr-1 inline-block" />
-        <span className="align-middle">{categories.join(', ')}</span>
-      </p>
+        </p>
+        <p className="mb-0 text-gray-600 text-sm truncate">
+          <BookmarkIcon className="h-4 inline-block mr-1 w-4" />
+          <span className="align-middle">{categories.join(', ')}</span>
+        </p>
+      </div>
     </div>
   );
 };
