@@ -19,7 +19,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
         <div className="bg-purple-500 border-b border-purple-500 font-medium px-1 py-1 rounded-tl-lg text-center text-gray-200 uppercase">
           {shortMonth}
         </div>
-        <div className="bg-gray-100 dark:bg-black py-2 text-center">
+        <div className="bg-gray-100 dark:bg-gray-900 py-2 text-center">
           <h3 className="dark:text-gray-400 font-medium mb-0 text-4xl text-gray-800">
             {day}
           </h3>
