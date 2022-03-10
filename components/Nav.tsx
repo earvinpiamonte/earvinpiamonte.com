@@ -89,7 +89,7 @@ const Nav = () => {
             <NavItem title="Portfolio" path="/portfolio" />
             <NavItem title="Crafts" path="/crafts" />
             <NavItem title="Blog" path="/blog" />
-            <NavItem title="My Gear" path="/my-gear" />
+            <NavItem title="Kit" path="/kit" />
           </div>
           <div>
             <ThemeChanger />
