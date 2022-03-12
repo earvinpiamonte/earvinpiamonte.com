@@ -63,7 +63,7 @@ const CraftTemplate = ({
           <p className={`text-gray-600 text-sm ${hasURLs ? 'mb-4' : 'mb-12'}`}>
             <CodeIcon className="w-4 h-4 mr-1 inline-block" />
             <span className="align-middle mr-1">
-              <span>{categories.join(', ')}</span>.
+              <span>{categories.join(', ')}</span>
             </span>
           </p>
         )}
