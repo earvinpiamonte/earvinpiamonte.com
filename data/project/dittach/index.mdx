@@ -1,0 +1,53 @@
+---
+type: 'project'
+title: 'Dittach'
+year: 2015
+featuredImage: true
+thumbnail: true
+summary: 'Dittach responsive landing page.'
+categories:
+  - 'Bootstrap'
+  - 'PSD to HTML'
+---
+
+A PSD to HTML project with 2 static pages: a landing page that contains a YouTube video player and a success page after sign up.
+
+## Design
+
+The client provided all the design in PSD and I manually crafted it into web pages using Bootstrap.
+
+## Code snippet
+
+```javascript
+$(document).ready(function () {
+  var youtube_src = 'https://www.youtube.com/embed/GC2qk2X3fKA?autoplay=1';
+
+  $('#btn-play-circle').on('click', function () {
+    $(this).hide();
+    $('#youtube-container').show();
+    $('#youtube-video').attr('src', youtube_src);
+  });
+
+  $('#btn-play-circle').hover(
+    function () {
+      $(this).find('img').attr('src', 'dist/img/img-play-dark.png');
+    },
+    function () {
+      $(this).find('img').attr('src', 'dist/img/img-play.png');
+    }
+  );
+
+  $('#form-main').on('submit', function () {
+    if ($('#email_address').val().length < 1) {
+      $('#form-main-error').show();
+      return false;
+    } else {
+      return true;
+    }
+  });
+});
+```
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/Website-Design-HTML.1/Build-Website.7088738/](https://www.freelancer.com/projects/Website-Design-HTML.1/Build-Website.7088738/).
