@@ -1,0 +1,91 @@
+---
+type: 'project'
+title: 'Payment web page with Authorize.net'
+year: 2018
+featuredImage: true
+thumbnail: true
+summary: 'Payment web page with Authorize.net.'
+categories:
+  - 'Authorize.net'
+  - 'Payment API'
+  - 'Bootstrap'
+---
+
+A payment web page that uses Authorize.net API.
+
+## Code snippet
+
+```php
+if ($this->form_validation->run()) {
+
+  // Get subscription
+  $subscription = $this->config->item('subscription');
+
+  // Set ref id
+  $ref_id = 'ref'.time();
+
+  // Create the payment data for a credit card
+  $credit_card = $this->Authorize->credit_card_type();
+  $credit_card->setCardNumber($card_number);
+  $credit_card->setExpirationDate(str_replace('/', '-', $expiration_date));
+  $credit_card->setCardCode($cvv);
+
+  // Add the payment data to a paymentType object
+  $payment_one = $this->Authorize->payment_type();
+  $payment_one->setCreditCard($credit_card);
+
+  // Create order information
+  $order = $this->Authorize->order_type();
+  $order->setDescription($subscription['description']);
+
+  // Set the customer's Bill To address
+  $customer_address = $this->Authorize->customer_address_type();
+  $customer_address->setFirstName($first_name);
+  $customer_address->setLastName($last_name);
+  $customer_address->setAddress($address_1.' '.$address_2);
+  $customer_address->setCity($city);
+  $customer_address->setState($state);
+  $customer_address->setZip($zip_code);
+  $customer_address->setCountry($country);
+  $customer_address->setPhoneNumber($phone_number);
+
+  // Set the customer's identifying information
+  $customer_data = $this->Authorize->customer_data_type();
+  $customer_data->setType('individual');
+  $customer_data->setId(time());
+  $customer_data->setEmail($email_address);
+
+  // Create a TransactionRequestType object and add the previous objects to it
+  $transaction_request_type = $this->Authorize->transaction_request_type();
+  $transaction_request_type->setTransactionType('authCaptureTransaction');
+  $transaction_request_type->setAmount($amount);
+  $transaction_request_type->setOrder($order);
+  $transaction_request_type->setPayment($payment_one);
+  $transaction_request_type->setBillTo($customer_address);
+  $transaction_request_type->setCustomer($customer_data);
+
+  // Assemble the complete transaction request
+  $request = $this->Authorize->create_transaction_request();
+  $request->setMerchantAuthentication($this->Authorize->init());
+  $request->setRefId($ref_id);
+  $request->setTransactionRequest($transaction_request_type);
+
+  // Create the controller and get the response
+  $controller = $this->Authorize->create_transaction_controller($request);
+  $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
+
+  if ($response != null) {
+    // ...
+  } else {
+    $alert = array(
+      'class' => 'alert-warning',
+      'text' => 'No response returned.'
+    );
+  }
+
+}
+```
+
+## Project post
+
+You may view the project posted at [https://www.freelancer.com/projects/php/Need-PHP-expert-17536433](https://www.freelancer.com/projects/php/Need-PHP-expert-17536433).
