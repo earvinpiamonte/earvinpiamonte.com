@@ -20,6 +20,9 @@ module.exports = {
       '!pages/social-preview.tsx',
     ],
   },
+  images: {
+    domains: ['i.scdn.co'],
+  },
   i18n: {
     locales: ['en-US'],
     defaultLocale: 'en-US',

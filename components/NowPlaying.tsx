@@ -1,6 +1,6 @@
-import useSWR from 'swr';
-
+import Image from 'next/image';
 import fetcher from '@/lib/fetcher';
+import useSWR from 'swr';
 
 const NowPlaying = () => {
   const { data } = useSWR('/api/now-playing', fetcher);
@@ -8,7 +8,7 @@ const NowPlaying = () => {
   return (
     <div className="flex items-center text-sm">
       <svg
-        className={`flex-none h-4 w-4 text-gray-500 mr-1 ${
+        className={`flex-none h-4 mr-2 text-gray-500 w-4 ${
           data?.songUrl && 'animate-pulse'
         }`}
         viewBox="0 0 168 168"
@@ -19,23 +19,34 @@ const NowPlaying = () => {
         ></path>
       </svg>
       <>
-        <span className="mr-2 md:mr-4 flex-none text-gray-800 dark:text-gray-400">
+        <span className="dark:text-gray-400 flex-none md:mr-4 mr-2 text-gray-800">
           <span>
             Now playing <span className="hidden md:inline">on Spotify</span>:
           </span>
         </span>
         {data?.songUrl ? (
-          <a
-            className="truncate"
-            href={data.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="font-medium text-gray-800 dark:text-gray-400">
-              {data.title}
-            </span>{' '}
-            &middot; <span className="text-gray-600">{data?.artist}</span>
-          </a>
+          <>
+            <span className="bg-gray-500 flex-none h-5 inline-block mr-2 relative rounded w-5">
+              <Image
+                src={data?.albumImageUrlSmall}
+                alt="Album art"
+                draggable={false}
+                layout="fill"
+                className="rounded"
+              />
+            </span>
+            <a
+              className="truncate"
+              href={data.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="dark:text-gray-400 font-medium text-gray-800">
+                {data.title}
+              </span>{' '}
+              &middot; <span className="text-gray-600">{data?.artist}</span>
+            </a>
+          </>
         ) : (
           <span className="text-gray-600">
             Currently not playing any music.
