@@ -14,9 +14,9 @@ const BlogPostItem = ({ ...post }: PostType) => {
   const year = postDate.toLocaleString(locale, { year: 'numeric' });
 
   return (
-    <div className="border dark:border-gray-600 flex mb-16 rounded-lg">
-      <div className="border-r dark:border-gray-600 flex-none rounded-l-lg w-28">
-        <div className="bg-purple-500 border-b border-purple-500 font-medium px-1 py-1 rounded-tl-lg text-center text-gray-200 uppercase">
+    <div className="flex mb-16">
+      <div className="flex-none rounded-lg w-28">
+        <div className="bg-purple-500 font-medium px-1 py-1 rounded-t-lg text-center text-gray-200 uppercase">
           {shortMonth}
         </div>
         <div className="bg-gray-100 dark:bg-gray-900 py-2 text-center">
@@ -24,7 +24,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
             {day}
           </h3>
         </div>
-        <div className="bg-gray-200 border-gray-200 border-t dark:bg-gray-800 dark:border-gray-600 rounded-bl-lg text-center">
+        <div className="bg-gray-200 dark:bg-gray-800 rounded-b-lg text-center">
           <p className="dark:text-gray-400 mb-0 text-gray-600">{year}</p>
         </div>
       </div>
