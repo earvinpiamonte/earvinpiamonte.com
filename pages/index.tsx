@@ -41,7 +41,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               >
                 things
               </a>{' '}
-              for the web with React and Tailwind CSS.
+              for the web with React/ Next.js, TypeScript and Tailwind CSS.
             </p>
           </div>
           <div className="mb-20">
