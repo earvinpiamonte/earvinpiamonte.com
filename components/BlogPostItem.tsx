@@ -15,7 +15,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
 
   return (
     <div className="flex mb-16">
-      <div className="flex-none rounded-lg w-24">
+      <div className="flex-none rounded-lg w-28 p-1 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500">
         <div className="bg-purple-500 font-medium px-1 py-1 rounded-t-lg text-center text-gray-200 uppercase">
           {shortMonth}
         </div>
