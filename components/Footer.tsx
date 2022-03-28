@@ -13,11 +13,11 @@ const { name } = publicRuntimeConfig.site;
 const Footer = () => {
   return (
     <>
-      <section className="py-3 border-t-2 border-purple-500">
+      <div className="py-3 border-t-2 border-purple-500">
         <Container>
           <NowPlaying />
         </Container>
-      </section>
+      </div>
       <section className="py-8 border-t dark:border-gray-800">
         <Container>
           <div className="flex space-x-4">
