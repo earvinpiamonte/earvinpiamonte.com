@@ -85,7 +85,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
-                    href="https://drive.google.com/file/d/1eWaTKd4fjZ6E8BjOt0HxIH-7OF47I_k-/view"
+                    href="https://www.earv.in/resume"
                   >
                     Resume
                   </CustomLink>
