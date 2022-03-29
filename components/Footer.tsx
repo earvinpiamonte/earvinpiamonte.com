@@ -93,17 +93,17 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
-                    href="https://about.me/earvinpiamonte"
+                    href="mailto:earvin.piamonte@gmail.com"
                   >
-                    about.me
+                    Email
                   </CustomLink>
                 </li>
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
-                    href="https://www.buymeacoffee.com/earvinpiamonte"
+                    href="https://about.me/earvinpiamonte"
                   >
-                    Buy Me a Coffee
+                    about.me
                   </CustomLink>
                 </li>
               </ul>
