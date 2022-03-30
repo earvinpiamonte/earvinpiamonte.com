@@ -18,7 +18,7 @@ const Footer = () => {
           <NowPlaying />
         </Container>
       </div>
-      <section className="py-8 border-t dark:border-gray-800">
+      <section className="pt-6 pb-12 border-t dark:border-gray-800">
         <Container>
           <div className="flex space-x-4">
             <div className="flex-1">
