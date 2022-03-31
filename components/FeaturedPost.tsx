@@ -1,22 +1,21 @@
 import React from 'react';
 
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 import { ExternalLinkIcon } from '@heroicons/react/outline';
 
 import Button from '@/components/Button';
 
 const FeaturedPost = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { theme } = useTheme();
 
-  // When mounted on client, now we can show the UI
   React.useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <div className="bg-purple-100 text-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-lg px-4 py-4">
+    <div className="bg-gray-200 text-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-lg px-4 py-4">
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-2">
           <Image
