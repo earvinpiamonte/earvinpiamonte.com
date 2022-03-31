@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex space-x-4">
             <div className="flex-1">
               <h2 className="font-semibold text-sm mb-3">Open source</h2>
-              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3">
+              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
             <div className="flex-1">
               <h2 className="font-semibold text-sm mb-3">Hire me</h2>
-              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3">
+              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
@@ -81,7 +81,7 @@ const Footer = () => {
             </div>
             <div className="flex-1">
               <h2 className="font-semibold text-sm mb-3">Other links</h2>
-              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3">
+              <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
                     className="text-normal hover:text-purple-500 hover:underline"
