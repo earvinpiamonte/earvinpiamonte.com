@@ -16,7 +16,7 @@ const FeaturedPost = () => {
   if (!mounted) return null;
 
   return (
-    <div className="bg-purple-100 text-gray-600 dark:bg-purple-800 dark:text-gray-200 rounded-lg px-4 py-4">
+    <div className="bg-purple-100 text-gray-600 dark:bg-gray-900 dark:text-gray-200 rounded-lg px-4 py-4">
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-2">
           <Image
@@ -37,7 +37,7 @@ const FeaturedPost = () => {
         </div>
         <div className="col-span-10 col-start-3 md:col-span-3 md:self-center md:text-center">
           <Button
-            color={theme === 'dark' ? 'green' : 'purple'}
+            color={'purple'}
             pill={true}
             src="https://chrome.google.com/webstore/detail/daylight/acfblhlodbfnocogojghkgnpoellplll"
             className="text-sm"
