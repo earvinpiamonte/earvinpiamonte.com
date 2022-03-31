@@ -16,15 +16,15 @@ const BlogPostItem = ({ ...post }: PostType) => {
   return (
     <div className="flex mb-16">
       <div className="flex-none rounded-lg w-28 p-1 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500">
-        <div className="bg-purple-500 font-medium px-1 py-1 rounded-t-lg text-center text-gray-200 uppercase">
+        <div className="bg-gray-900 font-medium px-1 py-1 rounded-t-lg text-center text-gray-200 uppercase">
           {shortMonth}
         </div>
-        <div className="bg-gray-100 dark:bg-gray-900 py-1 text-center">
+        <div className="bg-gray-100 dark:bg-gray-800 py-1 text-center">
           <h3 className="dark:text-gray-400 font-medium mb-0 text-4xl text-gray-800">
             {day}
           </h3>
         </div>
-        <div className="bg-gray-200 dark:bg-gray-800 rounded-b-lg text-center">
+        <div className="bg-gray-200 dark:bg-gray-700 rounded-b-lg text-center">
           <p className="dark:text-gray-400 mb-0 text-gray-600">{year}</p>
         </div>
       </div>
