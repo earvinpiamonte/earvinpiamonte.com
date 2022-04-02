@@ -11,5 +11,9 @@
   "portfolio": {
     "title": "Portfolio",
     "subTitle": "Projects I built for various clients."
+  },
+  "playlist": {
+    "title": "Playlist",
+    "subTitle": "Top tracks, movies and TV shows."
   }
 }

@@ -21,7 +21,7 @@ module.exports = {
     ],
   },
   images: {
-    domains: ['i.scdn.co'],
+    domains: ['i.scdn.co', 'image.tmdb.org'],
   },
   i18n: {
     locales: ['en-US'],
