@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import fetcher from '@/lib/fetcher';
 import useSWR from 'swr';
 
+import fetcher from '@/lib/fetcher';
+
 const NowPlaying = () => {
-  const { data } = useSWR('/api/now-playing', fetcher);
+  const { data } = useSWR('/api/spotify/now-playing', fetcher);
 
   return (
     <div className="flex items-center text-sm">
