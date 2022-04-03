@@ -5,7 +5,7 @@ import TopTracks from '@/components/TopTracks';
 
 const Playlist = () => {
   const title = 'Playlist';
-  const description = `Top tracks I often listen to — automatically added by Spotify; Recommended list of movies and TV shows I've watched.`;
+  const description = `Top tracks I often listen to on Spotify and a list of movies and TV shows I enjoyed watching.`;
 
   return (
     <Layout {...{ title, description }}>
