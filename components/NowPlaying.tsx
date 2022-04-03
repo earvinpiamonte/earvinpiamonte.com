@@ -30,7 +30,7 @@ const NowPlaying = () => {
             <span className="bg-gray-500 flex-none h-5 inline-block mr-2 relative rounded w-5">
               <Image
                 src={data?.albumImageUrlSmall}
-                alt="Album art"
+                alt="Cover art"
                 draggable={false}
                 layout="fill"
                 className="rounded"

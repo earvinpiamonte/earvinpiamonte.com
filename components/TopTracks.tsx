@@ -43,7 +43,7 @@ const TopTracks = () => {
             <div className="flex-none w-10 h-10 mr-4 relative">
               <Image
                 src={albumImageUrl}
-                alt="Album art"
+                alt="Cover art"
                 draggable={false}
                 layout="fill"
                 className="rounded"

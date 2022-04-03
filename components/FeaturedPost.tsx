@@ -20,7 +20,7 @@ const FeaturedPost = () => {
         <div className="col-span-2">
           <Image
             src="/images/daylight-icon.jpg"
-            alt="Picture of the author"
+            alt="Featured post icon"
             width={92}
             height={92}
             className="rounded-lg"

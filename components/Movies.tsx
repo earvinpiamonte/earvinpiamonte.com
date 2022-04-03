@@ -21,7 +21,7 @@ const Movies = () => {
                   width={500}
                   height={750}
                   className="rounded"
-                  alt={`Screenshot of ${title}`}
+                  alt={`${title} poster`}
                 />
               </div>
               <div className="overflow-hidden mb-4">
