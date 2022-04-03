@@ -56,7 +56,7 @@ const TopTracks = () => {
             <div className="flex-none pr-4">{duration}</div>
           </div>
         ))}
-      <p className="mb-0 text-gray-600 text-sm md:text-right">
+      <p className="mb-0 text-gray-600 text-sm">
         Top tracks, currently playing data and images source:{' '}
         <CustomLink href="https://developer.spotify.com/documentation/web-api/">
           Spotify
