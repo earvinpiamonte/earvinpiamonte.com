@@ -21,6 +21,7 @@ const TopTracks = () => {
           <ClockIcon className="inline-block w-5 h-5 text-gray-800 dark:text-gray-400" />
         </div>
       </div>
+      {!data && <TopTracksPlaceholder />}
       {data &&
         data.map(({ title, songUrl, artist, albumImageUrl, duration }, i) => (
           <div
@@ -63,6 +64,65 @@ const TopTracks = () => {
         .
       </p>
     </div>
+  );
+};
+
+const TopTracksPlaceholder = () => {
+  return (
+    <>
+      <div className="flex mb-4 items-center py-1 pl-4 animate-pulse cursor-wait">
+        <div className="flex-none mr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-5"></div>
+        </div>
+        <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
+        <div className="flex-1 space-y-2">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-52"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-52 rounded w-32"></div>
+        </div>
+        <div className="flex-none pr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
+        </div>
+      </div>
+      <div className="flex mb-4 items-center py-1 pl-4 animate-pulse cursor-wait">
+        <div className="flex-none mr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-5"></div>
+        </div>
+        <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
+        <div className="flex-1 space-y-2">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-60"></div>
+        </div>
+        <div className="flex-none pr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
+        </div>
+      </div>
+      <div className="flex mb-4 items-center py-1 pl-4 animate-pulse cursor-wait">
+        <div className="flex-none mr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-5"></div>
+        </div>
+        <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
+        <div className="flex-1 space-y-2">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-52"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-52 rounded w-32"></div>
+        </div>
+        <div className="flex-none pr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
+        </div>
+      </div>
+      <div className="flex mb-4 items-center py-1 pl-4 animate-pulse cursor-wait">
+        <div className="flex-none mr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-5"></div>
+        </div>
+        <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
+        <div className="flex-1 space-y-2">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-60"></div>
+        </div>
+        <div className="flex-none pr-4">
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
+        </div>
+      </div>
+    </>
   );
 };
 
