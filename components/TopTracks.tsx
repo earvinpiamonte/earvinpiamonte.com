@@ -21,7 +21,7 @@ const TopTracks = () => {
           <ClockIcon className="inline-block w-5 h-5 text-gray-800 dark:text-gray-400" />
         </div>
       </div>
-      {data && <TopTracksPlaceholder />}
+      {!data && <TopTracksPlaceholder />}
       {data &&
         data.map(({ title, songUrl, artist, albumImageUrl, duration }, i) => (
           <div
