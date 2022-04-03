@@ -90,7 +90,7 @@ const TopTracksPlaceholder = () => {
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-48"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-36"></div>
         </div>
         <div className="flex-none pr-4">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
@@ -116,7 +116,7 @@ const TopTracksPlaceholder = () => {
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-48"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-36"></div>
         </div>
         <div className="flex-none pr-4">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
