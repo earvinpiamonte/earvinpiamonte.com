@@ -9,29 +9,31 @@ const Movies = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-4">
-        {!data && <MoviesPlaceholder />}
-        {data &&
-          data.map(({ id, title, thumbnail, date }) => (
-            <div key={id}>
-              <div>
-                <Image
-                  src={thumbnail}
-                  draggable={false}
-                  width={500}
-                  height={750}
-                  className="rounded"
-                  alt={`${title} poster`}
-                />
+      <div className="mb-4">
+        <div className="grid grid-cols-3 gap-4">
+          {!data && <MoviesPlaceholder />}
+          {data &&
+            data.map(({ id, title, thumbnail, date }) => (
+              <div key={id}>
+                <div>
+                  <Image
+                    src={thumbnail}
+                    draggable={false}
+                    width={500}
+                    height={750}
+                    className="rounded"
+                    alt={`${title} poster`}
+                  />
+                </div>
+                <div className="overflow-hidden mb-4">
+                  <p className="mb-0 truncate font-medium">{title}</p>
+                  <p className="mb-0">{date}</p>
+                </div>
               </div>
-              <div className="overflow-hidden mb-4">
-                <p className="mb-0 truncate font-medium">{title}</p>
-                <p className="mb-0">{date}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
-      <p className="mb-0 text-gray-600 text-sm md:text-right">
+      <p className="mb-0 text-gray-600 text-sm">
         Movies, TV shows data and images source:{' '}
         <CustomLink href="https://developers.themoviedb.org/3">TMDB</CustomLink>
         .
