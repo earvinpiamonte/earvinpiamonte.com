@@ -21,7 +21,7 @@ const TopTracks = () => {
           <ClockIcon className="inline-block w-5 h-5 text-gray-800 dark:text-gray-400" />
         </div>
       </div>
-      {!data && <TopTracksPlaceholder />}
+      {data && <TopTracksPlaceholder />}
       {data &&
         data.map(({ title, songUrl, artist, albumImageUrl, duration }, i) => (
           <div
@@ -56,7 +56,7 @@ const TopTracks = () => {
             <div className="flex-none pr-4">{duration}</div>
           </div>
         ))}
-      <p className="mb-0 text-gray-600 text-sm text-right">
+      <p className="mb-0 text-gray-600 text-sm md:text-right">
         Top tracks, currently playing data and images source:{' '}
         <CustomLink href="https://developer.spotify.com/documentation/web-api/">
           Spotify
@@ -76,7 +76,7 @@ const TopTracksPlaceholder = () => {
         </div>
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-52"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-40"></div>
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-52 rounded w-32"></div>
         </div>
         <div className="flex-none pr-4">
@@ -90,7 +90,7 @@ const TopTracksPlaceholder = () => {
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-60"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-48"></div>
         </div>
         <div className="flex-none pr-4">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
@@ -102,7 +102,7 @@ const TopTracksPlaceholder = () => {
         </div>
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-52"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-80 rounded w-40"></div>
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-52 rounded w-32"></div>
         </div>
         <div className="flex-none pr-4">
@@ -116,7 +116,7 @@ const TopTracksPlaceholder = () => {
         <div className="bg-gray-200 dark:bg-gray-800 flex-none h-10 mr-4 relative rounded w-10"></div>
         <div className="flex-1 space-y-2">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-32 rounded w-20"></div>
-          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-60"></div>
+          <div className="bg-gray-200 dark:bg-gray-800 h-4 md:w-64 rounded w-48"></div>
         </div>
         <div className="flex-none pr-4">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-8"></div>
