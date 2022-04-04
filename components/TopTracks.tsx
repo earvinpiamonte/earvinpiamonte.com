@@ -70,7 +70,7 @@ const TopTracks = () => {
 const TopTracksPlaceholder = () => {
   return (
     <>
-      <div className="flex mb-4 items-center py-1 pl-4 animate-pulse cursor-wait">
+      <div className="flex mb-4 items-center py-2 pl-4 animate-pulse cursor-wait">
         <div className="flex-none mr-4">
           <div className="bg-gray-200 dark:bg-gray-800 h-4 rounded w-5"></div>
         </div>
