@@ -21,7 +21,7 @@ const Movies = () => {
                     draggable={false}
                     width={500}
                     height={750}
-                    className="rounded"
+                    className="bg-gray-200 dark:bg-gray-800 rounded"
                     alt={`${title} poster`}
                   />
                 </div>
