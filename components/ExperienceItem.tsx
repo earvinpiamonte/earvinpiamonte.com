@@ -7,7 +7,7 @@ const ExperienceItem = (props) => {
     <>
       <div className="flex items-center -mt-1">
         <CheckCircleIcon
-          className={`w-6 h-6 mr-2.5 flex-none ${
+          className={`w-6 h-6 mr-3 flex-none ${
             index === 0 ? 'text-purple-500' : 'text-purple-500'
           }`}
         />
