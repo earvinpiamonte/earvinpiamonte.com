@@ -114,7 +114,7 @@ const Footer = () => {
       <footer className="py-8 border-t dark:border-gray-800">
         <Container>
           <div className="grid grid-cols-12 gap-4 items-center">
-            <div className="col-span-12 md:col-span-6 md:order-first">
+            <div className="col-span-12 md:col-span-12 md:order-first">
               <p className="text-sm text-gray-800 dark:text-gray-400 md:mb-0 mb-0">
                 Designed and built by {name}.
               </p>
