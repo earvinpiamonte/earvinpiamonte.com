@@ -186,3 +186,104 @@ pre {
 /* Stop purging. */
 
 /* Your own custom utilities */
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-MediumItalic.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-SemiBoldItalic.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'DM Mono';
+    font-weight: 400;
+    src: url('/fonts/DM_Mono/DMMono-Regular.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'DM Mono';
+    font-weight: 500;
+    src: url('/fonts/DM_Mono/DMMono-Medium.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'DM Mono';
+    font-weight: 400;
+    font-style: italic;
+    src: url('/fonts/DM_Mono/DMMono-Italic.ttf');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'DM Mono';
+    font-weight: 500;
+    font-style: italic;
+    src: url('/fonts/DM_Mono/DMMono-MediumItalic.ttf');
+  }
+}
