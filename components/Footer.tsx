@@ -22,7 +22,9 @@ const Footer = () => {
         <Container>
           <div className="flex space-x-4">
             <div className="flex-1">
-              <h2 className="font-semibold text-sm mb-3">Open source</h2>
+              <h2 className="font-semibold text-sm mb-3 uppercase">
+                Open source
+              </h2>
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
@@ -51,7 +53,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex-1">
-              <h2 className="font-semibold text-sm mb-3">Hire me</h2>
+              <h2 className="font-semibold text-sm mb-3 uppercase">Hire me</h2>
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
@@ -80,7 +82,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex-1">
-              <h2 className="font-semibold text-sm mb-3">Other links</h2>
+              <h2 className="font-semibold text-sm mb-3 uppercase">
+                Other links
+              </h2>
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink

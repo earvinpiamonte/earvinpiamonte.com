@@ -28,7 +28,9 @@ const FeaturedPost = () => {
           />
         </div>
         <div className="col-span-10 md:col-span-7">
-          <h4 className="mb-2 font-medium">Get daylight on Web Store</h4>
+          <h2 className="mb-2 font-medium text-xl">
+            Get daylight on Web Store
+          </h2>
           <p className="mb-0 text-sm">
             Write down temporary notes on the new tab page of your Google Chrome
             browser.

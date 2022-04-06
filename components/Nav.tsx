@@ -61,7 +61,10 @@ const Nav = () => {
         <div className="w-full lg:w-auto lg:mr-12 flex items-center justify-between py-1 lg:py-0 lg:px-0">
           <div>
             <Link href="/">
-              <a className="font-semibold text-xl tracking-tight text-purple-500">
+              <a
+                className="font-semibold text-xl tracking-tight text-purple-500"
+                aria-label="Home"
+              >
                 <TerminalIcon className="w-8 h-8" />
               </a>
             </Link>
