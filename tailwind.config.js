@@ -1,4 +1,5 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const { fontFamily } = require('tailwindcss/defaultTheme');
+const { sans, mono } = fontFamily;
 
 module.exports = {
   purge: [
@@ -10,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
-        mono: ['DM Mono', ...defaultTheme.fontFamily.mono],
+        sans: ['Montserrat', ...sans],
+        mono: ['DM Mono', ...mono],
       },
     },
   },
