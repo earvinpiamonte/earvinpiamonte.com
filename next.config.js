@@ -36,7 +36,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/:path*',
         headers: securityHeaders,
       },
       {
@@ -109,5 +109,9 @@ const securityHeaders = [
   {
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
   },
 ];
