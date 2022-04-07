@@ -1,0 +1,283 @@
+---
+type: 'post'
+date: '2022-04-08'
+title: 'La Lune'
+summary: 'Yet another serverless function.'
+featuredImage: true
+categories:
+  - JavaScript
+  - Node.js
+  - Serverless
+---
+
+felt emo, made another serverless function.
+
+So I was browsing random websites and for some unknown reason I revisited the website of an electric utility company in Baguio City, Beneco. And I noticed that the website had an update from the last time I visited it. It now features a "Scheduled Interruptions" table.
+
+Now, this is helpful because consumers can easily check for the scheduled power interruptions and prepare ahead of time for the outage. At least for me since I don't have Facebook. Beneco regularly posts updates on their FB page. But I don't like visiting their page just to check for updates.
+
+So it got me thinking to write some function that will scrape Beneco's website, specifically getting the data from the "Scheduled Interruptions" table and send the data over to my email, still in table format.
+
+I quickly opened up a workspace at [napkin.io](https://napkin.io/) and started coding.
+
+## Verse 1
+
+The function that I built have the following operations:
+
+1. fetch and parse the schedules from the website - [beneco.com.ph](https://www.beneco.com.ph/)
+1. construct an email template with the schedules in table format
+1. send the email to my address (scheduled)
+
+## Verse 2
+
+The first function I wrote for the API endpoint was to fetch the schedules from the website.
+
+```javascript
+const getSchedules = async () => {
+  const { data } = await axios.get('https://www.beneco.com.ph');
+  const { schedules } = parseHtml(data);
+
+  return schedules;
+};
+```
+
+Actually, before that, I first installed `axios`, `cheerio` and `nodemailer` on my workspace at Napkin.
+
+To parse the data from the website, I used [cheerio](https://cheerio.js.org/). Cheerio parses the HTML and provides an easy way to access the data in the HTML document.
+
+Here's the function I came up returning an array of schedule. The values for each schedule has `dateTime`, `purpose` and `areasAffected`. jQuery flashbacks hehe.
+
+```javascript
+const parseHtml = (html) => {
+  const $ = cheerio.load(html);
+  const schedules = [];
+
+  $('.table__interruptions tbody tr').each((_, tr) => {
+    const $tr = $(tr);
+    const dateTime = $tr.find('td:eq(0)').html().replace('<br>', ', ');
+    const purpose = $tr.find('td:eq(1)').text();
+    const areasAffected = $tr.find('td:eq(2)').text();
+
+    const schedule = {
+      dateTime,
+      purpose,
+      areasAffected,
+    };
+
+    schedules.push(schedule);
+  });
+
+  return { schedules };
+};
+```
+
+## Chorus
+
+The next thing I did was to construct the email template and a function that will send the email to my address.
+
+I decided to place the email body and its sections on separate functions so that I can easily update and use it anywhere.
+
+Here's the body of the email template.
+
+```javascript
+const EmailBody = (schedules) => {
+  return `
+    <h1>Scheduled Interruptions</h1>
+    ${Table(schedules)}
+  `;
+};
+```
+
+I used [nodemailer](https://nodemailer.com/) for the function that will send the email.
+
+```javascript
+const sendEmailNotification = async (emailBody) => {
+  const mailOptions = {
+    ...MAIL_OPTIONS,
+    html: emailBody,
+  };
+
+  const { accepted } = await transporter.sendMail(mailOptions);
+
+  return accepted;
+};
+```
+
+## Bridge
+
+Now, the function of the API endpoint:
+
+```javascript
+const handler = async (req, res) => {
+  const schedules = await getSchedules();
+  const emailBody = EmailBody(schedules);
+  const sent = await sendEmailNotification(emailBody);
+
+  const response = {
+    message: sent
+      ? 'Notification sent!'
+      : 'Something went wrong. Notification not sent.',
+  };
+
+  res.json(response);
+};
+```
+
+I usually assign a function to a `handler` variable and later on at the bottom I can just do `export default handler;`
+
+I also still use Gmail as the service for the email. And I added two env variables: `GOOGLE_USERNAME` and `GOOGLE_PASSWORD` on my workspace at Napkin.
+
+<Thumbnail
+  src="/images/post/la-lune/Screenshot from 2022-04-07 23-41-51.jpg"
+  alt="Screenshot of env variables"
+/>
+
+On the code, I access those variables at `process.env`.
+
+```javascript
+const { GOOGLE_APP_USERNAME, GOOGLE_APP_PASSWORD } = process.env;
+```
+
+## Outro
+
+Here's the whole code of the serverless function I wrote for this simple project.
+
+```javascript
+import axios from 'axios';
+import cheerio from 'cheerio';
+import nodemailer from 'nodemailer';
+
+const { GOOGLE_APP_USERNAME, GOOGLE_APP_PASSWORD } = process.env;
+
+const MAIL_OPTIONS = {
+  to: 'earvin.piamonte@gmail.com',
+  subject: 'Beneco Scheduled Interruptions',
+};
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: GOOGLE_APP_USERNAME,
+    pass: GOOGLE_APP_PASSWORD,
+  },
+});
+
+const handler = async (req, res) => {
+  const schedules = await getSchedules();
+  const emailBody = EmailBody(schedules);
+  const sent = await sendEmailNotification(emailBody);
+
+  const response = {
+    message: sent
+      ? 'Notification sent!'
+      : 'Something went wrong. Notification not sent.',
+  };
+
+  res.json(response);
+};
+
+const getSchedules = async () => {
+  const { data } = await axios.get('https://www.beneco.com.ph');
+  const { schedules } = parseHtml(data);
+
+  return schedules;
+};
+
+const parseHtml = (html) => {
+  const $ = cheerio.load(html);
+  const schedules = [];
+
+  $('.table__interruptions tbody tr').each((_, tr) => {
+    const $tr = $(tr);
+    const dateTime = $tr.find('td:eq(0)').html().replace('<br>', ', ');
+    const purpose = $tr.find('td:eq(1)').text();
+    const areasAffected = $tr.find('td:eq(2)').text();
+
+    const schedule = {
+      dateTime,
+      purpose,
+      areasAffected,
+    };
+
+    schedules.push(schedule);
+  });
+
+  return { schedules };
+};
+
+const sendEmailNotification = async (emailBody) => {
+  const mailOptions = {
+    ...MAIL_OPTIONS,
+    html: emailBody,
+  };
+
+  const { accepted } = await transporter.sendMail(mailOptions);
+
+  return accepted;
+};
+
+const EmailBody = (schedules) => {
+  return `
+    <h1>Scheduled Interruptions</h1>
+    ${Table(schedules)}
+  `;
+};
+
+const Table = (schedules) => {
+  return `
+    <div style="margin-bottom: 30px;">
+      <table style="overflow: scroll; border-collapse: collapse;">
+        ${TableHead()}
+        <tbody>
+          ${TableRows(schedules)}
+        </tbody>
+      </table>
+    </div>
+  `;
+};
+
+const TableHead = () => {
+  return `
+    <thead>
+      <tr>
+        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 10%">Date/ Time</th>
+        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 45%">Areas</th>
+        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 45%">Purpose</th>
+      </tr>
+    </thead>
+  `;
+};
+
+const TableRows = (schedules) => {
+  return schedules
+    .map(({ dateTime, areasAffected, purpose }) => {
+      return `
+      <tr>
+        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${dateTime}</td>
+        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${areasAffected}</td>
+        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${purpose}</td>
+      <tr>
+    `;
+    })
+    .join('');
+};
+
+export default handler;
+```
+
+There are standard ways in making email templates so that it could display nicely on most of the email clients but I'm happy with the markup I wrote for now.
+
+Lastly, I turned on the "Schedule" on the workspace so that this function will be triggered on a specific period.
+
+<Thumbnail
+  src="/images/post/la-lune/Screenshot from 2022-04-08 00-01-46.jpg"
+  alt="Screenshot of Schedule modal dialog on the workspace"
+/>
+
+With this function, I am now receiving email notifications that contain the scheduled power interruptions. Well, at least for now. If Beneco improves the security of their website or at least just made a breaking change, this function won't work.
+
+Thanks for reading.
+
+> "So we stay awake like we always do. And we try to recreate."
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=Lg9ynbR8CQI" />
