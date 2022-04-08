@@ -166,7 +166,8 @@ code[class*='language-'] {
 }
 
 pre[class*='language-'] {
-  @apply bg-gray-50 dark:bg-gray-900 rounded-md p-4 mb-8 whitespace-pre-wrap;
+  @apply bg-gray-50 dark:bg-gray-900 rounded-md p-4 mb-8;
+  max-height: 800px;
 }
 
 .remark-code-title {
