@@ -166,7 +166,7 @@ code[class*='language-'] {
 }
 
 pre[class*='language-'] {
-  @apply bg-gray-50 dark:bg-gray-900 rounded-md p-4 mb-8;
+  @apply bg-gray-50 dark:bg-gray-900 rounded-md p-4 mb-8 whitespace-pre-wrap;
 }
 
 .remark-code-title {
