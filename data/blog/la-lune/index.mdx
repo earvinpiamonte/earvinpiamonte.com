@@ -35,7 +35,7 @@ The first function I wrote for the API endpoint was to fetch the schedules from 
 ```javascript
 const getSchedules = async () => {
   const { data } = await axios.get('https://www.beneco.com.ph');
-  const { schedules } = parseHtml(data);
+  const { schedules } = parseSchedules(data);
 
   return schedules;
 };
@@ -48,7 +48,7 @@ To parse the data from the website, I used [cheerio](https://cheerio.js.org/). C
 Here's the function I came up returning an array of schedule. The values for each schedule has `dateTime`, `purpose` and `areasAffected`. jQuery flashbacks hehe.
 
 ```javascript
-const parseHtml = (html) => {
+const parseSchedules = (html) => {
   const $ = cheerio.load(html);
   const schedules = [];
 
@@ -180,12 +180,12 @@ const handler = async (req, res) => {
 
 const getSchedules = async () => {
   const { data } = await axios.get('https://www.beneco.com.ph');
-  const { schedules } = parseHtml(data);
+  const { schedules } = parseSchedules(data);
 
   return schedules;
 };
 
-const parseHtml = (html) => {
+const parseSchedules = (html) => {
   const $ = cheerio.load(html);
   const schedules = [];
 
