@@ -60,8 +60,8 @@ const parseHtml = (html) => {
 
     const schedule = {
       dateTime,
-      purpose,
       areasAffected,
+      purpose,
     };
 
     schedules.push(schedule);
@@ -83,7 +83,9 @@ Here's the body of the email template.
 const EmailBody = (schedules) => {
   return `
     <h1>Scheduled Interruptions</h1>
-    ${Table(schedules)}
+    <div style="margin-bottom: 30px;">
+      ${Table(schedules)}
+    </div>
   `;
 };
 ```
@@ -195,8 +197,8 @@ const parseHtml = (html) => {
 
     const schedule = {
       dateTime,
-      purpose,
       areasAffected,
+      purpose,
     };
 
     schedules.push(schedule);
@@ -219,30 +221,39 @@ const sendEmailNotification = async (emailBody) => {
 const EmailBody = (schedules) => {
   return `
     <h1>Scheduled Interruptions</h1>
-    ${Table(schedules)}
-  `;
-};
-
-const Table = (schedules) => {
-  return `
     <div style="margin-bottom: 30px;">
-      <table style="overflow: scroll; border-collapse: collapse;">
-        ${TableHead()}
-        <tbody>
-          ${TableRows(schedules)}
-        </tbody>
-      </table>
+      ${Table(schedules)}
     </div>
   `;
 };
 
+const Table = (schedules) => {
+  const styles = ['border-collapse: collapse', 'overflow: scroll'];
+
+  return `
+    <table style="${inlineStyles(styles)}">
+      ${TableHead()}
+      <tbody>
+        ${TableRows(schedules)}
+      </tbody>
+    </table>
+  `;
+};
+
 const TableHead = () => {
+  const styles = [
+    'font-weight: bold',
+    'text-align: left',
+    'border: 1px solid #ddd',
+    'padding: 8px',
+  ];
+
   return `
     <thead>
       <tr>
-        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 10%">Date/ Time</th>
-        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 45%">Areas</th>
-        <th style="font-weight: bold; text-align: left; border: 1px solid #ddd; padding: 8px; width: 45%">Purpose</th>
+        <th style="${inlineStyles(styles)} width: 10%">Date/ Time</th>
+        <th style="${inlineStyles(styles)} width: 45%">Areas</th>
+        <th style="${inlineStyles(styles)} width: 45%">Purpose</th>
       </tr>
     </thead>
   `;
@@ -250,17 +261,32 @@ const TableHead = () => {
 
 const TableRows = (schedules) => {
   return schedules
-    .map(({ dateTime, areasAffected, purpose }) => {
+    .map((schedule) => {
+      const cellValues = Object.values(schedule);
+
       return `
-      <tr>
-        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${dateTime}</td>
-        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${areasAffected}</td>
-        <td style="vertical-align: top; border: 1px solid #ddd; padding: 8px;">${purpose}</td>
-      <tr>
-    `;
+        <tr>
+          ${cellValues.map((value) => TableCell(value)).join('')}
+        <tr>
+      `;
     })
     .join('');
 };
+
+const TableCell = (value) => {
+  const styles = [
+    'vertical-align: top',
+    'border: 1px solid #ddd',
+    'padding: 8px',
+  ];
+
+  return `
+    <td style="${inlineStyles(styles)} padding: 8px;">${value}</td>
+  `;
+};
+
+const inlineStyles = (styles) =>
+  styles.length > 0 ? `${styles.join('; ')};` : '';
 
 export default handler;
 ```
