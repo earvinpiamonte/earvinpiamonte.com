@@ -8,7 +8,7 @@
 
 /* Write your own custom component styles here */
 p {
-  @apply mb-8;
+  @apply mb-8 leading-relaxed;
 }
 
 h1 {
