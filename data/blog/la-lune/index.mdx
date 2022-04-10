@@ -22,7 +22,7 @@ I quickly opened up a workspace at [napkin.io](https://napkin.io/) and started c
 
 ## Verse 1
 
-The function that I built have the following operations:
+The serverless function that I built have the following operations:
 
 1. fetch and parse the schedules from the website - [beneco.com.ph](https://www.beneco.com.ph/)
 1. construct an email template with the schedules in table format
@@ -45,7 +45,7 @@ Actually, before that, I first installed `axios`, `cheerio` and `nodemailer` on 
 
 To parse the data from the website, I used [cheerio](https://cheerio.js.org/). Cheerio parses the HTML and provides an easy way to access the data in the HTML document.
 
-Here's the function I came up returning an array of schedule. The values for each schedule has `dateTime`, `purpose` and `areasAffected`. jQuery flashbacks hehe.
+Here's the function I came up, returning an array of schedule. The values that I need for each schedule are `dateTime`, `areasAffected` and `purpose`. jQuery flashbacks hehe.
 
 ```javascript
 const parseSchedules = (html) => {
@@ -73,9 +73,9 @@ const parseSchedules = (html) => {
 
 ## Chorus
 
-The next thing I did was to construct the email template and a function that will send the email to my address.
+The next thing I did was to construct the email template and made a function that will send the email over to my address.
 
-I decided to place the email body and its sections on separate functions so that I can easily update and use it anywhere.
+I decided to place the parts of the markup on separate functions so that I can easily update, add styles and use it anywhere.
 
 Here's the body of the email template.
 
@@ -90,7 +90,7 @@ const EmailBody = (schedules) => {
 };
 ```
 
-I used [nodemailer](https://nodemailer.com/) for the function that will send the email.
+I used [nodemailer](https://nodemailer.com/) for sending the email notification.
 
 ```javascript
 const sendEmailNotification = async (emailBody) => {
@@ -107,7 +107,7 @@ const sendEmailNotification = async (emailBody) => {
 
 ## Bridge
 
-Now, the function of the API endpoint:
+Now, the main function of the API endpoint:
 
 ```javascript
 const handler = async (req, res) => {
@@ -125,16 +125,16 @@ const handler = async (req, res) => {
 };
 ```
 
-I usually assign a function to a `handler` variable and later on at the bottom I can just do `export default handler;`
+I usually name serverless functions `handler` and later on at the bottom I can just do `export default handler;`.
 
-I also still use Gmail as the service for the email. And I added two env variables: `GOOGLE_USERNAME` and `GOOGLE_PASSWORD` on my workspace at Napkin.
+I used Gmail as the service for sending email with Nodemailer. I also added two environment variables: `GOOGLE_USERNAME` and `GOOGLE_PASSWORD` on my workspace at Napkin.
 
 <Thumbnail
   src="/images/post/la-lune/Screenshot from 2022-04-07 23-41-51.jpg"
   alt="Screenshot of env variables"
 />
 
-On the code, I access those variables at `process.env`.
+On the code, I then access those variables at `process.env` with destructuring assignment.
 
 ```javascript
 const { GOOGLE_APP_USERNAME, GOOGLE_APP_PASSWORD } = process.env;
