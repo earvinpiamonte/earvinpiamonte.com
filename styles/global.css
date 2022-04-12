@@ -189,6 +189,7 @@ pre {
 /* Your own custom utilities */
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 400;
     src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf');
@@ -197,6 +198,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 500;
     src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf');
@@ -205,6 +207,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 600;
     src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
@@ -213,6 +216,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 700;
     src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf');
@@ -221,6 +225,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 400;
     font-style: italic;
@@ -230,6 +235,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 500;
     font-style: italic;
@@ -239,6 +245,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 600;
     font-style: italic;
@@ -248,6 +255,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'Montserrat';
     font-weight: 700;
     font-style: italic;
@@ -257,6 +265,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'DM Mono';
     font-weight: 400;
     src: url('/fonts/DM_Mono/DMMono-Regular.ttf');
@@ -265,6 +274,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'DM Mono';
     font-weight: 500;
     src: url('/fonts/DM_Mono/DMMono-Medium.ttf');
@@ -273,6 +283,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'DM Mono';
     font-weight: 400;
     font-style: italic;
@@ -282,6 +293,7 @@ pre {
 
 @layer base {
   @font-face {
+    font-display: swap;
     font-family: 'DM Mono';
     font-weight: 500;
     font-style: italic;
