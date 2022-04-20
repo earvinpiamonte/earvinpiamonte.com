@@ -1,0 +1,308 @@
+---
+type: 'post'
+date: '2022-04-21'
+title: 'Apologize'
+summary: '2 serverless fn + IFTTT WebHooks.'
+categories:
+  - JavaScript
+  - Node.js
+  - Serverless
+  - IFTTT
+  - Webhooks
+---
+
+IFTTT can trigger an event when an endpoint is hit with the use of Webhooks. Then when the event is triggered, I can use IFTTT to send a rich push notification to my device.
+
+With the use of IFTTT and two serverless functions that I made at [Napkin](https://napkin.io), I can now receive rich notifications when there's an update on <abbr title="Benguet Electric Cooperative">BENECO</abbr>'s scheduled interruptions.
+
+<div className="mb-8 pt-2 text-center bg-gray-200 dark:bg-gray-800 rounded-md">
+  <Image
+    src="/images/post/apologize/IMG_2060.jpg"
+    alt="Screenshot my iPhone lock screen"
+    width="300"
+    height="650"
+    draggable="false"
+    className="rounded-md"
+  />
+</div>
+
+There are three things I set up for this project:
+
+1. A serverless function scheduled every hour to check for the updated scheduled power interruptions. If there's an update, it hits the webhook on IFTTT.
+1. A serverless function that displays the scheduled interruptions scraped from [beneco.com.ph](https://www.beneco.com.ph).
+1. Webhooks on IFTTT.
+
+## Function #1
+
+A cloud function that regularly checks for updates with Function #2. If there's an update, it will make a web request to the IFTTT webhook endpoint.
+
+The problem I encountered was how and where should I store the latest scheduled interruptions state. Luckily, Napkin made it easy building stateful apps with their `napkin` module.
+
+I installed `napkin` from the "Modules" tab and imported it to the code workspace destructuring the `store` object.
+
+### Source code
+
+```javascript
+import axios from 'axios';
+import { store } from 'napkin';
+
+const { IFTTT_WEBHOOKS_KEY, SCHEDULES_URL } = process.env;
+
+const IFTTT_EVENT_TRIGGER = 'beneco_scheduled_interruptions_notification';
+const IFTTT_EVENT_TRIGGER_ENDPOINT = `https://maker.ifttt.com/trigger/${IFTTT_EVENT_TRIGGER}/with/key/${IFTTT_WEBHOOKS_KEY}`;
+const latestSchedulesCacheKey = 'latest-schedules';
+
+const handler = async (req, res) => {
+  const newSchedules = await getSchedules();
+  const newSchedulesString = JSON.stringify(newSchedules);
+
+  const cachedSchedulesString = await getCachedSchedules();
+
+  const isSchedulesUpdated = newSchedulesString != cachedSchedulesString;
+
+  if (isSchedulesUpdated) {
+    await setCachedSchedules(newSchedulesString);
+
+    const sent = await sendNotification(); // Congratulations! You've fired the beneco_scheduled_interruptions_notification json event
+
+    res.json({
+      message: sent,
+    });
+
+    return;
+  }
+
+  res.json({
+    message: 'No update on schedules.',
+  });
+};
+
+const sendNotification = async () => {
+  try {
+    const { data } = await axios.post(IFTTT_EVENT_TRIGGER_ENDPOINT);
+    return data;
+  } catch (_) {
+    return 'Something went wrong. Failed to send notification.';
+  }
+};
+
+const getSchedules = async () => {
+  const { data } = await axios.get(SCHEDULES_URL);
+
+  return data;
+};
+
+const setCachedSchedules = async (schedules) => {
+  await store.put(latestSchedulesCacheKey, schedules);
+};
+
+const getCachedSchedules = async () => {
+  const { data } = await store.get(latestSchedulesCacheKey);
+
+  return data;
+};
+
+export default handler;
+```
+
+License: MIT License · Copyright (c) 2022 Noel Earvin Piamonte
+
+So how do I know if the schedules are updated?
+
+First, I fetch the latest schedules from Function #2 API endpoint. I then store the result as a string with `JSON.stringify`.
+
+After that, I get the stored schedules with `napkin` module. If the stringified schedules is not equal to the stringified cached schedules, then that would mean that the schedules are updated. If it's updated then I store the latest schedules as string.
+
+## Function #2
+
+The function scrapes the latest schedules from [beneco.com.ph](https://www.beneco.com.ph) and displays the result in JSON format. By default, without the `json` slug as the "viewFormat" payload, it displays as a webpage.
+
+I use the webpage to view the schedules when I click on the rich notification from IFTTT on my device. I use the schedules JSON response to compare it to the cached schedules on Function #1.
+
+### Source code
+
+```javascript
+import axios from 'axios';
+import cheerio from 'cheerio';
+
+const jsonString = 'json';
+
+const handler = async (req, res) => {
+  const { viewFormat = 'html' } = req.params;
+  const schedules = await getSchedules();
+
+  if (viewFormat == jsonString) {
+    res.json(schedules);
+    return;
+  }
+
+  const html = Html(schedules);
+  res.send(html);
+};
+
+const getSchedules = async () => {
+  const { data } = await axios.get('https://www.beneco.com.ph');
+  const { schedules } = parseHtml(data);
+
+  return schedules;
+};
+
+const parseHtml = (html) => {
+  const $ = cheerio.load(html);
+  const schedules = [];
+
+  $('.table__interruptions tbody tr').each((_, tr) => {
+    const $tr = $(tr);
+    const dateTime = $tr.find('td:eq(0)').html().replace('<br>', ', ');
+    const purpose = $tr.find('td:eq(1)').text();
+    const areasAffected = $tr.find('td:eq(2)').text();
+
+    const schedule = {
+      dateTime,
+      areasAffected,
+      purpose,
+    };
+
+    schedules.push(schedule);
+  });
+
+  return { schedules };
+};
+
+const Html = (schedules) => {
+  return `
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+          }
+
+          body {
+            font-family: Arial, sans-serif;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        </style>
+        <title>Beneco Scheduled Interruptions</title>
+      </head>
+      <body>
+        <h1 style="margin-bottom: 15px;">Scheduled Interruptions</h1>
+        <div style="margin-bottom: 30px;">
+          ${Table(schedules)}
+        </div>
+      </body>
+    </html>
+  `;
+};
+
+const Table = (schedules) => {
+  const styles = ['border-collapse: collapse', 'overflow: scroll'];
+
+  return `
+    <table style="${inlineStyles(styles)}">
+      ${TableHead()}
+      <tbody>
+        ${TableRows(schedules)}
+      </tbody>
+    </table>
+  `;
+};
+
+const TableHead = () => {
+  const styles = [
+    'font-weight: bold',
+    'text-align: left',
+    'border: 1px solid #ddd',
+    'padding: 8px',
+  ];
+
+  return `
+    <thead>
+      <tr>
+        <th style="${inlineStyles(styles)} width: 20%">Date/ Time</th>
+        <th style="${inlineStyles(styles)} width: 45%">Areas</th>
+        <th style="${inlineStyles(styles)} width: 35%">Purpose</th>
+      </tr>
+    </thead>
+  `;
+};
+
+const TableRows = (schedules) => {
+  return schedules
+    .map((schedule) => {
+      const cellValues = Object.values(schedule);
+
+      return `
+        <tr>
+          ${cellValues.map((value) => TableCell(value)).join('')}
+        <tr>
+      `;
+    })
+    .join('');
+};
+
+const TableCell = (value) => {
+  const styles = [
+    'vertical-align: top',
+    'border: 1px solid #ddd',
+    'padding: 8px',
+  ];
+
+  return `
+    <td style="${inlineStyles(styles)}">${value}</td>
+  `;
+};
+
+const inlineStyles = (styles) =>
+  styles.length > 0 ? `${styles.join('; ')};` : '';
+
+export default handler;
+```
+
+License: MIT License · Copyright (c) 2022 Noel Earvin Piamonte
+
+## IFTTT Webhooks
+
+Now for the IFTTT Webhooks, I created an Applet on IFTTT - [https://ifttt.com/create](https://ifttt.com/create).
+
+For the `If` block condition, I used the "Receive a web request with a JSON payload" and set the "Event name" to `beneco_scheduled_interruptions_notification`. This event name is what I used on Function #1 - `IFTTT_EVENT_TRIGGER`.
+
+<Thumbnail
+  src="/images/post/apologize/Screenshot from 2022-04-21 02-35-21.jpg"
+  alt="Screenshot of Edit trigger fields on IFTTT"
+/>
+
+I then set the field values for the `Then` action. I use the API endpoint on Function #1 as the "Link URL".
+
+<Thumbnail
+  src="/images/post/apologize/Screenshot from 2022-04-21 02-37-34.jpg"
+  alt="Screenshot of Edit action fields on IFTTT"
+/>
+
+To get the `IFTTT_WEBHOOKS_KEY` for the `IFTTT_EVENT_TRIGGER_ENDPOINT`, log in to IFTTT > [My Services](https://ifttt.com/my_services), scroll down and click on [Webhooks](https://ifttt.com/maker_webhooks) then click on the "Documentation" button.
+
+<Thumbnail
+  src="/images/post/apologize/Screenshot from 2022-04-21 02-45-06.jpg"
+  alt="Screenshot of Webhooks API key page on IFTTT"
+/>
+
+I was looking to publish this Applet on IFTTT but unfortunately, IFTTT doesn't allow publishing an Applet with Webhooks. More info [here](https://help.ifttt.com/hc/en-us/articles/115010230347-Webhooks-service-FAQ).
+
+Because I can't share the Applet on IFTTT, I built a small website where interested users can subscribe to get scheduled power interruptions in Baguio City. Built with Next.js, Prisma and PlanetScale and will be deployed on Vercel. Here's a teaser.
+
+<Thumbnail
+  src="/images/post/apologize/Screenshot from 2022-04-21 03-11-39.jpg"
+  alt="Screenshot of BENECO Scheduled Interruptions web page"
+/>
+
+bye.
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=TdIMwhFhyIg" />
