@@ -34,25 +34,29 @@ Welcome to the repository of my website since 2021. Built with [Next.js](https:/
 
 ## Local development
 
-```
+```sh
 git clone https://github.com/earvinpiamonte/earvinpiamonte.com.git
 ```
 
-```
+```sh
 cd earvinpiamonte.com/
 ```
 
-```
+```sh
 npm i
 ```
 
-```
-mv .env.example .env.local
+```sh
+vercel dev
 ```
 
-Update the variables on the `.env.local` file.
+Finally, manually add the environment variables from `.env.example` to the Vercel deployment > "Settings" > "Environment Variables". Make sure to update the values accordingly.
 
-```
+![image info](./ss-env-variables-page.png)
+
+Restart development server if necessary:
+
+```sh
 vercel dev
 ```
 
