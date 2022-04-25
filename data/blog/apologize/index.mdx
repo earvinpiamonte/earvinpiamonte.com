@@ -50,7 +50,7 @@ const { IFTTT_WEBHOOKS_KEY, SCHEDULES_URL } = process.env;
 
 const IFTTT_EVENT_TRIGGER = 'beneco_scheduled_interruptions_notification';
 const IFTTT_EVENT_TRIGGER_ENDPOINT = `https://maker.ifttt.com/trigger/${IFTTT_EVENT_TRIGGER}/with/key/${IFTTT_WEBHOOKS_KEY}`;
-const latestSchedulesCacheKey = 'latest-schedules';
+const LATEST_SCHEDULES_CACHE_KEY = 'latest-schedules';
 
 const handler = async (req, res) => {
   const newSchedules = await getSchedules();
@@ -93,11 +93,11 @@ const getSchedules = async () => {
 };
 
 const setCachedSchedules = async (schedules) => {
-  await store.put(latestSchedulesCacheKey, schedules);
+  await store.put(LATEST_SCHEDULES_CACHE_KEY, schedules);
 };
 
 const getCachedSchedules = async () => {
-  const { data } = await store.get(latestSchedulesCacheKey);
+  const { data } = await store.get(LATEST_SCHEDULES_CACHE_KEY);
 
   return data;
 };
