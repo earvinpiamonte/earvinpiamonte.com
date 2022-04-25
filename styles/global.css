@@ -194,36 +194,28 @@ pre {
     font-weight: 400;
     src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
     font-weight: 500;
     src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
     font-weight: 600;
     src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
     font-weight: 700;
     src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
@@ -231,9 +223,7 @@ pre {
     font-style: italic;
     src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
@@ -241,9 +231,7 @@ pre {
     font-style: italic;
     src: url('/fonts/Montserrat/static/Montserrat-MediumItalic.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
@@ -251,9 +239,7 @@ pre {
     font-style: italic;
     src: url('/fonts/Montserrat/static/Montserrat-SemiBoldItalic.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'Montserrat';
@@ -261,27 +247,21 @@ pre {
     font-style: italic;
     src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'DM Mono';
     font-weight: 400;
     src: url('/fonts/DM_Mono/DMMono-Regular.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'DM Mono';
     font-weight: 500;
     src: url('/fonts/DM_Mono/DMMono-Medium.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'DM Mono';
@@ -289,9 +269,7 @@ pre {
     font-style: italic;
     src: url('/fonts/DM_Mono/DMMono-Italic.ttf');
   }
-}
 
-@layer base {
   @font-face {
     font-display: swap;
     font-family: 'DM Mono';
