@@ -6,7 +6,7 @@ Welcome to the repository of my website since 2021. Built with [Next.js](https:/
 
 - [Spotify](https://developer.spotify.com/) Web API - cliend ID, secret and token
 - [Cloudinary](https://cloudinary.com/) API - cloud name, key, secret and folder
-- [TMDB](https://www.themoviedb.org/settings/api) API - API Key (v3 auth)
+- [TMDB](https://www.themoviedb.org/settings/api) API - API Key (v3 auth) and list ID
 - [Vercel CLI](https://vercel.com/cli) - CLI for local development
 
 ## File structure
@@ -61,5 +61,11 @@ vercel dev
 ```
 
 ## Production
+
+Commit to `main` branch or use the `vercel prod` command:
+
+```sh
+vercel prod
+```
 
 View the website at [earvinpiamonte.com](https://www.earvinpiamonte.com/).
