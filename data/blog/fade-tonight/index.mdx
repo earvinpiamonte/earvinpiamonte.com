@@ -1,0 +1,79 @@
+---
+type: 'post'
+date: '2022-04-29'
+title: 'fade tonight'
+summary: 'Identifiers as actual constants.'
+categories:
+  - JavaScript
+---
+
+I recenly asked someone...
+
+> "If you define an object with `const`, will you still be able to update its properties?"
+
+He answered "no".
+
+In Javascript, if you define an object with `const`, you will still be able update its properties.
+
+Let's you intend to have an enum of form states.
+
+In code, you will probably write:
+
+```javascript
+const FormStates = {
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+};
+```
+
+Writing in `const` only means you prevent re-assignment. So the `FormStates` on the example cannot be reassigned to let's say `FormStates = ['loading', 'success', 'error']`. It will throw an error `Assignment to constant variable.`. But its properties can still be changed.
+
+```javascript
+FormStates.ERROR = 0;
+```
+
+or...
+
+```javascript
+FormStates.COMPLETE = 'complete';
+
+FormStates; // { LOADING: 'loading', SUCCESS: 'success', ERROR: 0, COMPLETE: 'complete' }
+```
+
+So if your intention is to actually have identifiers that behave as constant and prevent new properties from being added or updated, use `Object.freeze()`.
+
+```javascript
+const FormStates = {
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+};
+
+Object.freeze(FormStates);
+
+FormStates.ERROR = 0;
+FormStates.COMPLETE = 'complete';
+
+FormStates; // { LOADING: 'loading', SUCCESS: 'success', ERROR: 'error' }
+```
+
+The `Object.freeze()` method freezes an object. A frozen object can no longer be changed. More details at [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze).
+
+> "`freeze()` returns the same object that was passed in."
+
+So the example can also be written as follows and still get the same result.
+
+```javascript
+const FormStates = Object.freeze({
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error',
+});
+
+FormStates; // { LOADING: 'loading', SUCCESS: 'success', ERROR: 'error' }
+```
+
+> "So if the properties of an object that is defined in `const` can still be updated, how do you declare actual constants?"
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=XeGLErDToa8" />
