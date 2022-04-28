@@ -1,0 +1,125 @@
+---
+type: 'project'
+title: 'Cybermonkeys'
+year: 2021
+featuredImage: true
+thumbnail: true
+summary: 'Cybermonkeys Next.js template.'
+categories:
+  - 'React'
+  - 'Next.js'
+---
+
+A three page website template built with Next.js. [https://github.com/earvinpiamonte/nextjs-tailwindcss-template](https://github.com/earvinpiamonte/nextjs-tailwindcss-template) is the template used for this project.
+
+## Design
+
+- Tailwind CSS
+- `@tailwindcss/forms`
+- `@tailwindcss/aspect-ratio`
+- `@heroicons/react`
+
+```javascript:tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultFontsSerif = defaultTheme.fontFamily.serif;
+
+module.exports = {
+  purge: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './sections/**/*.{js,ts,jsx,tsx}',
+  ],
+  darkMode: 'class', // or 'media' or 'class'
+  theme: {
+    container: {
+      screens: {
+        sm: '100%',
+        md: '540px',
+        lg: '720px',
+        xl: '1150px',
+      },
+    },
+    extend: {
+      fontFamily: {
+        rajdhani: ["'Rajdhani-Regular', sans-serif", ...defaultFontsSerif],
+        poppins: ["'Poppins-Regular', sans-serif", ...defaultFontsSerif],
+      },
+    },
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      primary: '#006CF9',
+      dark: '#373737',
+      darker: '#1C1C1C',
+      danger: '#A91E3F',
+    }),
+    textColor: (theme) => ({
+      ...theme('colors'),
+      primary: '#006CF9',
+      dark: '#373737',
+      darker: '#1C1C1C',
+      danger: '#A91E3F',
+    }),
+  },
+  variants: {},
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
+};
+```
+
+## Features
+
+Changes the navigation bar background color to blue (defaults to transparent) when scroll pass 100px
+
+```javascript
+const [bgColor, setBgColor] = React.useState('top');
+let scrollListener = null;
+
+React.useEffect(() => {
+  scrollListener = document.addEventListener('scroll', () => {
+    let scrolled = document.scrollingElement.scrollTop;
+
+    setBgColor(scrolled >= 100 ? 'bg-primary' : 'bg-transparent');
+  });
+
+  return () => document.removeEventListener('scroll', scrollListener);
+}, [bgColor]);
+```
+
+The website also features carousel using `react-flickity-component`.
+
+```jsx
+const LatestNewsSection = () => {
+  return (
+    <section className="text-white mb-12">
+      <Container>
+        <h3 className="text-center">IN THE WORLD</h3>
+        <h2 className="text-center text-3xl font-bold mb-8">LATEST NEWS</h2>
+        <div className="grid grid-cols-12 gap-4 relative">
+          <Flickity
+            className={
+              'overflow-x-hidden border-none focus:border-none col-span-12 mb-0 carousel-latest-news'
+            }
+            options={flickityOptions}
+            reloadOnUpdate={true}
+          >
+            {latestNewsData.map((post) => (
+              <div
+                className="rounded-xl bg-darker px-6 py-8 mr-6"
+                style={{ width: 300 }}
+              >
+                <h4 className="text-primary text-xl font-bold">
+                  {post.category}
+                </h4>
+                <h3 className="text-3xl font-bold mb-3">{post.title}</h3>
+                <p>{post.description}</p>
+              </div>
+            ))}
+          </Flickity>
+        </div>
+      </Container>
+    </section>
+  );
+};
+```
