@@ -46,6 +46,14 @@ interface TimelineType {
   summary?: string;
 }
 
+interface WtfType {
+  title?: string;
+  type: string;
+  slug?: string;
+  summary?: string;
+  categories?: string[];
+}
+
 enum Colors {
   purple,
   gray,
@@ -67,4 +75,5 @@ export type {
   ExperienceType,
   TimelineType,
   ColorsString,
+  WtfType,
 };

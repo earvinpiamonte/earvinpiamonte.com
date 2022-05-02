@@ -1,0 +1,101 @@
+---
+type: 'wtf-is'
+title: 'Hoisting'
+summary: 'The interpreter appears to move all declarations to the top.'
+categories:
+  - 'JavaScript'
+---
+
+Probably the most common interview questions after `var` vs. `let` vs. `const`, what the fuck is _hoisting_?
+
+> _hoist_ (noun) &middot; 1: to raise into position by or as if by means of tackle
+>
+> &mdash; [Meriam-Webster](https://www.merriam-webster.com/dictionary/hoist)
+
+JavaScript hoisting refers to the process where the interpreter appears to move **declarations** to the top of their scope before executing the code.
+
+Take a look at the following code snippet:
+
+```javascript
+price = 420;
+
+var price;
+
+console.log(price);
+```
+
+By just looking at the code, these are the following steps that seems to happen:
+
+1. assign `420` value to `price`
+1. declare `price` as a variable with `var`
+1. reference the variable with `console.log()`
+
+Before the interpreter actually executes the code, the interpreter looks for all the declarations and hoists them to the top of their respective scope in memory.
+
+Using the same snippet above, here's what happens:
+
+```javascript
+price = 420;
+
+var price; // <- found declaration, hoisted
+
+console.log(price); // 420
+```
+
+1. found declaration `var price`; hoisted to the top of scope
+1. assign `420` value to `price`
+1. execute `console.log()`
+
+> JavaScript only hoists declarations and not initializations.
+
+Initialization only happens until the line of code is executed.
+
+Updating the code snippet above to the following will log `undefined`:
+
+```javascript
+console.log(price);
+
+var price = 420;
+```
+
+The default initialization of the `var` is `undefined`.
+
+So how does the interpreter know that `price` is a variable and it did not throw a `ReferenceError`? It means that the interpreter knows the `price` variable before it does `console.log()`. The variable declaration happened first before executing the code.
+
+Now what will happen if we change `var` to `let` or `const`?
+
+```javascript
+console.log(price);
+
+let price = 420; // Uncaught ReferenceError: price is not defined
+```
+
+> Variables declared with `let` and `const` are also hoisted but, unlike `var`, they are not initialized with a given value.
+
+A common advantage of utilizing hoisting is that it allows you to use a function before you declare it in your code.
+
+Here's an example:
+
+```javascript
+body();
+
+function body() {
+  doSomething();
+  doAnotherThing();
+  // ...some other code
+}
+
+function doSomething() {
+  console.log('This is something');
+}
+
+function doAnotherThing() {
+  console.log('This is just another thing to do');
+}
+```
+
+Writing this way makes it easier to read and understand the code as you will see more of your business logic and less of the supporting functions declared below.
+
+It's important to note that hoisting does not move the declarations to the top of their scope physically. It only happens in memory... in the JavaScript universe.
+
+A more detailed explanation on how hoisting works for `let`, `const` and `class` can be found at [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting).

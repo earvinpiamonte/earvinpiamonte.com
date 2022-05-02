@@ -92,6 +92,7 @@ const Nav = () => {
             <NavItem title="Portfolio" path="/portfolio" />
             <NavItem title="Crafts" path="/crafts" />
             <NavItem title="Blog" path="/blog" />
+            <NavItem title="Wtf-is" path="/wtf-is" />
             <NavItem title="Playlist" path="/playlist" />
             <NavItem title="Kit" path="/kit" />
           </div>
