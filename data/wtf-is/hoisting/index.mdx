@@ -65,9 +65,9 @@ So how does the interpreter know that `price` is a variable and it did not throw
 Now what will happen if we change `var` to `let` or `const`?
 
 ```javascript
-console.log(price);
+console.log(price); // Uncaught ReferenceError: price is not defined
 
-let price = 420; // Uncaught ReferenceError: price is not defined
+let price = 420;
 ```
 
 > Variables declared with `let` and `const` are also hoisted but, unlike `var`, they are not initialized with a given value.
