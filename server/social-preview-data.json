@@ -15,5 +15,9 @@
   "playlist": {
     "title": "Playlist",
     "subTitle": "Top tracks, movies and TV shows."
+  },
+  "wtf-is": {
+    "title": "Wtf-is",
+    "subTitle": "My personal glossary. Terms and definitions."
   }
 }
