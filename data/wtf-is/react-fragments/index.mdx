@@ -1,0 +1,94 @@
+---
+type: 'wtf-is'
+title: 'React Fragments'
+summary: 'Ggroup a list of children w/o adding extra nodes to the DOM.'
+categories:
+  - 'React'
+  - 'JSX'
+---
+
+> Fragments let you group a list of children without adding extra nodes to the DOM.
+>
+> &mdash; [React Docs](https://reactjs.org/docs/fragments.html)
+
+Let's say we have a `Header`, `Section`, and `Footer` component and we want to add them on a `Page` component. But we also want them be the immediate children.
+
+The DOM we want to achieve for this example would look someting like this:
+
+```html
+<body class="bg-gray-300">
+  <header>...</header>
+  <section>...</section>
+  <footer>...</footer>
+</body>
+```
+
+Now with React, JSX, the following code will throw an error:
+
+```jsx
+const Page = () => {
+  return (
+    <Header />
+    <Section />
+    <Footer /> // JSX expressions must have one parent element.
+  );
+};
+```
+
+> JSX expressions must have one parent element.
+
+To fix this, following what we want to achieve, we can use a fragment by wrapping the children with `<React.Fragment>`:
+
+```jsx
+const Page = () => {
+  return (
+    <React.Fragment>
+      <Header />
+      <Section />
+      <Footer />
+    </React.Fragment>
+  );
+};
+```
+
+`Fragment` serves as the parent element without adding extra nodes to the DOM.
+
+Using the JSX short syntax:
+
+```jsx
+const Page = () => {
+  return (
+    <>
+      <Header />
+      <Section />
+      <Footer />
+    </>
+  );
+};
+```
+
+> Note: Empty element `<></>` cannot have keys or attributes.
+
+Now, if we are dealing with a list for example, we may need to add a `key` attribute. For this case, we need to use `<React.Fragment>` and not the short syntax.
+
+Here's an example from [React Docs](https://reactjs.org/docs/fragments.html):
+
+```jsx
+function Glossary(props) {
+  return (
+    <dl>
+      {props.items.map((item) => (
+        // Without the `key`, React will fire a key warning
+        <React.Fragment key={item.id}>
+          <dt>{item.term}</dt>
+          <dd>{item.description}</dd>
+        </React.Fragment>
+      ))}
+    </dl>
+  );
+}
+```
+
+> [Read](https://twitter.com/dan_abramov/status/1415279090446204929) Dan's visual explanation why React needs keys.
+
+Reference: [React Docs](https://reactjs.org/docs/fragments.html)
