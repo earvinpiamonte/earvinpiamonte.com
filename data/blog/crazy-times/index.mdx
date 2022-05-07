@@ -1,0 +1,50 @@
+---
+type: 'post'
+date: '2022-05-07'
+title: 'Crazy Times'
+summary: 'There are so many stars visible in NM.'
+featuredImage: true
+categories:
+  - JavaScript
+  - Random
+---
+
+> "There are so many stars visible in New Mexico. I will walk out there to get a better look."
+>
+> &mdash; Werner Ziegler
+
+```javascript
+const stars = generateStarPattern(3);
+
+console.log(stars);
+//   *
+//  * *
+// * * *
+
+function generateStarPattern(size = 1) {
+  const STAR = '*';
+  const SPACE = ' ';
+  const NEW_LINE = '\n';
+
+  let stars = '';
+
+  if (size >= 10) {
+    return '🌌';
+  }
+
+  for (let row = 1; row <= size; row++) {
+    let paddingSize = size - row;
+    let paddingCharacters = `${SPACE}`.repeat(paddingSize);
+    let cellStar = `${STAR}${SPACE}`.repeat(row).trim();
+    let rowStars = `${paddingCharacters}${cellStar}${NEW_LINE}`;
+
+    stars += rowStars;
+  }
+
+  return stars;
+}
+```
+
+License: MIT License · Copyright (c) 2022 Noel Earvin Piamonte
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=dl3NtbfkkC8" />
