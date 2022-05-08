@@ -20,6 +20,7 @@ module.exports = {
       '!pages/social-preview.tsx',
     ],
   },
+  swcMinify: true,
   images: {
     domains: ['i.scdn.co', 'image.tmdb.org'],
   },
