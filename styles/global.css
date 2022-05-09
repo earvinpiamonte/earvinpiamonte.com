@@ -170,16 +170,60 @@ pre[class*='language-'] {
   max-height: 800px;
 }
 
-.remark-code-title {
-  @apply px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-t text-sm text-gray-500 dark:text-gray-600 relative;
+.rehype-code-title {
+  @apply px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-t text-sm text-gray-500 dark:text-gray-400 relative font-semibold;
 }
 
-.remark-code-title + pre[class*='language-'] {
+.rehype-code-title + pre[class*='language-'] {
   @apply rounded-none rounded-b;
 }
 
 pre {
   @apply overflow-x-auto;
+}
+
+.code-highlight {
+  float: left;
+  min-width: 100%;
+}
+
+.code-line {
+  /* Set code block color */
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgba(31, 41, 55, 0);
+}
+
+.code-line.inserted {
+  /* Set inserted line (+) color */
+  background-color: rgba(16, 185, 129, 0.2);
+}
+
+.code-line.deleted {
+  /* Set deleted line (-) color */
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.highlight-line {
+  /* Set highlight accent border color */
+  margin-left: -16px;
+  margin-right: -16px;
+  @apply border-l-4 border-purple-500 bg-gray-200 dark:bg-gray-800;
+}
+
+.line-number::before {
+  /* Line number color */
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175);
+  content: attr(line);
 }
 
 /* Start purging... */

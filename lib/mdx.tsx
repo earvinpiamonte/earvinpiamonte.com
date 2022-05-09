@@ -4,7 +4,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import readingTime from 'reading-time';
-import mdxPrism from 'mdx-prism';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrism from 'rehype-prism-plus';
 
 const root = process.cwd();
 
@@ -62,8 +63,7 @@ const getPostBySlug = async (type: string, slug: string) => {
 
     const mdxSource = await serialize(content, {
       mdxOptions: {
-        remarkPlugins: [require('remark-code-titles')],
-        rehypePlugins: [mdxPrism],
+        rehypePlugins: [rehypeCodeTitles, rehypePrism],
       },
     });
 
