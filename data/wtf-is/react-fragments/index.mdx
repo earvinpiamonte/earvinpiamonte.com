@@ -15,7 +15,7 @@ Let's say we have a `Header`, `Section`, and `Footer` component and we want to a
 
 The DOM we want to achieve for this example would look someting like this:
 
-```html
+```html {2-4}
 <body class="bg-gray-300">
   <header>...</header>
   <section>...</section>
@@ -25,7 +25,7 @@ The DOM we want to achieve for this example would look someting like this:
 
 Now with React, JSX, the following code will throw an error:
 
-```jsx
+```jsx {3-5}
 const Page = () => {
   return (
     <Header />
@@ -39,7 +39,7 @@ const Page = () => {
 
 To fix this, following what we want to achieve, we can use a fragment by wrapping the children with `<React.Fragment>`:
 
-```jsx
+```jsx {3, 7}
 const Page = () => {
   return (
     <React.Fragment>
@@ -55,7 +55,7 @@ const Page = () => {
 
 Using the JSX short syntax:
 
-```jsx
+```jsx {3, 7}
 const Page = () => {
   return (
     <>
@@ -73,7 +73,7 @@ Now, if we are dealing with a list for example, we may need to add a `key` attri
 
 Here's an example from [React Docs](https://reactjs.org/docs/fragments.html):
 
-```jsx
+```jsx {6, 9}
 function Glossary(props) {
   return (
     <dl>
