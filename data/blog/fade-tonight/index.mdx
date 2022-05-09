@@ -41,7 +41,7 @@ FormStates; // { LOADING: 'loading', SUCCESS: 'success', ERROR: 0, COMPLETE: 'co
 
 So if your intention is to actually have identifiers that behave as constant and prevent new properties from being added or updated, use `Object.freeze()`.
 
-```javascript
+```javascript {7}
 const FormStates = {
   LOADING: 'loading',
   SUCCESS: 'success',
@@ -62,7 +62,7 @@ The `Object.freeze()` method freezes an object. A frozen object can no longer be
 
 So the example can also be written as follows and still get the same result.
 
-```javascript
+```javascript {1, 5}
 const FormStates = Object.freeze({
   LOADING: 'loading',
   SUCCESS: 'success',
