@@ -1,12 +1,99 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
+@tailwind utilities;
 
-/* Write your own custom component styles here */
+@layer base {
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-MediumItalic.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-SemiBoldItalic.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-style: italic;
+    src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'DM Mono';
+    font-weight: 400;
+    src: url('/fonts/DM_Mono/DMMono-Regular.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'DM Mono';
+    font-weight: 500;
+    src: url('/fonts/DM_Mono/DMMono-Medium.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'DM Mono';
+    font-weight: 400;
+    font-style: italic;
+    src: url('/fonts/DM_Mono/DMMono-Italic.ttf');
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'DM Mono';
+    font-weight: 500;
+    font-style: italic;
+    src: url('/fonts/DM_Mono/DMMono-MediumItalic.ttf');
+  }
+}
+
 p {
   @apply mb-8 leading-relaxed;
 }
@@ -224,101 +311,4 @@ pre {
   margin-left: -8px;
   color: rgb(156, 163, 175);
   content: attr(line);
-}
-
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
-@layer base {
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 400;
-    src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 500;
-    src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 600;
-    src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-style: italic;
-    src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 500;
-    font-style: italic;
-    src: url('/fonts/Montserrat/static/Montserrat-MediumItalic.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 600;
-    font-style: italic;
-    src: url('/fonts/Montserrat/static/Montserrat-SemiBoldItalic.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-style: italic;
-    src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'DM Mono';
-    font-weight: 400;
-    src: url('/fonts/DM_Mono/DMMono-Regular.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'DM Mono';
-    font-weight: 500;
-    src: url('/fonts/DM_Mono/DMMono-Medium.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'DM Mono';
-    font-weight: 400;
-    font-style: italic;
-    src: url('/fonts/DM_Mono/DMMono-Italic.ttf');
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: 'DM Mono';
-    font-weight: 500;
-    font-style: italic;
-    src: url('/fonts/DM_Mono/DMMono-MediumItalic.ttf');
-  }
 }

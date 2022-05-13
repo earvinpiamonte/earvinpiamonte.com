@@ -83,11 +83,11 @@ const Nav = () => {
           </div>
         </div>
         <div
-          className={`w-full lg:w-auto lg:flex-grow lg:flex lg:items-center py-4 lg:py-0 ${
+          className={`w-full lg:w-auto lg:grow lg:flex lg:items-center py-4 lg:py-0 ${
             dropdownMenuOpen ? 'block' : 'hidden'
           }`}
         >
-          <div className="text-sm lg:flex-grow lg:mb-0 mb-4">
+          <div className="text-sm lg:grow lg:mb-0 mb-4">
             <NavItem title="Home" path="/" />
             <NavItem title="Portfolio" path="/portfolio" />
             <NavItem title="Crafts" path="/crafts" />
