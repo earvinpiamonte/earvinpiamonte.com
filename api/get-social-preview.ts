@@ -1,16 +1,19 @@
 import * as fetch from 'node-fetch';
 
-import { getPostBySlug } from '../lib/mdx';
+import { getPostFrontMatterBySlug } from '../lib/frontMatter';
 import { uploadImage, getImage } from '../lib/cloudinary';
 
 import socialPreviewData from '../server/social-preview-data.json';
 
-const siteBaseURL = process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3000'
-          : 'https://www.earvinpiamonte.com';
+const siteBaseURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://www.earvinpiamonte.com';
 
 const getBufferString = async (url: string) => {
-  const response = await fetch(`${siteBaseURL}/api/screenshot-page?url=${encodeURIComponent(url)}`);
+  const response = await fetch(
+    `${siteBaseURL}/api/screenshot-page?url=${encodeURIComponent(url)}`
+  );
 
   return response.json();
 };
@@ -28,7 +31,7 @@ const handler = async (req, res) => {
   // Eject this in the future
   type = type === 'post' ? 'blog' : type;
 
-  const post = await getPostBySlug(type, slug);
+  const post = await getPostFrontMatterBySlug(type, slug);
 
   console.log({ type, slug, post });
 
@@ -49,7 +52,6 @@ const handler = async (req, res) => {
     };
 
     imageFileName = frontMatter.title;
-
   } else {
     // Check if slug is on pages
     const selectedPage = socialPreviewData[slug];
