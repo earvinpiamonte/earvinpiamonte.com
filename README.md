@@ -7,15 +7,15 @@ Welcome to the repository of my website since 2021. Built with [Next.js](https:/
 - [Spotify](https://developer.spotify.com/) Web API - cliend ID, secret and token
 - [Cloudinary](https://cloudinary.com/) API - cloud name, key, secret and folder
 - [TMDB](https://www.themoviedb.org/settings/api) API - API Key (v3 auth) and list ID
-- [Vercel CLI](https://vercel.com/cli) - CLI for local development
+- [Vercel CLI](https://vercel.com/cli) - CLI for local development/ deployment
 
 ## File structure
 
 - `api/*` - API endpoints with Vercel
 
-- `components/*` - reusable stuff
+- `content/*` - blog posts, crafts, experiences, dynamic pages and projects (MDX files as content)
 
-- `content/*` - blog posts, crafts, experiences, dynamic pages and projects
+- `components/*` - reusable stuff
 
 - `lib/*` - server and client side scripts, mostly server side
 
