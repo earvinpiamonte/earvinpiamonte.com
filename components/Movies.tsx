@@ -34,7 +34,7 @@ const Movies = () => {
         </div>
       </div>
       <p className="mb-0 text-gray-600 text-sm">
-        Movies and TV shows data source:{' '}
+        Source:{' '}
         <CustomLink href="https://developers.themoviedb.org/3">TMDB</CustomLink>
         .
       </p>

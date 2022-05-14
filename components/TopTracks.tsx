@@ -60,7 +60,7 @@ const TopTracks = () => {
           ))}
       </div>
       <p className="mb-0 text-gray-600 text-sm">
-        Top tracks and currently playing data source:{' '}
+        Source:{' '}
         <CustomLink href="https://developer.spotify.com/documentation/web-api/">
           Spotify
         </CustomLink>
