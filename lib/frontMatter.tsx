@@ -9,7 +9,7 @@ const root = process.cwd();
 const getPostFrontMatterBySlug = async (type: string, slug: string) => {
   try {
     const source = fs.readFileSync(
-      path.join(root, 'data', type, slug, 'index.mdx'),
+      path.join(root, 'content', type, slug, 'index.mdx'),
       'utf8'
     );
 

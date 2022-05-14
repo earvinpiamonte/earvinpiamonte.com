@@ -27,7 +27,7 @@ const CraftTemplate = ({
   } = frontMatter;
 
   const featuredImageSrc =
-    featuredImage && require(`../data/${type}/${slug}/featuredImage.png`);
+    featuredImage && require(`../content/${type}/${slug}/featuredImage.png`);
 
   const hasURLs = repoURL || viewURL || demoURL;
 

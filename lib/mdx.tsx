@@ -10,11 +10,11 @@ import rehypePrism from 'rehype-prism-plus';
 const root = process.cwd();
 
 const getAllFilesFrontMatter = async (type: string) => {
-  const files = fs.readdirSync(path.join(root, 'data', type));
+  const files = fs.readdirSync(path.join(root, 'content', type));
 
   return files.reduce((allPosts, postSlug) => {
     const source = fs.readFileSync(
-      path.join(root, 'data', type, postSlug),
+      path.join(root, 'content', type, postSlug),
       'utf8'
     );
     const { data } = matter(source);
@@ -30,11 +30,11 @@ const getAllFilesFrontMatter = async (type: string) => {
 };
 
 const getAllPostsFrontMatter = async (type: string) => {
-  const files = fs.readdirSync(path.join(root, 'data', type));
+  const files = fs.readdirSync(path.join(root, 'content', type));
 
   return files.map((postSlug) => {
     const source = fs.readFileSync(
-      path.join(root, 'data', type, postSlug, 'index.mdx'),
+      path.join(root, 'content', type, postSlug, 'index.mdx'),
       'utf8'
     );
 
@@ -49,13 +49,13 @@ const getAllPostsFrontMatter = async (type: string) => {
 };
 
 const getAllPosts = async (type: string) => {
-  return fs.readdirSync(path.join(root, 'data', type));
+  return fs.readdirSync(path.join(root, 'content', type));
 };
 
 const getPostBySlug = async (type: string, slug: string) => {
   try {
     const source = fs.readFileSync(
-      path.join(root, 'data', type, slug, 'index.mdx'),
+      path.join(root, 'content', type, slug, 'index.mdx'),
       'utf8'
     );
 

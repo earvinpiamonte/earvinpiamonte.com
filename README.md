@@ -15,7 +15,7 @@ Welcome to the repository of my website since 2021. Built with [Next.js](https:/
 
 - `components/*` - reusable stuff
 
-- `data/*` - blog posts, crafts, experiences, dynamic pages and projects
+- `content/*` - blog posts, crafts, experiences, dynamic pages and projects
 
 - `lib/*` - server and client side scripts, mostly server side
 

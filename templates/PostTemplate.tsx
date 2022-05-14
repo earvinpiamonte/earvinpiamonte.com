@@ -22,7 +22,7 @@ const PostTemplate = ({
     frontMatter;
 
   const featuredImageSrc =
-    featuredImage && require(`../data/blog/${slug}/featuredImage.png`);
+    featuredImage && require(`../content/blog/${slug}/featuredImage.png`);
 
   return (
     <section className="pt-12 pb-20 md:min-h-screen">

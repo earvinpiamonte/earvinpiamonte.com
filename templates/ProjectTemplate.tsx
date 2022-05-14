@@ -17,7 +17,7 @@ const ProjectTemplate = ({
   const { title, year, type, slug, featuredImage, categories } = frontMatter;
 
   const featuredImageSrc =
-    featuredImage && require(`../data/${type}/${slug}/featuredImage.png`);
+    featuredImage && require(`../content/${type}/${slug}/featuredImage.png`);
 
   return (
     <section className="pt-12 pb-20 md:min-h-screen">

@@ -7,7 +7,7 @@ const CraftItem = ({ ...craft }: CraftType) => {
   const { type, title, slug, categories, thumbnail } = craft;
 
   const thumbnailSrc =
-    thumbnail && require(`../data/${type}/${slug}/thumbnail.png`);
+    thumbnail && require(`../content/${type}/${slug}/thumbnail.png`);
 
   return (
     <div className="mb-16">

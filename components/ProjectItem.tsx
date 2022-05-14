@@ -9,7 +9,7 @@ const ProjectItem = ({ ...project }: ProjectType) => {
   const { type, title, slug, year, categories, thumbnail } = project;
 
   const thumbnailSrc =
-    thumbnail && require(`../data/${type}/${slug}/thumbnail.jpg`);
+    thumbnail && require(`../content/${type}/${slug}/thumbnail.jpg`);
 
   return (
     <div className="mb-16">
