@@ -20,7 +20,7 @@ const WtfTemplate = ({
       <Container>
         <h2 className="text-gray-800 dark:text-gray-600 text-sm mb-2">
           <Link href="/wtf-is">
-            <a className="uppercase hover:text-purple-500">{type}</a>
+            <a className="uppercase hover:text-blue-500">{type}</a>
           </Link>
           <span className="mx-1">/</span>
         </h2>

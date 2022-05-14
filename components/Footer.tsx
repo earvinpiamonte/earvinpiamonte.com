@@ -13,7 +13,7 @@ const { name } = publicRuntimeConfig.site;
 const Footer = () => {
   return (
     <>
-      <div className="py-3 border-t-2 border-purple-500">
+      <div className="py-3 border-t-2 border-blue-500">
         <Container>
           <NowPlaying />
         </Container>
@@ -28,7 +28,7 @@ const Footer = () => {
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://github.com/earvinpiamonte"
                   >
                     GitHub
@@ -36,7 +36,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://codepen.io/earvinpiamonte"
                   >
                     CodePen
@@ -44,7 +44,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://codesandbox.io/u/earvinpiamonte"
                   >
                     CodeSandbox
@@ -57,7 +57,7 @@ const Footer = () => {
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://www.freelancer.com/u/earvinpiamonte"
                   >
                     Freelancer.com
@@ -65,7 +65,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://www.linkedin.com/in/earvinpiamonte"
                   >
                     LinkedIn
@@ -73,7 +73,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://ko-fi.com/earvinpiamonte"
                   >
                     Ko-fi
@@ -88,7 +88,7 @@ const Footer = () => {
               <ul className="list-none list-outside pl-0 mb-0 text-sm space-y-3 text-gray-800 dark:text-gray-400">
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://www.earv.in/resume"
                   >
                     Resume
@@ -96,7 +96,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="mailto:earvin.piamonte@gmail.com"
                   >
                     Email
@@ -104,7 +104,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <CustomLink
-                    className="text-normal hover:text-purple-500 hover:underline"
+                    className="text-normal hover:text-blue-500 hover:underline"
                     href="https://about.me/earvinpiamonte"
                   >
                     about.me

@@ -4,7 +4,7 @@ const TimelineItem = ({ ...timelineItem }) => {
     <>
       <div className="flex items-center">
         <svg
-          className="w-6 h-6 mr-2 text-purple-500"
+          className="w-6 h-6 mr-2 text-blue-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

@@ -8,10 +8,10 @@ const ExperienceItem = (props) => {
       <div className="flex items-center -mt-1">
         <CheckCircleIcon
           className={`w-6 h-6 mr-3 flex-none ${
-            index === 0 ? 'text-purple-500' : 'text-purple-500'
+            index === 0 ? 'text-blue-500' : 'text-blue-500'
           }`}
         />
-        <p className="font-medium mb-0 text-purple-500 truncate">{title}</p>
+        <p className="font-medium mb-0 text-blue-500 truncate">{title}</p>
       </div>
       <div className="ml-3 -mt-1 pl-6 pb-6 text-gray-600 border-l border-gray-200 dark:border-gray-600">
         <p className="mb-0">

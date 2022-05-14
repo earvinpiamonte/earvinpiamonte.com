@@ -11,7 +11,7 @@ const WtfItem = ({ ...craft }: WtfType) => {
         <div className="col-span-12">
           <h2 className="text-xl mb-1 truncate">
             <Link href={`/${type}/${slug}`}>
-              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline dark:hover:text-purple-500">
+              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline dark:hover:text-blue-500">
                 {title}
               </a>
             </Link>

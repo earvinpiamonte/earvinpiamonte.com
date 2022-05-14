@@ -39,7 +39,7 @@ const TopTracks = () => {
                   tabIndex={-1}
                   aria-label="Play"
                 >
-                  <PlayIcon className="inline-block w-5 h-5 opacity-0 group-hover:opacity-100 text-purple-500" />
+                  <PlayIcon className="inline-block w-5 h-5 opacity-0 group-hover:opacity-100 text-blue-500" />
                 </a>
               </div>
               <div className="flex-none w-10 h-10 mr-4 relative">

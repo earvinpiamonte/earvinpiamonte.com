@@ -21,7 +21,7 @@ const ThemeChanger = () => {
       checked={enabled}
       onChange={() => setTheme(enabled ? 'light' : 'dark')}
       className={`
-        ${enabled ? 'bg-purple-500' : 'bg-purple-500'}
+        ${enabled ? 'bg-blue-500' : 'bg-blue-500'}
         relative inline-flex items-center h-6 rounded-full w-11 relative
       `}
     >

@@ -38,7 +38,7 @@ const FeaturedPost = () => {
         </div>
         <div className="col-span-10 col-start-3 md:col-span-3 md:self-center md:text-center">
           <Button
-            color={'purple'}
+            color={'blue'}
             pill={true}
             src="https://chrome.google.com/webstore/detail/daylight/acfblhlodbfnocogojghkgnpoellplll"
             className="text-sm"

@@ -16,7 +16,7 @@ const Button = (props: {
   const {
     title,
     src,
-    color = 'purple',
+    color = 'blue',
     outlined = false,
     pill = false,
     narrow = false,
@@ -25,21 +25,21 @@ const Button = (props: {
     ...rest
   } = props;
 
-  let bgClass = 'bg-purple-600';
-  let textClass = 'text-purple-600';
-  let borderClass = 'border-purple-600';
-  let hoverBgClass = 'hover:bg-purple-700';
-  let focustRingClass = 'focus:ring-purple-500';
-  let focusRingOffsetClass = 'focus:ring-offset-purple-200';
+  let bgClass = 'bg-blue-600';
+  let textClass = 'text-blue-600';
+  let borderClass = 'border-blue-600';
+  let hoverBgClass = 'hover:bg-blue-700';
+  let focustRingClass = 'focus:ring-blue-500';
+  let focusRingOffsetClass = 'focus:ring-offset-blue-200';
 
   switch (color) {
-    case 'purple':
-      bgClass = 'bg-purple-600';
-      textClass = 'text-purple-600';
-      borderClass = 'border-purple-600';
-      hoverBgClass = 'hover:bg-purple-700';
-      focustRingClass = 'focus:ring-purple-500';
-      focusRingOffsetClass = 'focus:ring-offset-purple-200';
+    case 'blue':
+      bgClass = 'bg-blue-600';
+      textClass = 'text-blue-600';
+      borderClass = 'border-blue-600';
+      hoverBgClass = 'hover:bg-blue-700';
+      focustRingClass = 'focus:ring-blue-500';
+      focusRingOffsetClass = 'focus:ring-offset-blue-200';
       break;
     case 'blue':
       bgClass = 'bg-blue-600';
@@ -57,13 +57,13 @@ const Button = (props: {
       focustRingClass = 'focus:ring-gray-500';
       focusRingOffsetClass = 'focus:ring-offset-gray-200';
       break;
-    case 'green':
-      bgClass = 'bg-green-600';
-      textClass = 'text-green-600';
-      borderClass = 'border-green-600';
-      hoverBgClass = 'hover:bg-green-700';
-      focustRingClass = 'focus:ring-green-500';
-      focusRingOffsetClass = 'focus:ring-offset-green-200';
+    case 'pink':
+      bgClass = 'bg-pink-600';
+      textClass = 'text-pink-600';
+      borderClass = 'border-pink-600';
+      hoverBgClass = 'hover:bg-pink-700';
+      focustRingClass = 'focus:ring-pink-500';
+      focusRingOffsetClass = 'focus:ring-offset-pink-200';
       break;
     case 'red':
       bgClass = 'bg-red-600';

@@ -15,7 +15,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
 
   return (
     <div className="flex mb-16">
-      <div className="flex-none rounded-lg w-28 p-1 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500">
+      <div className="flex-none rounded-lg w-28 p-1 bg-gradient-to-r from-pink-400 via-indigo-500 to-blue-500">
         <div className="bg-gray-900 font-medium px-1 py-1 rounded-t-lg text-center text-gray-200 uppercase">
           {shortMonth}
         </div>
@@ -31,7 +31,7 @@ const BlogPostItem = ({ ...post }: PostType) => {
       <div className="overflow-hidden px-4 py-1">
         <h2 className="mb-1 text-xl truncate">
           <Link href={`/${type}/${slug}`}>
-            <a className="dark:hover:text-purple-500 dark:text-gray-400 font-medium hover:text-purple-500 hover:underline text-gray-800">
+            <a className="dark:hover:text-blue-500 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline text-gray-800">
               {title}
             </a>
           </Link>

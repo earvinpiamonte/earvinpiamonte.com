@@ -62,7 +62,7 @@ const Nav = () => {
           <div>
             <Link href="/">
               <a
-                className="font-semibold text-xl tracking-tight text-purple-500"
+                className="font-semibold text-xl tracking-tight text-blue-500"
                 aria-label="Home"
               >
                 <TerminalIcon className="w-8 h-8" />
@@ -71,7 +71,7 @@ const Nav = () => {
           </div>
           <div className="lg:hidden">
             <button
-              className="p-1 text-purple-500"
+              className="p-1 text-blue-500"
               onClick={() => setDropdownMenuOpen(!dropdownMenuOpen)}
             >
               {dropdownMenuOpen ? (

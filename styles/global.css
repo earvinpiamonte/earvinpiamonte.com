@@ -131,7 +131,7 @@ ol {
 }
 
 .app-link {
-  @apply text-purple-500 font-medium hover:underline hover:text-purple-700 break-words;
+  @apply text-blue-500 font-medium hover:underline hover:text-blue-700 break-words;
 }
 
 .app-thumbnail {
@@ -177,7 +177,7 @@ ol {
 }
 
 .app-mdx-content blockquote {
-  @apply border-l-4 border-purple-500 px-4 pt-2 pb-0.5 mb-8 rounded-r bg-gray-50 dark:bg-gray-900;
+  @apply border-l-4 border-blue-500 px-4 pt-2 pb-0.5 mb-8 rounded-r bg-gray-50 dark:bg-gray-900;
 }
 
 .app-mdx-content blockquote p {
@@ -202,7 +202,7 @@ ol {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  @apply text-green-500;
+  @apply text-pink-500;
 }
 
 .token.selector,
@@ -211,7 +211,7 @@ ol {
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-purple-500;
+  @apply text-blue-500;
 }
 
 .token.operator,
@@ -299,7 +299,7 @@ pre {
   /* Set highlight accent border color */
   margin-left: -16px;
   margin-right: -16px;
-  @apply border-l-4 border-purple-500 bg-gray-200 dark:bg-gray-800;
+  @apply border-l-4 border-blue-500 bg-gray-200 dark:bg-gray-800;
 }
 
 .line-number::before {

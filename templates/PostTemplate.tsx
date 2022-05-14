@@ -29,7 +29,7 @@ const PostTemplate = ({
       <Container>
         <h2 className="text-gray-800 dark:text-gray-600 text-sm mb-2">
           <Link href="/blog">
-            <a className="uppercase hover:text-purple-500">{type}</a>
+            <a className="uppercase hover:text-blue-500">{type}</a>
           </Link>
           <span className="mx-1">/</span>
         </h2>
@@ -53,7 +53,7 @@ const PostTemplate = ({
           </span>
         </h2>
         {featuredImage && (
-          <figure className="rounded-lg p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-purple-500 mb-4">
+          <figure className="rounded-lg p-1.5 bg-gradient-to-r from-pink-400 via-indigo-500 to-blue-500 mb-4">
             <Image
               src={featuredImageSrc}
               className="rounded"
