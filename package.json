@@ -20,7 +20,6 @@
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.2",
-    "@tailwindcss/typography": "^0.5.2",
     "chrome-aws-lambda": "^9.1.0",
     "cloudinary": "^1.26.2",
     "globby": "^11.0.4",
@@ -34,6 +33,7 @@
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/node": "^14.17.4",
     "@types/react": "^17.0.2",
     "autoprefixer": "^10.4.7",
