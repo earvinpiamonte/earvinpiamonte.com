@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-tailwindcss-template",
-  "description": "Next.js starter template with Tailwind CSS.",
+  "name": "earvinpiamonte.com",
+  "description": "Welcome to the repository of my website since 2021. Built with Next.js and deployed on Vercel.",
   "version": "0.0.0",
   "author": {
     "name": "Noel Earvin Piamonte",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/earvinpiamonte/nextjs-tailwindcss-template.git"
+    "url": "https://github.com/earvinpiamonte/earvinpiamonte.com.git"
   },
   "scripts": {
     "dev": "next dev",
