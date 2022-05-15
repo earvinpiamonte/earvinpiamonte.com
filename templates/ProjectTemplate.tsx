@@ -6,6 +6,7 @@ import { CalendarIcon, CodeIcon } from '@heroicons/react/outline';
 import { ProjectType } from '@/types/index';
 
 import Container from '@/components/Container';
+import MarkdownWrapper from '@/components/MarkdownWrapper';
 
 const ProjectTemplate = ({
   children,
@@ -57,7 +58,7 @@ const ProjectTemplate = ({
             </span>
           </p>
         )}
-        <div className="app-mdx-content">{children}</div>
+        <MarkdownWrapper>{children}</MarkdownWrapper>
       </Container>
     </section>
   );

@@ -4,6 +4,7 @@ import { PageType } from '@/types/index';
 
 import Layout from '@/components/Layout';
 import MDXComponents from '@/components/MDXComponents';
+import MarkdownWrapper from '@/components/MarkdownWrapper';
 
 import PageTemplate from '@/templates/PageTemplate';
 
@@ -21,14 +22,14 @@ const Page = ({
   return (
     <Layout {...{ title, description: summary }}>
       <PageTemplate {...frontMatter}>
-        <div className="relative">
+        <MarkdownWrapper>
           <MDXRemote
             {...mdxSource}
             components={{
               ...MDXComponents,
             }}
           />
-        </div>
+        </MarkdownWrapper>
       </PageTemplate>
     </Layout>
   );

@@ -158,32 +158,6 @@ ol {
   @apply rounded-md;
 }
 
-.app-mdx-content p {
-  @apply text-gray-800 tracking-wide dark:text-gray-400;
-}
-
-.app-mdx-content ul,
-.app-mdx-content ol {
-  @apply text-gray-800 tracking-wide dark:text-gray-400;
-}
-
-.app-mdx-content h1,
-.app-mdx-content h2,
-.app-mdx-content h3,
-.app-mdx-content h4,
-.app-mdx-content h5,
-.app-mdx-content h6 {
-  @apply text-gray-900 dark:text-gray-400;
-}
-
-.app-mdx-content blockquote {
-  @apply border-l-4 border-blue-500 px-4 pt-2 pb-0.5 mb-8 rounded-r bg-gray-50 dark:bg-gray-900;
-}
-
-.app-mdx-content blockquote p {
-  @apply mb-4;
-}
-
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -258,11 +232,11 @@ pre[class*='language-'] {
 }
 
 .rehype-code-title {
-  @apply px-4 py-2 bg-gray-50 dark:bg-gray-900 rounded-t text-sm text-gray-500 dark:text-gray-400 relative font-semibold;
+  @apply px-5 py-2 bg-gray-50 dark:bg-gray-900 rounded-t text-sm text-gray-500 dark:text-gray-400 relative;
 }
 
 .rehype-code-title + pre[class*='language-'] {
-  @apply rounded-none rounded-b;
+  @apply rounded-none rounded-b mt-0 border-t border-t-gray-200 dark:border-t-gray-800;
 }
 
 pre {

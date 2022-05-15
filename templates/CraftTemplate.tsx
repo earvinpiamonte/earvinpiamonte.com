@@ -5,6 +5,7 @@ import { ExternalLinkIcon, CodeIcon } from '@heroicons/react/outline';
 import { CraftType } from '@/types/index';
 
 import Container from '@/components/Container';
+import MarkdownWrapper from '@/components/MarkdownWrapper';
 import Button from '@/components/Button';
 
 const CraftTemplate = ({
@@ -101,7 +102,7 @@ const CraftTemplate = ({
             )}
           </p>
         )}
-        <div className="app-mdx-content">{children}</div>
+        <MarkdownWrapper>{children}</MarkdownWrapper>
       </Container>
     </section>
   );

@@ -10,6 +10,7 @@ import {
 import { PostType } from '@/types/index';
 
 import Container from '@/components/Container';
+import MarkdownWrapper from '@/components/MarkdownWrapper';
 
 const PostTemplate = ({
   children,
@@ -72,7 +73,7 @@ const PostTemplate = ({
             </span>
           </p>
         )}
-        <div className="app-mdx-content">{children}</div>
+        <MarkdownWrapper>{children}</MarkdownWrapper>
       </Container>
     </section>
   );

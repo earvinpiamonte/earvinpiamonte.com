@@ -5,6 +5,7 @@ import { BookmarkIcon } from '@heroicons/react/outline';
 import { WtfType } from '@/types/index';
 
 import Container from '@/components/Container';
+import MarkdownWrapper from '@/components/MarkdownWrapper';
 
 const WtfTemplate = ({
   children,
@@ -35,7 +36,7 @@ const WtfTemplate = ({
             </span>
           </p>
         )}
-        <div className="app-mdx-content">{children}</div>
+        <MarkdownWrapper>{children}</MarkdownWrapper>
       </Container>
     </section>
   );
