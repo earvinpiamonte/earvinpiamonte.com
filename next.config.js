@@ -28,12 +28,6 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false;
-    }
-    return config;
-  },
   async headers() {
     return [
       {
