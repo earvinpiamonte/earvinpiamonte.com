@@ -13,7 +13,7 @@ const ExperienceItem = (props) => {
             }`}
           />
         </div>
-        <div className="px-4 pb-6 text-gray-600">
+        <div className="px-4 mb-6 text-gray-600">
           <p className="font-medium mb-0 text-blue-500">{title}</p>
           <p className="mb-0">
             <span className="font-medium">{company}</span> &middot; {location}
