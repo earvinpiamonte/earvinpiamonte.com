@@ -57,13 +57,13 @@ const Button = (props: {
       focustRingClass = 'focus:ring-gray-500';
       focusRingOffsetClass = 'focus:ring-offset-gray-200';
       break;
-    case 'pink':
-      bgClass = 'bg-pink-600';
-      textClass = 'text-pink-600';
-      borderClass = 'border-pink-600';
-      hoverBgClass = 'hover:bg-pink-700';
-      focustRingClass = 'focus:ring-pink-500';
-      focusRingOffsetClass = 'focus:ring-offset-pink-200';
+    case 'green':
+      bgClass = 'bg-green-600';
+      textClass = 'text-green-600';
+      borderClass = 'border-green-600';
+      hoverBgClass = 'hover:bg-green-700';
+      focustRingClass = 'focus:ring-green-500';
+      focusRingOffsetClass = 'focus:ring-offset-green-200';
       break;
     case 'red':
       bgClass = 'bg-red-600';
@@ -89,13 +89,13 @@ const Button = (props: {
       focustRingClass = 'focus:ring-indigo-500';
       focusRingOffsetClass = 'focus:ring-offset-indigo-200';
       break;
-    case 'pink':
-      bgClass = 'bg-pink-600';
-      textClass = 'text-pink-600';
-      borderClass = 'border-pink-600';
-      hoverBgClass = 'hover:bg-pink-700';
-      focustRingClass = 'focus:ring-pink-500';
-      focusRingOffsetClass = 'focus:ring-offset-pink-200';
+    case 'green':
+      bgClass = 'bg-green-600';
+      textClass = 'text-green-600';
+      borderClass = 'border-green-600';
+      hoverBgClass = 'hover:bg-green-700';
+      focustRingClass = 'focus:ring-green-500';
+      focusRingOffsetClass = 'focus:ring-offset-green-200';
       break;
   }
 

@@ -21,7 +21,7 @@ const SocialPreview = () => {
     >
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-8">
-          <h1 className="text-6xl mt-10 mb-12 font-bold truncate bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-blue-500">
+          <h1 className="text-6xl mt-10 mb-12 font-bold truncate bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-blue-500">
             {previewTitle}
           </h1>
           <h2 className="text-4xl truncate">{previewSubTitle}</h2>
@@ -29,7 +29,7 @@ const SocialPreview = () => {
           <p className="text-4xl font-bold">earvinpiamonte.com</p>
         </div>
         <div className="col-span-4">
-          <div className="p-4 bg-gradient-to-r from-pink-400 via-indigo-500 to-blue-500 rounded-xl transform rotate-3">
+          <div className="p-4 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500 rounded-xl transform rotate-3">
             <Image
               src="/images/avatar.jpeg"
               layout="responsive"
@@ -39,7 +39,7 @@ const SocialPreview = () => {
               priority={true}
               quality={50}
             />
-            <PencilIcon className="w-16 h-16 absolute -left-5 -bottom-5 text-white bg-blue-500 rounded-full p-2 border-4 border-pink-500" />
+            <PencilIcon className="w-16 h-16 absolute -left-5 -bottom-5 text-white bg-blue-500 rounded-full p-2 border-4 border-green-500" />
           </div>
         </div>
       </div>

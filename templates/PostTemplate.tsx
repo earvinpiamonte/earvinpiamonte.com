@@ -54,7 +54,7 @@ const PostTemplate = ({
           </span>
         </h2>
         {featuredImage && (
-          <figure className="rounded-lg p-1.5 bg-gradient-to-r from-pink-400 via-indigo-500 to-blue-500 mb-4">
+          <figure className="rounded-lg p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500 mb-4">
             <Image
               src={featuredImageSrc}
               className="rounded"

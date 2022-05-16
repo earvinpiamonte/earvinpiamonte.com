@@ -46,7 +46,7 @@ const CraftTemplate = ({
         </h1>
         {featuredImage && (
           <figure
-            className={`rounded-lg p-1.5 bg-gradient-to-r from-pink-400 via-indigo-500 to-blue-500 ${
+            className={`rounded-lg p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500 ${
               categories.length > 0 ? 'mb-4' : 'mb-12'
             }`}
           >
