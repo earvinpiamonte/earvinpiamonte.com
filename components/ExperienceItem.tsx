@@ -8,7 +8,7 @@ const ExperienceItem = (props) => {
       <div className="flex">
         <div className="relative before:h-full before:w-[1px] before:bg-gray-200 before:dark:bg-gray-600 before:absolute before:left-3 before:top-1 before:-z-10">
           <CheckCircleIcon
-            className={`w-6 h-6 flex-none dark:bg-black bg-white ${
+            className={`w-6 h-6 flex-none dark:bg-black bg-white rounded-full p-0 ${
               index === 0 ? 'text-blue-500' : 'text-blue-500'
             }`}
           />
