@@ -12,7 +12,7 @@ const NowPlaying = () => {
     <div className="flex items-center text-sm">
       <>
         <MusicNoteIcon
-          className={`h-5 w-5 mr-2 text-gray-600 ${
+          className={`h-5 w-5 mr-2 flex-none text-gray-600 ${
             data?.songUrl ? 'text-green-500 animate-pulse' : ''
           }`}
         />
