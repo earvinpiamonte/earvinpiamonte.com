@@ -19,8 +19,9 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
           </h1>
           <div className="mb-12 text-xl tracking-wide">
             <p className="mb-6">
-              I'm a software developer based in Baguio City, Philippines. I'm
-              currently working on mobile apps at{' '}
+              I'm a software developer based in Baguio City,{' '}
+              <abbr title="Philippines">PH</abbr>. I'm currently working on
+              mobile apps at{' '}
               <a
                 href="https://www.infor.com"
                 target="_blank"
@@ -29,7 +30,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               >
                 Infor
               </a>{' '}
-              as a Software Engineer.
+              as a software engineer.
             </p>
             <p>
               Outside work, I build{' '}
