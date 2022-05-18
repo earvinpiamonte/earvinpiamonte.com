@@ -20,6 +20,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               src="/images/StockSnap_HWRKSBVS37.jpg"
               layout="fill"
               objectFit="cover"
+              priority={true}
               draggable={false}
               alt="cover"
             />
@@ -30,6 +31,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
                 src="/images/avatar.jpeg"
                 layout="fill"
                 objectFit="cover"
+                priority={true}
                 draggable={false}
                 alt="profile"
               />
