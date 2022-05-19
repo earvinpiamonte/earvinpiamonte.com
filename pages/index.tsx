@@ -25,8 +25,8 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               alt="cover"
             />
           </div>
-          <div className="flex justify-between items-center -mt-20">
-            <figure className="lg:w-48 lg:h-48 w-44 h-44 bg-gray-200 dark:bg-gray-900 rounded-full border-4 border-blue-500 relative mb-6 ml-2 lg:ml-6 overflow-hidden">
+          <div className="flex justify-between items-center -mt-16 lg:-mt-20">
+            <figure className="lg:w-48 lg:h-48 h-32 w-32 bg-gray-200 dark:bg-gray-900 rounded-full border-4 border-blue-500 relative mb-6 ml-2 lg:ml-6 overflow-hidden">
               <Image
                 src="/images/avatar.jpeg"
                 layout="fill"
@@ -36,7 +36,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
                 alt="profile"
               />
             </figure>
-            <div className="mt-10 lg:mt-4">
+            <div className="mt-12 lg:mt-4">
               <Button color={'blue'} pill={true} src="https://www.earv.in/git">
                 <ExternalLinkIcon className="w-5 h-5 mr-1 inline-block" />
                 <span className="align-middle">GitHub</span>
