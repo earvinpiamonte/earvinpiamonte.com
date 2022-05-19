@@ -15,7 +15,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
     <Layout>
       <section className="pt-12 pb-20">
         <Container>
-          <div className="border-2 h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 border-blue-500 rounded-md relative overflow-hidden">
+          <div className="h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 rounded-md relative overflow-hidden">
             <Image
               src="/images/StockSnap_HWRKSBVS37.jpg"
               layout="fill"
@@ -26,7 +26,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
             />
           </div>
           <div className="flex justify-between items-center -mt-16 lg:-mt-20">
-            <figure className="lg:w-48 lg:h-48 h-32 w-32 bg-gray-200 dark:bg-gray-900 rounded-full border-4 border-blue-500 relative mb-6 ml-2 lg:ml-6 overflow-hidden">
+            <figure className="lg:w-44 lg:h-44 h-32 w-32 bg-gray-200 dark:bg-gray-900 rounded-full border-4 border-blue-500 relative mb-6 ml-2 lg:ml-6 overflow-hidden">
               <Image
                 src="/images/avatar.jpeg"
                 layout="fill"
@@ -36,7 +36,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
                 alt="profile"
               />
             </figure>
-            <div className="mt-12 lg:mt-4">
+            <div className="mt-12 lg:mt-6">
               <Button color={'blue'} pill={true} src="https://www.earv.in/git">
                 <ExternalLinkIcon className="w-5 h-5 mr-1 inline-block" />
                 <span className="align-middle">GitHub</span>
