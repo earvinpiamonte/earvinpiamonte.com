@@ -6,6 +6,7 @@ import Container from '@/components/Container';
 import Experiences from '@/components/Experiences';
 import FeaturedPost from '@/components/FeaturedPost';
 import Button from '@/components/Button';
+import CustomLink from '@/components/CustomLink';
 
 import { ExperienceType } from '@/types/index';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
@@ -48,7 +49,8 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
           </h1>
           <div className="mb-10">
             <div className="text-gray-600 mb-4 font-medium">
-              Software Engineer for mobile apps @ Infor
+              Software Engineer,{' '}
+              <CustomLink href="https://www.infor.com">Infor</CustomLink>
             </div>
             <div className="text-lg">
               Outside work, I build things for the web with React/ Next.js,
