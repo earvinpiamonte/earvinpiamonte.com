@@ -38,10 +38,13 @@ const NowPlaying = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="dark:text-gray-400 font-medium text-gray-800">
-                {data.title}
-              </span>{' '}
-              &middot; <span className="text-gray-600">{data?.artist}</span>
+              <span className="animate-marquee flex space-x-2">
+                <span className="dark:text-gray-400 font-medium text-gray-800">
+                  {data.title}
+                </span>
+                <span>&middot;</span>
+                <span className="text-gray-600">{data?.artist}</span>
+              </span>
             </a>
           </>
         ) : (
