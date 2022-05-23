@@ -45,9 +45,7 @@ const NowPlaying = () => {
             </a>
           </>
         ) : (
-          <span className="text-gray-600">
-            Currently not playing any music.
-          </span>
+          <span className="text-gray-600">Not playing any music.</span>
         )}
       </>
     </div>
