@@ -22,7 +22,7 @@ const NowPlaying = () => {
           </span>
         </span>
         {data?.songUrl ? (
-          <span className="flex flex-1 overflow-hidden">
+          <span className="flex overflow-hidden">
             <span className="bg-gray-500 flex-none h-5 inline-block mr-2 relative rounded w-5">
               <Image
                 src={data?.albumImageUrlSmall}
@@ -33,7 +33,7 @@ const NowPlaying = () => {
               />
             </span>
             <a
-              className="truncate flex-1"
+              className="truncate"
               href={data.songUrl}
               target="_blank"
               rel="noopener noreferrer"

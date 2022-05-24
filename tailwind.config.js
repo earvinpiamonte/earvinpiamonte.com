@@ -15,15 +15,24 @@ module.exports = {
         mono: ['DM Mono', ...mono],
       },
       animation: {
-        marquee: 'marquee 20s linear infinite',
+        marquee: 'marquee 15s linear infinite',
       },
       keyframes: {
         marquee: {
           '0%': {
-            transform: 'translateX(100%)',
+            transform: 'translateX(0%)',
+          },
+          '5%': {
+            transform: 'translateX(0%)',
+          },
+          '50%': {
+            transform: 'translateX(-75%)',
+          },
+          '95%': {
+            transform: 'translateX(0%)',
           },
           '100%': {
-            transform: 'translateX(-150%)',
+            transform: 'translateX(0%)',
           },
         },
       },
