@@ -5,6 +5,8 @@ import { MusicNoteIcon } from '@heroicons/react/solid';
 
 import fetcher from '@/lib/fetcher';
 
+const characterLimitToAnimate = 35;
+
 const NowPlaying = () => {
   const { data } = useSWR('/api/spotify/now-playing', fetcher);
 
@@ -38,7 +40,14 @@ const NowPlaying = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="animate-marquee flex space-x-2">
+              <span
+                className={`${
+                  data.title.length + data.artist.length >
+                  characterLimitToAnimate
+                    ? 'animate-marquee'
+                    : ''
+                } flex space-x-2`}
+              >
                 <span className="dark:text-gray-400 font-medium text-gray-800">
                   {data.title}
                 </span>
