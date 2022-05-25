@@ -9,7 +9,6 @@ module.exports = {
       title: 'Noel Earvin Piamonte | Software Engineer',
       description:
         'Noel Earvin Piamonte is a software engineer from Baguio City, Philippines.',
-      socialPreview: '/images/preview.png',
     },
     staticPages: [
       'pages/*.tsx',
