@@ -5,7 +5,7 @@ import { MusicNoteIcon } from '@heroicons/react/solid';
 
 import fetcher from '@/lib/fetcher';
 
-const characterLimitToAnimate = 35;
+const characterLimitToAnimate = 20;
 
 const NowPlaying = () => {
   const { data } = useSWR('/api/spotify/now-playing', fetcher);
@@ -42,7 +42,7 @@ const NowPlaying = () => {
             >
               <span
                 className={`${
-                  data.title.length + data.artist.length >
+                  data.title.length + data.artist.length >=
                   characterLimitToAnimate
                     ? 'animate-marquee'
                     : ''
