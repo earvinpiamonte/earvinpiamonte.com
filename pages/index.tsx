@@ -53,8 +53,13 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               <CustomLink href="https://www.infor.com">Infor</CustomLink>
             </div>
             <div className="text-lg">
-              Outside work, I build things for the web with React/ Next.js,
-              TypeScript and Tailwind CSS.
+              <p className="mb-2">
+                Developing and maintaining various mobile apps for MSCM.
+              </p>
+              <p>
+                Outside work, I build things for the web with React/ Next.js,
+                TypeScript and Tailwind CSS.
+              </p>
             </div>
           </div>
           <div className="mb-20">
