@@ -54,7 +54,8 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
             </div>
             <div className="text-lg">
               <p className="mb-2">
-                Developing and maintaining various mobile apps for MSCM.
+                Developing and maintaining various mobile apps for{' '}
+                <abbr title="Mobile Supply Chain Management">MSCM</abbr>.
               </p>
               <p>
                 Outside work, I build things for the web with React/ Next.js,
