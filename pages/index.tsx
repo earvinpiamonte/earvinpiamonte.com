@@ -16,7 +16,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
     <Layout>
       <section className="pt-12 pb-20">
         <Container>
-          <div className="h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 rounded-md relative overflow-hidden">
+          <div className="h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 rounded-md relative overflow-hidden border-2 border-blue-500">
             <Image
               src="/images/StockSnap_HWRKSBVS37.jpg"
               layout="fill"
