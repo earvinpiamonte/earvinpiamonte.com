@@ -105,9 +105,9 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://about.me/earvinpiamonte"
+                    href="https://www.youtube.com/@earvinpiamonte"
                   >
-                    about.me
+                    YouTube
                   </CustomLink>
                 </li>
               </ul>
