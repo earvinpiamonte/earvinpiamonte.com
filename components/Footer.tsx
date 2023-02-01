@@ -58,7 +58,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://www.freelancer.com/u/earvinpiamonte"
+                    href="https://www.earv.in/fl"
                   >
                     Freelancer.com
                   </CustomLink>
@@ -66,7 +66,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://www.linkedin.com/in/earvinpiamonte"
+                    href="https://www.earv.in/li"
                   >
                     LinkedIn
                   </CustomLink>
@@ -74,7 +74,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://ko-fi.com/earvinpiamonte"
+                    href="https://www.earv.in/kofi"
                   >
                     Ko-fi
                   </CustomLink>
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://www.youtube.com/@earvinpiamonte"
+                    href="https://www.earv.in/yt"
                   >
                     YouTube
                   </CustomLink>
