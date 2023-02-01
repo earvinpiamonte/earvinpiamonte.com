@@ -29,7 +29,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://github.com/earvinpiamonte"
+                    href="https://www.earv.in/git"
                   >
                     GitHub
                   </CustomLink>
@@ -37,7 +37,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://codepen.io/earvinpiamonte"
+                    href="https://www.earv.in/cp"
                   >
                     CodePen
                   </CustomLink>
@@ -45,7 +45,7 @@ const Footer = () => {
                 <li>
                   <CustomLink
                     className="text-normal hover:text-blue-500 hover:underline"
-                    href="https://codesandbox.io/u/earvinpiamonte"
+                    href="https://www.earv.in/csb"
                   >
                     CodeSandbox
                   </CustomLink>
