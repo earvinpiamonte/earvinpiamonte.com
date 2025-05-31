@@ -1,4 +1,5 @@
-const chromium = require('chrome-aws-lambda');
+import chromium from '@sparticuz/chromium';
+import puppeteer from 'puppeteer-core';
 
 const { NODE_ENV } = process.env;
 
@@ -9,14 +10,14 @@ const handler = async (req, res) => {
   const { query } = req;
   const { url } = query;
 
-  const browser = await chromium.puppeteer.launch({
+  const browser = await puppeteer.launch({
     // Launch Chrome locally for testing
     executablePath: local
       ? '/usr/bin/google-chrome-stable'
-      : await chromium.executablePath,
-    args: chromium.args,
+      : await chromium.executablePath(),
+    args: local ? [] : chromium.args,
     defaultViewport: chromium.defaultViewport,
-    headless: chromium.headless,
+    headless: local ? true : chromium.headless,
   });
 
   const page = await browser.newPage();
