@@ -63,11 +63,14 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               </p>
             </div>
           </div>
-          <div className="mb-10">
+          <div className="mb-20">
             <h2 className="text-xl text-gray-800 font-medium dark:text-gray-400">
               Experience
             </h2>
             <Experiences data={experiences} />
+          </div>
+          <div className="mb-0">
+            <FeaturedPost />
           </div>
         </Container>
       </section>
