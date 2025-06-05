@@ -1,8 +1,8 @@
 import { getRecommendedList } from '../../lib/tmdb';
 
 const handler = async (_, res) => {
-  const response = await getRecommendedList();
-  const { items } = await response.json();
+  const data = await getRecommendedList();
+  const { items } = data;
 
   const recommendedList = items.map((item) => {
     const { id, title, name, poster_path, release_date, first_air_date } = item;
