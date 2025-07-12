@@ -10,9 +10,7 @@ const SocialPreview = () => {
 
   const previewTitle = title ?? "Noel Earvin Piamonte";
   const previewSubTitle = title ? subTitle || <>&nbsp;</> : "Software Engineer";
-  const previewText = title
-    ? text || <>&nbsp;</>
-    : "Mandaluyong City, Philippines";
+  const previewText = title ? text || <>&nbsp;</> : "Baguio City, Philippines";
 
   return (
     <div
