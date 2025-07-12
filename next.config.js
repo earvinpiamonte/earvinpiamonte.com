@@ -13,7 +13,16 @@ module.exports = {
   },
 
   images: {
-    domains: ["i.scdn.co", "image.tmdb.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+      },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
+    ],
   },
   i18n: {
     locales: ["en-US"],
