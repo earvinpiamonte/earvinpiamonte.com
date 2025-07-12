@@ -116,10 +116,10 @@ const Button = (props: {
 
   return src ? (
     isInternalLink ? (
-      <Link href={src}>
-        <a {...rest} className={classNames}>
-          {title ?? children}
-        </a>
+      <Link href={src} {...rest} className={classNames}>
+
+        {title ?? children}
+
       </Link>
     ) : (
       <a

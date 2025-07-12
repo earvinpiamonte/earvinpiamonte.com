@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { ExternalLinkIcon } from '@heroicons/react/solid';
 
 import Layout from '@/components/Layout';
@@ -19,23 +19,27 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
           <div className="h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 rounded-md relative overflow-hidden border-2 border-blue-500">
             <Image
               src="/images/StockSnap_HWRKSBVS37.jpg"
-              layout="fill"
-              objectFit="cover"
               priority={true}
               draggable={false}
               alt="cover"
-            />
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: "cover"
+              }} />
           </div>
           <div className="flex justify-between items-center -mt-16 lg:-mt-20">
             <figure className="lg:w-44 lg:h-44 h-32 w-32 bg-gray-200 dark:bg-gray-900 rounded-full border-4 border-blue-500 relative mb-6 ml-2 lg:ml-6 overflow-hidden">
               <Image
                 src="/images/avatar.jpeg"
-                layout="fill"
-                objectFit="cover"
                 priority={true}
                 draggable={false}
                 alt="profile"
-              />
+                fill
+                sizes="100vw"
+                style={{
+                  objectFit: "cover"
+                }} />
             </figure>
             <div className="mt-12 lg:mt-6">
               <Button color={'blue'} pill={true} src="https://www.earv.in/git">

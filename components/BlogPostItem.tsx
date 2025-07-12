@@ -30,10 +30,12 @@ const BlogPostItem = ({ ...post }: PostType) => {
       </div>
       <div className="overflow-hidden px-4 py-1">
         <h2 className="mb-1 text-xl truncate">
-          <Link href={`/${type}/${slug}`}>
-            <a className="dark:hover:text-blue-500 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline text-gray-800">
-              {title}
-            </a>
+          <Link
+            href={`/${type}/${slug}`}
+            className="dark:hover:text-blue-500 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline text-gray-800">
+
+            {title}
+
           </Link>
         </h2>
         <p className="mb-2 text-gray-600 text-sm">

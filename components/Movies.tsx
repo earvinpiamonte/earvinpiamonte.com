@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import useSWR from 'swr';
 
 import fetcher from '@/lib/fetcher';
@@ -23,7 +23,10 @@ const Movies = () => {
                     height={750}
                     className="bg-gray-200 dark:bg-gray-800 rounded"
                     alt={`${title} poster`}
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </div>
                 <div className="overflow-hidden mb-4">
                   <p className="mb-0 truncate font-medium">{title}</p>

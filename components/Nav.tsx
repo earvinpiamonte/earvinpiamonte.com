@@ -60,13 +60,13 @@ const Nav = () => {
       <nav className="flex items-center justify-between flex-wrap">
         <div className="w-full lg:w-auto lg:mr-12 flex items-center justify-between py-1 lg:py-0 lg:px-0">
           <div>
-            <Link href="/">
-              <a
-                className="font-semibold text-xl tracking-tight text-blue-500"
-                aria-label="Home"
-              >
-                <TerminalIcon className="w-8 h-8" />
-              </a>
+            <Link
+              href="/"
+              className="font-semibold text-xl tracking-tight text-blue-500"
+              aria-label="Home">
+
+              <TerminalIcon className="w-8 h-8" />
+
             </Link>
           </div>
           <div className="lg:hidden">

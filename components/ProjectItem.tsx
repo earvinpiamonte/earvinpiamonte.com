@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
 
 import { CalendarIcon } from '@heroicons/react/outline';
 
@@ -18,26 +18,31 @@ const ProjectItem = ({ ...project }: ProjectType) => {
           <figure className="rounded-xl p-1.5 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500">
             {thumbnail && (
               <Link href={`/${type}/${slug}`}>
-                <a>
-                  <Image
-                    src={thumbnailSrc}
-                    className="rounded-lg"
-                    placeholder="blur"
-                    draggable={false}
-                    layout="responsive"
-                    alt={`Screenshot of ${title}`}
-                  />
-                </a>
+
+                <Image
+                  src={thumbnailSrc}
+                  className="rounded-lg"
+                  placeholder="blur"
+                  draggable={false}
+                  alt={`Screenshot of ${title}`}
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto"
+                  }} />
+
               </Link>
             )}
           </figure>
         </div>
         <div className="col-span-12 md:col-span-7">
           <h2 className="text-xl mb-0 truncate">
-            <Link href={`/${type}/${slug}`}>
-              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline dark:hover:text-blue-500">
-                {title}
-              </a>
+            <Link
+              href={`/${type}/${slug}`}
+              className="text-gray-800 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline dark:hover:text-blue-500">
+
+              {title}
+
             </Link>
           </h2>
           <p className="mb-4 text-gray-600 text-sm">

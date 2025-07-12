@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/image";
 import { ExternalLinkIcon, CodeIcon } from '@heroicons/react/outline';
 
 import { CraftType } from '@/types/index';
@@ -36,8 +36,8 @@ const CraftTemplate = ({
     <section className="pt-12 pb-20 md:min-h-screen">
       <Container>
         <h2 className="text-gray-800 dark:text-gray-600 text-sm mb-2">
-          <Link href="/crafts">
-            <a className="uppercase hover:text-blue-500">{type}</a>
+          <Link href="/crafts" className="uppercase hover:text-blue-500">
+            {type}
           </Link>
           <span className="mx-1">/</span>
         </h2>
@@ -55,9 +55,12 @@ const CraftTemplate = ({
               className="rounded"
               placeholder="blur"
               draggable={false}
-              layout="responsive"
               alt={`Screenshot of ${title}`}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
           </figure>
         )}
         {categories.length > 0 && (

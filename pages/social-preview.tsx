@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-import { PencilIcon } from '@heroicons/react/solid';
+import { PencilIcon } from "@heroicons/react/solid";
 
 const SocialPreview = () => {
   const router = useRouter();
 
   const { title, subTitle, text } = router.query;
 
-  const previewTitle = title ?? 'Noel Earvin Piamonte';
-  const previewSubTitle = title ? subTitle || <>&nbsp;</> : 'Software Engineer';
+  const previewTitle = title ?? "Noel Earvin Piamonte";
+  const previewSubTitle = title ? subTitle || <>&nbsp;</> : "Software Engineer";
   const previewText = title
     ? text || <>&nbsp;</>
-    : 'Mandaluyong City, Philippines';
+    : "Mandaluyong City, Philippines";
 
   return (
     <div
@@ -32,12 +32,17 @@ const SocialPreview = () => {
           <div className="p-4 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500 rounded-xl transform rotate-3">
             <Image
               src="/images/avatar.jpeg"
-              layout="responsive"
+              alt="Noel Earvin Piamonte"
               className="rounded-lg"
               width={150}
               height={150}
               priority={true}
               quality={50}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
             />
             <PencilIcon className="w-16 h-16 absolute -left-5 -bottom-5 text-white bg-blue-500 rounded-full p-2 border-4 border-green-500" />
           </div>

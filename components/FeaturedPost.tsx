@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from 'next/image';
+import Image from "next/image";
 import { ExternalLinkIcon } from '@heroicons/react/outline';
 
 import Button from '@/components/Button';
@@ -25,7 +25,10 @@ const FeaturedPost = () => {
             height={92}
             className="rounded-lg"
             draggable={false}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
         <div className="col-span-10 md:col-span-7">
           <h2 className="mb-2 font-medium text-xl">

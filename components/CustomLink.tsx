@@ -6,8 +6,8 @@ const CustomLink = (props) => {
 
   if (isInternalLink) {
     return (
-      <Link href={href}>
-        <a className={className || `app-link`} {...props} />
+      <Link href={href} className={className || `app-link`} {...props}>
+
       </Link>
     );
   }

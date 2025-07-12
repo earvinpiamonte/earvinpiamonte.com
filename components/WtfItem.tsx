@@ -10,10 +10,12 @@ const WtfItem = ({ ...craft }: WtfType) => {
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-12">
           <h2 className="text-xl mb-1 truncate">
-            <Link href={`/${type}/${slug}`}>
-              <a className="text-gray-800 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline dark:hover:text-blue-500">
-                {title}
-              </a>
+            <Link
+              href={`/${type}/${slug}`}
+              className="text-gray-800 dark:text-gray-400 font-medium hover:text-blue-500 hover:underline dark:hover:text-blue-500">
+
+              {title}
+
             </Link>
           </h2>
           <p className="mb-0 md:truncate text-gray-600">

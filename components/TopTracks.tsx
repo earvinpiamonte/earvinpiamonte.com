@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import useSWR from 'swr';
 import { ClockIcon, PlayIcon } from '@heroicons/react/solid';
 
@@ -47,9 +47,9 @@ const TopTracks = () => {
                   src={albumImageUrl}
                   alt="Cover art"
                   draggable={false}
-                  layout="fill"
                   className="rounded"
-                />
+                  fill
+                  sizes="100vw" />
               </div>
               <div className="flex-1 overflow-hidden">
                 <h4 className="font-medium text-base mb-0 truncate">{title}</h4>

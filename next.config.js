@@ -1,36 +1,36 @@
 module.exports = {
   publicRuntimeConfig: {
     site: {
-      name: 'Noel Earvin Piamonte',
+      name: "Noel Earvin Piamonte",
       url:
-        process.env.NODE_ENV === 'development'
-          ? 'http://localhost:3000'
-          : 'https://www.earvinpiamonte.com',
-      title: 'Noel Earvin Piamonte | Software Engineer',
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://www.earvinpiamonte.com",
+      title: "Noel Earvin Piamonte | Software Engineer",
       description:
-        'Noel Earvin Piamonte is a software engineer from Baguio City, Philippines.',
+        "Noel Earvin Piamonte is a software engineer from Baguio City, Philippines.",
     },
   },
-  swcMinify: true,
+
   images: {
-    domains: ['i.scdn.co', 'image.tmdb.org'],
+    domains: ["i.scdn.co", "image.tmdb.org"],
   },
   i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
+    locales: ["en-US"],
+    defaultLocale: "en-US",
   },
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: securityHeaders,
       },
       {
-        source: '/fonts/(.*)',
+        source: "/fonts/(.*)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
@@ -39,8 +39,8 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/daylight',
-        destination: '/craft/daylight',
+        source: "/daylight",
+        destination: "/craft/daylight",
         permanent: true,
       },
     ];
@@ -62,38 +62,38 @@ const ContentSecurityPolicy = `
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
-    key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\n/g, ''),
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy.replace(/\n/g, ""),
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
-    key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin',
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
-    key: 'X-Frame-Options',
-    value: 'DENY',
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
+    key: "X-Content-Type-Options",
+    value: "nosniff",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
   {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=31536000; includeSubDomains; preload',
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
   // Opt-out of Google FLoC: https://amifloced.org/
   {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
 ];

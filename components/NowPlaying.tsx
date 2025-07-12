@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 import useSWR from 'swr';
 import { MusicNoteIcon } from '@heroicons/react/solid';
@@ -30,9 +30,9 @@ const NowPlaying = () => {
                 src={data?.albumImageUrlSmall}
                 alt="Cover art"
                 draggable={false}
-                layout="fill"
                 className="rounded"
-              />
+                fill
+                sizes="100vw" />
             </span>
             <a
               className="truncate"
