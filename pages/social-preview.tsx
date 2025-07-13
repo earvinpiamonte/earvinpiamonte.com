@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { PencilIcon } from "@heroicons/react/solid";
@@ -26,24 +25,8 @@ const SocialPreview = () => {
           <p className="text-2xl truncate mb-12">{previewText}</p>
           <p className="text-4xl font-bold">earvinpiamonte.com</p>
         </div>
-        <div className="col-span-4">
-          <div className="p-4 bg-gradient-to-r from-green-400 via-indigo-500 to-blue-500 rounded-xl transform rotate-3">
-            <Image
-              src="/images/avatar.jpeg"
-              alt="Noel Earvin Piamonte"
-              className="rounded-lg"
-              width={150}
-              height={150}
-              priority={true}
-              quality={50}
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-            />
-            <PencilIcon className="w-16 h-16 absolute -left-5 -bottom-5 text-white bg-blue-500 rounded-full p-2 border-4 border-green-500" />
-          </div>
+        <div className="col-span-4 place-items-center content-center">
+          <PencilIcon className="w-2/3 text-white bg-blue-500 rounded-full p-2 border-8 border-blue-800" />
         </div>
       </div>
     </div>
