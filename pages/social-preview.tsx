@@ -27,7 +27,7 @@ const SocialPreview = () => {
           <p className="text-4xl font-bold">earvinpiamonte.com</p>
         </div>
         <div className="col-span-4 flex items-center justify-end">
-          <PencilIcon className="w-1/2 text-white bg-blue-500 rounded-full p-2 border-8 border-blue-800 rotate-12" />
+          <CodeIcon className="w-1/2 text-white bg-blue-500 rounded-full p-2 border-8 border-blue-800 rotate-12" />
         </div>
       </div>
     </div>
