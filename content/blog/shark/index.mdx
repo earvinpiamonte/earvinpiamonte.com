@@ -1,0 +1,110 @@
+---
+type: 'post'
+date: '2025-07-13'
+title: 'Shark'
+summary: "Are you gonna, are you gonna be my love?"
+categories:
+  - AI
+  - Zed
+  - Docker
+  - MCP
+---
+
+A few months ago, Docker released the MCP Catalog and Toolkit extension. Since then, I got interested in containerized MCP servers. One container for all the MCP servers that I use, that would be nice.
+
+Unfortunately, I never had success in using [sooperset](https://github.com/sooperset)'s [Atlassian MCP server](https://github.com/sooperset/mcp-atlassian) in the MCP Tool Catalog.
+
+Last month, they deprecated the extension and made it native to Docker Desktop. I've been trying to use the Atlassian MCP server from time to time but it just fails in tool calling. But just recently, they now work as intended. I am now able to call all the Jira and Confluence tools of the server.
+
+This guide will show you how to add the Atlassian MCP server in the MCP Toolkit in Docker desktop. I will also show how to add and use it in Zed.
+
+## 1. Get an API Token in Atlassian
+
+Go to [https://id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens) and create an API token.
+
+Make sure to copy the API token before closing the dialog.
+
+<Thumbnail
+  src="/images/post/shark/atlassian-generate-api-key.gif"
+  alt="A screencast of API token generation in Atlassian"
+/>
+
+## 2. Add the Atlassian MCP server
+
+Open Docker desktop and click on "MCP Toolkit" in the sidebar. Find "Atlassian" and configure the URL path, username and secrets. Use the same API token for all the four secrets.
+
+<Thumbnail
+  src="/images/post/shark/docker-add-atlassian-mcp-server-part1.gif"
+  alt="A screencast of adding the Atlassian MCP server in MCP Toolkit in Docker desktop"
+/>
+
+<Thumbnail
+  src="/images/post/shark/docker-add-atlassian-mcp-server-part2.gif"
+  alt="A screencast of adding the Atlassian MCP server in MCP Toolkit in Docker desktop, part2"
+/>
+
+At this point, the Atlassian MCP server is now ready to use.
+
+## 3. Add the Atlassian MCP server in Zed
+
+Open Zed and click on "Add custom server" from the menu of the chat panel.
+
+<Thumbnail
+  src="/images/post/shark/zed-add-atlassian-mcp-server-part1.gif"
+  alt="A screencast of adding the Atlassian MCP server in Zed, part 1"
+/>
+
+Verify that the added MCP server is in the Settings.
+
+<Thumbnail
+  src="/images/post/shark/zed-add-atlassian-mcp-server-part2.gif"
+  alt="A screencast of adding the Atlassian MCP server in Zed, part 2"
+/>
+
+## 4. Usage
+
+At this point, you can now use the Atlassian MCP server in Zed. Start a new thread and enter your prompt.
+
+Try to get a work item in Jira:
+
+<Thumbnail
+  src="/images/post/shark/zed-atlassian-mcp-server-jira-get-issue.gif"
+  alt="A screencast of using the Atlassian MCP server in Zed to get a Jira work item"
+/>
+
+Now try to create a work item:
+
+<Thumbnail
+  src="/images/post/shark/zed-atlassian-mcp-server-jira-create-issue.gif"
+  alt="A screencast of using the Atlassian MCP server in Zed to create a Jira work item"
+/>
+
+That's it. Now you can directly browse the MCP Toolkit catalog to add more MCP servers verified by Docker. You don't have to update the MCP config in the host, in this case Zed. Just go directly to the catalog and add more MCP servers!
+
+The MCP config in your settings should look like the following:
+
+```json:~/.config/zed/settings.json
+{
+  "context_servers": {
+    "docker-mcp-toolkit": {
+      "source": "custom",
+      "enabled": true,
+      "command": "docker",
+      "args": ["mcp", "gateway", "run"],
+      "env": {}
+    }
+  },
+  //...other config here
+}
+```
+
+If you are looking for an up-to-date documentation for your editor or client to use, I recommend using [context7](https://context7.com). I use it in Swift, Next.js and React documentation. It is also available in the catalog.
+
+<Thumbnail
+  src="/images/post/shark/screenshot-context7-docker-mcp-toolkit.png"
+  alt="A screenshot of context7 in Docker MCP Toolkit"
+/>
+
+> 🎵 I, I-I, be my
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=PpnecW45pVM&ab_channel=OhWonder" />
