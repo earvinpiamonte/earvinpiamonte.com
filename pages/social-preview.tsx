@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import { PencilIcon } from "@heroicons/react/solid";
+import { CodeIcon } from "@heroicons/react/outline";
 
 const SocialPreview = () => {
   const router = useRouter();
@@ -25,8 +26,8 @@ const SocialPreview = () => {
           <p className="text-2xl truncate mb-12">{previewText}</p>
           <p className="text-4xl font-bold">earvinpiamonte.com</p>
         </div>
-        <div className="col-span-4 place-items-center content-center">
-          <PencilIcon className="w-2/3 text-white bg-blue-500 rounded-full p-2 border-8 border-blue-800" />
+        <div className="col-span-4 place-items-end content-center">
+          <CodeIcon className="w-2/3 text-white bg-blue-500 rounded-full p-2 border-8 border-blue-800 rotate-12" />
         </div>
       </div>
     </div>
