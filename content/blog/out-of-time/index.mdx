@@ -1,0 +1,96 @@
+---
+type: 'post'
+date: '2025-07-15'
+title: 'Out Of Time'
+summary: "Vercel DNS Change warning"
+categories:
+  - Vercel
+  - Namecheap
+---
+
+I am trying to update my handle with my domain `@earvinpiamonte.com` in Bluesky. It requires me to add a `TXT` record in my DNS records.
+
+I head on quickly and check my Vercel deployment and I noticed a warning in the Domain settings, "DNS Change Recommended".
+
+<Thumbnail
+  src="/images/post/out-of-time/vercel-domains-settings-warning.png"
+  alt=""
+/>
+
+So I tried to edit it by clicking on the "Edit" button and there is no way to edit or add a DNS record. I tried re-adding the domain `earvinpiamonte.com` but still resulted with the warning and still no way to add a DNS record.
+
+I checked my domain in Namecheap and there I found out I have two records for name servers:
+
+1. `ns1.vercel-dns.com`
+1. `ns2.vercel-dns.com`
+
+I took me some time to figure out what is wrong and what needs to change.
+
+I went to my domain in Namecheap and updated my Name Servers from "Custom DNS" to "Namecheap BasicDNS".
+
+<Thumbnail
+  src="/images/post/out-of-time/namecheap-basic-dns-change.gif"
+  alt=""
+/>
+
+After the update of name servers type in Namecheap, I went back to my domain settings in Vercel and removed the existing `earvinpiamonte.com` and `www.earvinpiamonte.com`.
+
+<Thumbnail
+  src="/images/post/out-of-time/vercel-domains-settings-remove.gif"
+  alt=""
+/>
+
+Then I added the domain `earvinpiamonte.com` again leaving "Redirect" checked and the environment to "Production".
+
+<Thumbnail
+  src="/images/post/out-of-time/vercel-domains-settings-add.gif"
+  alt=""
+/>
+
+After saving, my domains looked like this:
+
+<Thumbnail
+  src="/images/post/out-of-time/vercel-recently-added-domain-settings.png"
+  alt=""
+/>
+
+It showed errors for the two records, "Invalid Configuration".
+
+Notice the change in the UI? Setting the errors aside, finally, I can now see the DNS records provided by Vercel that I need to configure in my domain settings in Namecheap.
+
+For `earvinpiamonte.com`, I have `A` type for the host `@` with a corresponding IP. And for `www.earvinpiamonte.com`, I have `CNAME` type for the host `www`.
+
+I copied these two records in Namecheap under "Advance DNS".
+
+<Thumbnail
+  src="/images/post/out-of-time/namecheap-advance-dns-records.png"
+  alt=""
+/>
+
+I noticed that Namecheap added a period `.` at the end of the value for the `wwww` record. I don't know why Namecheap added that. But I just left the period as is after saving.
+
+I went back to Vercel and refreshed the domain settings.
+
+<Thumbnail
+  src="/images/post/out-of-time/vercel-domains-settings-refresh.gif"
+  alt=""
+/>
+
+It took some time for the changes to propagate. I believe Vercel automatically refreshes this but I can't wait for it so I clicked on the "Refresh" button a few times before the errors went away.
+
+That's it! I finally resolved the warning in the DNS settings of my domain in Vercel.
+
+I checked my website and it is still working perfectly. Redirect to `www` still works just like before.
+
+<Thumbnail
+  src="/images/post/out-of-time/post-vercel-namecheap-dns-change.gif"
+  alt=""
+/>
+
+So, yes, to add DNS records, I need to add them in my domain provider which is Namecheap. I didn't see the option to add DNS records previously because my name servers were set to "Custom DNS".
+
+I was also able to update and verify my handle in Bluesky.
+
+> 🎵 I might lose my mind like a melody, melody
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=ujBqCgClEFo" />
