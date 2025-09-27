@@ -1,0 +1,68 @@
+---
+type: 'post'
+date: '2025-09-27'
+title: 'Quantuuuum'
+summary: "Opt-out to Liquid Glass"
+categories:
+  - iOS
+  - Xcode
+  - SwiftUI
+---
+
+Apple just released iOS 26. It features a new design system called "Liquid Glass" which breaks the standard components of SwiftUI, UIKit and AppKit.
+
+For developers, this means that your app might look different on iOS 26.
+
+Here's how a sheet in my sample app looks like in iOS 26:
+
+
+<Thumbnail
+  src="/images/post/quantuuuum/quantuuuum_0.png"
+  alt=""
+/>
+
+And here's how it's suppose to look like:
+
+<Thumbnail
+  src="/images/post/quantuuuum/quantuuuum_00.png"
+  alt=""
+/>
+
+So what changed in iOS 26?
+- ❌ the navigation bar title is missing
+- ❌ the close button is enclosed in a circle with drop shadow
+- ❌ the action button and navbar text is enclosed in an oval shape with drop shadow
+
+Here are two ways to disable or opt out of Liquid Glass.
+
+## Method 1: Add compatibility flag
+
+Add and set `UIDesignRequiresCompatibility` to `YES` in your `Info.plist` file.
+
+<Thumbnail
+  src="/images/post/quantuuuum/quantuuuum_2.gif"
+  alt=""
+/>
+
+[UIDesignRequiresCompatibility](https://developer.apple.com/documentation/BundleResources/Information-Property-List/UIDesignRequiresCompatibility) is a temporary key that tells the system whether the app should run in compatibility mode.
+
+
+## Method 2: Use Xcode 16.4
+
+Just use Xcode 16.4 which can be downloaded [here](https://developer.apple.com/download/all/?q=Xcode%2016.4). No need to set `UIDesignRequiresCompatibility` as Xcode 16.4 is using the previous version of the SDK.
+
+<Thumbnail
+  src="/images/post/quantuuuum/quantuuuum_3.gif"
+  alt=""
+/>
+
+<Thumbnail
+  src="/images/post/quantuuuum/quantuuuum_4.png"
+  alt=""
+/>
+
+To download the previous versions of Xcode, you need to log in.
+
+> 🎵 I think you know
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=PQIN3XUqudo" />
