@@ -23,7 +23,7 @@ const FeaturedPost = () => {
             alt="Featured post icon"
             width={92}
             height={92}
-            className="rounded-lg"
+            className="rounded-lg -rotate-6 hover:rotate-0 transition-transform"
             draggable={false}
             style={{
               maxWidth: "100%",
