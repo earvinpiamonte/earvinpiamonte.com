@@ -18,7 +18,7 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
         <Container>
           <div className="h-36 lg:h-52 bg-gray-200 dark:bg-gray-900 rounded-md relative overflow-hidden border-2 border-blue-500">
             <Image
-              src="/images/StockSnap_HWRKSBVS37.jpg"
+              src="/images/StockSnap_N9ATOCDXW5.jpg"
               priority={true}
               draggable={false}
               alt="cover"
