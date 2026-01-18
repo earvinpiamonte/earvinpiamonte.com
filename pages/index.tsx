@@ -58,7 +58,11 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
             </div>
             <div className="text-lg">
               <p className="mb-2">
-                Developing and maintaining mobile apps for{' '}
+                Building and enhancing the{" "}
+                <CustomLink href="https://apps.apple.com/ph/app/infor-mscm-l/id1600517747">
+                  Infor MSCM
+                </CustomLink>{" "}
+                mobile app for{" "}
                 <abbr title="Mobile Supply Chain Management">MSCM</abbr>.
               </p>
               <p>
