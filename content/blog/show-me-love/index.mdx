@@ -1,0 +1,116 @@
+---
+type: 'post'
+date: '2026-04-30'
+title: 'Show Me Love'
+summary: 'AI Glossary'
+categories:
+  - AI
+  - Notes
+---
+
+There's a lot of AI-related content coming up, and with it comes a ton of new terms that can be confusing. I put together a list of common ones and what they mean to help you understand the technology around them.
+
+<hr />
+
+**Model** = trained to generate content
+
+- supplies intelligence
+- used for coding tasks
+- drafting emails tasks
+
+**Tokens** = units of text
+
+- chunks of text that are often one word, part of a word or a punctuation mark that the model processes
+- a prompt “hello world” can be equivalent to 2 tokens (depends on the model’s vocabulary)
+
+**Credits** = billing unit
+
+- does not exist in the model layer
+- product layer of the provider/ vendor like Kiro
+- e.g., the Kiro Power plan has 10,000 credits
+
+**Context** = content that is loaded to the model
+
+- conversations
+- instructions
+- document
+- code
+- image
+
+**Context Window** = maximum amount of tokens the model can work on
+
+- model’s working memory
+- a 200K context window means that the model can process 200K tokens (input and output combined)
+
+**MCP (Model Context Protocol)** = a standard to connect to vendor tools, features
+
+**Tool(s)** = function(s)
+
+- can be invoked via MCP
+- can be done via Skill
+
+**Skill(s)** = folder with procedures in a markdown file
+
+- a standard to give agents capabilities
+- discovered by agents on startup
+- activated when task match
+- can be executed with templates (sample files) and scripts (bash, python)
+
+**Agent(s)** = Model + Harness
+
+**Harness** = Agent - Model
+
+- anything that is not a model
+    - system prompts
+    - tools
+    - state
+        - memory across time
+        - session
+    - loop
+        - to keep going until the goal is reached
+    - guardrails
+        - allowed to do
+        - boundaries
+- supplies agency
+- e.g. OpenCode, Pi, Claude Code, Kiro
+
+**Harness Engineering**
+
+- building a system around the model
+- **Troubleshooting:**
+  - model issue
+    - hallucination, drift, confused
+    - model reasoned wrong
+  - harness issue
+    - did something not supposed to
+    - wrong setup
+- **Important notes:**
+  - engineer around the model
+  - model is constant
+  - model is swappable
+  - harness to control
+  - as the model gets more capable, the harness should get simpler
+- **Analogy**
+  - horse → model
+  - straps → harness
+  - working horse → agent
+  - driver → human
+
+**Agentic Workflow**
+
+- deterministic outcomes
+- predefined processes with AI embedded
+- AI assists with the structure
+
+**Autonomous Agent**
+
+- agent decides the path
+- goal driven
+- plans and executes 
+
+<hr />
+
+> Don't let me show cruelty
+> Though I may make mistakes
+
+<YouTubeVideo src="https://www.youtube.com/watch?v=J5bAVKzrBzI" />
