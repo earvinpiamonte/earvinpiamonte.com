@@ -26,6 +26,12 @@ interface CraftType extends PostTypeProperties {
   viewURL?: string;
 }
 
+interface CertificationType extends PostTypeProperties {
+  date: string;
+  url: string;
+  provider: string;
+}
+
 interface PageType {
   title?: string;
   slug?: string;
@@ -71,6 +77,7 @@ export type {
   PostType,
   ProjectType,
   CraftType,
+  CertificationType,
   PageType,
   ExperienceType,
   TimelineType,

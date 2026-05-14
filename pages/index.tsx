@@ -4,14 +4,15 @@ import { ExternalLinkIcon } from '@heroicons/react/solid';
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import Experiences from '@/components/Experiences';
+import CertificationsList from '@/components/CertificationsList';
 import FeaturedPost from '@/components/FeaturedPost';
 import Button from '@/components/Button';
 import CustomLink from '@/components/CustomLink';
 
-import { ExperienceType } from '@/types/index';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
+import { ExperienceType, CertificationType } from '@/types/index';
+import { getAllFilesFrontMatter, getAllPostsFrontMatter } from '@/lib/mdx';
 
-const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
+const Home = ({ experiences, certifications }: { experiences: ExperienceType[]; certifications?: CertificationType[] }) => {
   return (
     <Layout>
       <section className="pt-12 pb-20">
@@ -71,6 +72,14 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
               </p>
             </div>
           </div>
+          {certifications && certifications.length > 0 && (
+            <div className="mb-20">
+              <h2 className="text-xl text-gray-800 font-medium dark:text-gray-400">
+                Certifications
+              </h2>
+              <CertificationsList data={certifications} />
+            </div>
+          )}
           <div className="mb-20">
             <h2 className="text-xl text-gray-800 font-medium dark:text-gray-400">
               Experience
@@ -88,8 +97,9 @@ const Home = ({ experiences }: { experiences: ExperienceType[] }) => {
 
 export const getStaticProps = async () => {
   const experiences = await getAllFilesFrontMatter('experience');
+  const certifications = await getAllPostsFrontMatter('certification');
 
-  return { props: { experiences } };
+  return { props: { experiences, certifications } };
 };
 
 export default Home;
