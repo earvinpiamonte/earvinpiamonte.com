@@ -18,9 +18,73 @@ function readMdx(filePath) {
   return matter(source);
 }
 
+function transformMdxToMarkdown(content) {
+  const protectedBlocks = [];
+
+  function protect(text) {
+    const token = `__PROTECTED_${protectedBlocks.length}__`;
+    protectedBlocks.push(text);
+    return token;
+  }
+
+  // Protect fenced code blocks so JSX inside them is not transformed.
+  let result = content.replace(/```[\s\S]*?```/g, protect);
+
+  // Protect inline code spans.
+  result = result.replace(/`[^`\n]+`/g, protect);
+
+  // Transform JSX components to plain markdown.
+  result = transformJsx(result);
+
+  // Restore protected blocks.
+  protectedBlocks.forEach((text, i) => {
+    result = result.replace(`__PROTECTED_${i}__`, () => text);
+  });
+
+  return result;
+}
+
+function extractAttr(attrs, name) {
+  const match = attrs.match(new RegExp(`${name}=["']([^"']+)["']`, 'i'));
+  return match ? match[1] : null;
+}
+
+function transformJsx(content) {
+  return (
+    content
+      // YouTube videos
+      .replace(/<YouTubeVideo\s+src=["']([^"']+)["']\s*\/>/g, '[YouTube video]($1)')
+      // CodeSandbox embeds
+      .replace(/<CodeSandbox\s+src=["']([^"']+)["']\s*\/>/g, '[CodeSandbox]($1)')
+      // Horizontal rules
+      .replace(/<hr\s*\/>/g, '---')
+      // Images (multiline self-closing)
+      .replace(/<Image\s+([\s\S]*?)\s*\/>/g, (match, attrs) => {
+        const src = extractAttr(attrs, 'src');
+        const alt = extractAttr(attrs, 'alt') || '';
+        if (!src) return match;
+        return `![${alt}](${src})`;
+      })
+      // Thumbnails (multiline self-closing)
+      .replace(/<Thumbnail\s+([\s\S]*?)\s*\/>/g, (match, attrs) => {
+        const src = extractAttr(attrs, 'src');
+        const alt = extractAttr(attrs, 'alt') || '';
+        if (!src) return match;
+        return `![${alt}](${src})`;
+      })
+      // React.Fragment wrappers - keep inner content
+      .replace(/<React\.Fragment>([\s\S]*?)<\/React\.Fragment>/g, '$1')
+      // Generic div wrappers - keep inner content
+      .replace(/<div(?:\s+[^>]*)?>([\s\S]*?)<\/div>/g, '$1')
+      // Clean up empty lines left by removed wrappers
+      .replace(/\n{3,}/g, '\n\n')
+  );
+}
+
 function writeMd(outputPath, data, content) {
   ensureDir(outputPath);
-  const output = matter.stringify(content.trim(), { ...data, generated: true });
+  const markdownContent = transformMdxToMarkdown(content.trim());
+  const output = matter.stringify(markdownContent, { ...data, generated: true });
   fs.writeFileSync(outputPath, output);
 }
 
