@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "node scripts/generate-llms.mjs",
+    "prebuild": "node scripts/generate-llms.js",
     "build": "next build",
     "start": "next start"
   },
