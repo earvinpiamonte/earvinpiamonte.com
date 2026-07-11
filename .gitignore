@@ -30,3 +30,7 @@ yarn-error.log*
 .env.production.local
 
 .vercel
+
+# generated llms.txt and markdown files
+public/llms.txt
+public/**/*.md
