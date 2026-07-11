@@ -1,0 +1,79 @@
+# Noel Earvin Piamonte
+
+> Personal website of Noel Earvin Piamonte, a software engineer from Baguio City, Philippines. Currently a Software Engineer at Infor, building the Infor MSCM mobile app for Mobile Supply Chain Management. Outside work, he builds things for the web with React, Next.js, TypeScript and Tailwind CSS.
+
+This site is a living collection of professional work, personal projects, writing and curated interests. The content is mostly static, authored in MDX and generated with Next.js.
+
+## Pages
+
+- [Home](https://www.earvinpiamonte.com/): Introduction, work experience, certifications and featured content.
+- [Portfolio](https://www.earvinpiamonte.com/portfolio): Selected client projects built as an independent software developer.
+- [Crafts](https://www.earvinpiamonte.com/crafts): Personal projects, mostly open source and available on GitHub.
+- [Blog](https://www.earvinpiamonte.com/blog): Personal writing about work, life and everything in between.
+- [Wtf-is](https://www.earvinpiamonte.com/wtf-is): Personal glossary answering technical questions in plain language.
+- [Kit](https://www.earvinpiamonte.com/kit): Hardware, software and platforms used daily.
+- [Playlist](https://www.earvinpiamonte.com/playlist): Top Spotify tracks and movies/TV shows enjoyed.
+- [Certifications](https://www.earvinpiamonte.com/certifications): Professional certificates and credentials.
+
+## Notable crafts
+
+- [daylight](https://www.earvinpiamonte.com/craft/daylight): A Google Chrome extension for writing notes directly on the new tab page.
+- [drownthesky](https://www.earvinpiamonte.com/craft/drownthesky): A React web app for browsing and listening to music.
+- [ecdiff](https://www.earvinpiamonte.com/craft/ecdiff): An online diff/ compare tool for text.
+- [Eclipse patch viewer](https://www.earvinpiamonte.com/craft/eclipse-patch-viewer): A helper for viewing Eclipse IDE patch files.
+- [Freelancer.com helper](https://www.earvinpiamonte.com/craft/freelancer-com-helper): Browser extension enhancements for Freelancer.com.
+- [Jira software tool](https://www.earvinpiamonte.com/craft/jira-software-tool): Utilities for working with Jira.
+- [nbi.vercel.app](https://www.earvinpiamonte.com/craft/nbi.vercel.app): A small web app related to NBI clearance information.
+- [Next.js + Tailwind CSS template](https://www.earvinpiamonte.com/craft/nextjs-tailwindcss-template): A starter template for Next.js projects using Tailwind CSS.
+- [To-do list app demo](https://www.earvinpiamonte.com/craft/to-do-list-app-demo): A demo to-do list application.
+- [Twitter stripped](https://www.earvinpiamonte.com/craft/twitter-stripped): A stripped-down Twitter/ X UI experiment.
+- [Facebook stripped](https://www.earvinpiamonte.com/craft/facebook-stripped): A stripped-down Facebook UI experiment.
+
+## Notable portfolio projects
+
+- [Dittach](https://www.earvinpiamonte.com/project/dittach): Responsive landing page built from a PSD design.
+- [Motatoke](https://www.earvinpiamonte.com/project/motatoke): Client project.
+- [Thribby order manager](https://www.earvinpiamonte.com/project/thribby-order-manager): Order management system.
+- [Skate Now](https://www.earvinpiamonte.com/project/skate-now): Client project.
+- [Skinny Charge](https://www.earvinpiamonte.com/project/skinny-charge): Client project.
+- [Solar ROI calculator](https://www.earvinpiamonte.com/project/solar-roi-calculator): Solar return-on-investment calculator.
+- [SSL validator](https://www.earvinpiamonte.com/project/ssl-validator): SSL certificate validation tool.
+- [iFrame website viewer](https://www.earvinpiamonte.com/project/iframe-website-viewer): Website preview via iframe.
+- [Payment web page with Authorize.Net](https://www.earvinpiamonte.com/project/payment-web-page-with-authorize-net): Payment page integration.
+- [Cybermonkeys](https://www.earvinpiamonte.com/project/cybermonkeys): Client project.
+- [Gridlifemusic](https://www.earvinpiamonte.com/project/gridlifemusic): Client project.
+- [TIJ Global Services](https://www.earvinpiamonte.com/project/tij-global-services): Client project.
+
+## Selected writing
+
+- [Reflections, 2020](https://www.earvinpiamonte.com/blog/reflections-2020): Thoughts on life and work after six years as a web developer.
+- [Quantuuuum](https://www.earvinpiamonte.com/blog/quantuuuum): Personal blog post.
+- [Shark](https://www.earvinpiamonte.com/blog/shark): Personal blog post.
+- [Fade tonight](https://www.earvinpiamonte.com/blog/fade-tonight): Personal blog post.
+- [Show me love](https://www.earvinpiamonte.com/blog/show-me-love): Personal blog post.
+
+## WTF is glossary
+
+- [Hoisting](https://www.earvinpiamonte.com/wtf-is/hoisting): Explains how JavaScript hoists variable and function declarations.
+- [React fragments](https://www.earvinpiamonte.com/wtf-is/react-fragments): Explains React fragments and when to use them.
+
+## Certifications
+
+- [AI Fluency Framework & Foundations](https://verify.skilljar.com/c/h9k26igdty8y): Anthropic, August 2025.
+- [Google AI Essentials](https://www.coursera.org/account/accomplishments/specialization/certificate/8S01E995JCO3): Google, August 2025.
+- [Introduction to Artificial Intelligence](https://www.linkedin.com/learning/certificates/1d3144e45c4d75cb4ff57f4889e7492bb09fe1ba16ea12cdc1466b352fdf7b62?trk=share_certificate): LinkedIn, August 2025.
+
+## Professional profiles
+
+- [GitHub](https://www.earv.in/git): Open source repositories and contributions.
+- [LinkedIn](https://www.linkedin.com/in/earvinpiamonte): Professional profile and work history.
+- [Bluesky](https://bsky.app/profile/earvinpiamonte.com): Social profile.
+- [Resume](https://drive.google.com/file/d/1_41WdbqpUCRkR3vhS5DnEU31Ao30kuyQ/view): PDF resume.
+- [Email](mailto:earvin.piamonte@gmail.com): Direct contact.
+
+## Optional
+
+- [Freelancer.com profile](https://www.earv.in/fl): Independent software development profile and history.
+- [Ko-fi](https://www.earv.in/kofi): Support page.
+- [CodePen](https://www.earv.in/cp): Front-end experiments.
+- [CodeSandbox](https://www.earv.in/csb): Live code experiments.
